@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 13 September 2023                                     Microsoft
+Expires: 14 September 2023                                     Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                           12 March 2023
+                                                           13 March 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 September 2023.
+   This Internet-Draft will expire on 14 September 2023.
 
 Copyright Notice
 
@@ -1293,6 +1293,16 @@ Table of Contents
    container can be signed instead.
 
 8.  Security Considerations
+
+   Security considerations in this section help achieve the following
+   properties:
+
+   *  Claim values issued by the Issuer cannot be obtained by the
+      adversary, if the Holder did not intend to disclose them.
+
+   *  Claim values that are not issued by the Issuer cannot be
+      successfully verified by the Verifier, if the Holder forged the
+      Disclosures.
 
 8.1.  Mandatory digest computation of the revealed claim values by the
       Verifier
