@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 8 September 2023</td>
+<td class="center">Expires 14 September 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-03-07" class="published">7 March 2023</time>
+<time datetime="2023-03-13" class="published">13 March 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-09-08">8 September 2023</time></dd>
+<dd class="expires"><time datetime="2023-09-14">14 September 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1127,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2151,7 +2151,7 @@ subset of the Disclosures to the Verifier.<a href="#section-5.4-1" class="pilcro
 <pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure M&gt;~&lt;optional Holder Binding JWT&gt;
 </pre><a href="#section-5.4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.4-4">The order of the base64url-encoded values MUST be an SD-JWT, Disclosures, and an optional Holder Binding JWT.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.4-4">The order of the base64url-encoded values MUST be an SD-JWT, Disclosures, and an optional Holder Binding JWT. In case there is no Holder Binding JWT, the last element is an empty string. The last separating tilde character MUST NOT be omitted.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.4-5">This is called the Combined Format for Presentation.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
 <p id="section-5.4-6">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
 none, multiple, or all Disclosures. For data that the Holder does not want to reveal
