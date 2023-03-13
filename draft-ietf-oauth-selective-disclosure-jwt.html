@@ -2253,7 +2253,7 @@ GJFBaUrPkrWVtWP0FO4FcB44Ma0LDg
 <p id="section-5.4.1-6">Whether to require Holder Binding is up to the Verifier's policy,
 based on the set of trust requirements such as trust frameworks it belongs to.<a href="#section-5.4.1-6" class="pilcrow">¶</a></p>
 <p id="section-5.4.1-7">Other ways of proving Holder Binding MAY be used when supported by the Verifier,
-e.g., when the Combined Format for Presentation is itself embedded in a
+e.g., when the Combined Format for Presentation without a Holder Binding JWT is itself embedded in a
 signed JWT. See <a href="#enveloping" class="auto internal xref">Section 7</a> for details.<a href="#section-5.4.1-7" class="pilcrow">¶</a></p>
 <p id="section-5.4.1-8">If no Holder Binding JWT is included, the Combined Format for Presentation ends with
 the <code>~</code> character after the last Disclosure.<a href="#section-5.4.1-8" class="pilcrow">¶</a></p>
@@ -2464,6 +2464,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </pre><a href="#section-7-5" class="pilcrow">¶</a>
 </div>
 <p id="section-7-6">Here, <code>eyJhbGci...emhlaUJhZzBZ</code> represents the SD-JWT and <code>eyJhb...dYALCGg</code> represents a Disclosure. The Combined Format for Presentation does not contain a Holder Binding JWT as the outer container can be signed instead.<a href="#section-7-6" class="pilcrow">¶</a></p>
+<p id="section-7-7">Other specifications or profiles of this specification may define alternative formats for transporting the Combined Format for Presentation that envelopes multiple such objects into one object, and provides Holder Binding using means other than Holder Binding JWT.<a href="#section-7-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security_considerations">

@@ -1079,8 +1079,9 @@ Table of Contents
    belongs to.
 
    Other ways of proving Holder Binding MAY be used when supported by
-   the Verifier, e.g., when the Combined Format for Presentation is
-   itself embedded in a signed JWT.  See Section 7 for details.
+   the Verifier, e.g., when the Combined Format for Presentation without
+   a Holder Binding JWT is itself embedded in a signed JWT.  See
+   Section 7 for details.
 
    If no Holder Binding JWT is included, the Combined Format for
    Presentation ends with the ~ character after the last Disclosure.
@@ -1307,6 +1308,12 @@ Table of Contents
    eyJhb...dYALCGg represents a Disclosure.  The Combined Format for
    Presentation does not contain a Holder Binding JWT as the outer
    container can be signed instead.
+
+   Other specifications or profiles of this specification may define
+   alternative formats for transporting the Combined Format for
+   Presentation that envelopes multiple such objects into one object,
+   and provides Holder Binding using means other than Holder Binding
+   JWT.
 
 8.  Security Considerations
 
