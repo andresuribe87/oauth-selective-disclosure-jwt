@@ -2984,6 +2984,8 @@ Appendix C.  Document History
 
    [[ To be removed from the final specification ]]
 
+   -04
+
    -03
 
    *  Clarify that other specifications may define enveloping multiple
