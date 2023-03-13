@@ -1249,31 +1249,28 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-mandatory-digest-computatio" class="internal xref">Mandatory digest computation of the revealed claim values by the Verifier</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-mandatory-signing-of-the-sd" class="internal xref">Mandatory signing of the SD-JWT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-mandatory-signing-of-the-sd" class="internal xref">Mandatory signing of the SD-JWT</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-manipulation-of-disclosures" class="internal xref">Manipulation of Disclosures</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
-                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-manipulation-of-disclosures" class="internal xref">Manipulation of Disclosures</a></p>
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-entropy-of-the-salt" class="internal xref">Entropy of the salt</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.4">
-                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="auto internal xref">8.4</a>.  <a href="#name-entropy-of-the-salt" class="internal xref">Entropy of the salt</a></p>
+                <p id="section-toc.1-1.8.2.4.1"><a href="#section-8.4" class="auto internal xref">8.4</a>.  <a href="#name-minimum-length-of-the-salt" class="internal xref">Minimum length of the salt</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.5">
-                <p id="section-toc.1-1.8.2.5.1"><a href="#section-8.5" class="auto internal xref">8.5</a>.  <a href="#name-minimum-length-of-the-salt" class="internal xref">Minimum length of the salt</a></p>
+                <p id="section-toc.1-1.8.2.5.1"><a href="#section-8.5" class="auto internal xref">8.5</a>.  <a href="#name-choice-of-a-hash-algorithm" class="internal xref">Choice of a Hash Algorithm</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.6">
-                <p id="section-toc.1-1.8.2.6.1"><a href="#section-8.6" class="auto internal xref">8.6</a>.  <a href="#name-choice-of-a-hash-algorithm" class="internal xref">Choice of a Hash Algorithm</a></p>
+                <p id="section-toc.1-1.8.2.6.1"><a href="#section-8.6" class="auto internal xref">8.6</a>.  <a href="#name-holder-binding" class="internal xref">Holder Binding</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.7">
-                <p id="section-toc.1-1.8.2.7.1"><a href="#section-8.7" class="auto internal xref">8.7</a>.  <a href="#name-holder-binding" class="internal xref">Holder Binding</a></p>
+                <p id="section-toc.1-1.8.2.7.1"><a href="#section-8.7" class="auto internal xref">8.7</a>.  <a href="#name-blinding-claim-names" class="internal xref">Blinding Claim Names</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.8">
-                <p id="section-toc.1-1.8.2.8.1"><a href="#section-8.8" class="auto internal xref">8.8</a>.  <a href="#name-blinding-claim-names" class="internal xref">Blinding Claim Names</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.9">
-                <p id="section-toc.1-1.8.2.9.1"><a href="#section-8.9" class="auto internal xref">8.9</a>.  <a href="#name-issuer-signature-key-distri" class="internal xref">Issuer Signature Key Distribution and Rotation</a></p>
+                <p id="section-toc.1-1.8.2.8.1"><a href="#section-8.8" class="auto internal xref">8.8</a>.  <a href="#name-issuer-signature-key-distri" class="internal xref">Issuer Signature Key Distribution and Rotation</a></p>
 </li>
             </ul>
 </li>
@@ -1612,7 +1609,7 @@ required by the application using SD-JWTs.<a href="#section-5.1-1" class="pilcro
 <li class="normal" id="section-5.1.1.1-2.1">
                 <p id="section-5.1.1.1-2.1.1">Create an array of three elements in this order:<a href="#section-5.1.1.1-2.1.1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5.1.1.1-2.1.2">
-<li id="section-5.1.1.1-2.1.2.1">A salt value MUST be a string. See <a href="#salt-entropy" class="auto internal xref">Section 8.4</a> and <a href="#salt_minlength" class="auto internal xref">Section 8.5</a> for security considerations. It is RECOMMENDED to base64url-encode minimum 128 bits of cryptographically secure pseudorandom data, producing a string. The salt value MUST be unique for each claim that is to be selectively disclosed. The Issuer MUST NOT disclose the salt value to any party other than the Holder.<a href="#section-5.1.1.1-2.1.2.1" class="pilcrow">¶</a>
+<li id="section-5.1.1.1-2.1.2.1">A salt value MUST be a string. See <a href="#salt-entropy" class="auto internal xref">Section 8.3</a> and <a href="#salt_minlength" class="auto internal xref">Section 8.4</a> for security considerations. It is RECOMMENDED to base64url-encode minimum 128 bits of cryptographically secure pseudorandom data, producing a string. The salt value MUST be unique for each claim that is to be selectively disclosed. The Issuer MUST NOT disclose the salt value to any party other than the Holder.<a href="#section-5.1.1.1-2.1.2.1" class="pilcrow">¶</a>
 </li>
                   <li id="section-5.1.1.1-2.1.2.2">The claim name, or key, as it would be used in a regular JWT body. The value MUST be a string.<a href="#section-5.1.1.1-2.1.2.2" class="pilcrow">¶</a>
 </li>
@@ -2357,7 +2354,7 @@ digests cannot be found, the Holder MUST reject the SD-JWT.<a href="#section-6.1
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4">
 <li id="section-6.2-4.1">Determine if Holder Binding is to be checked according to the Verifier's policy
 for the use case at hand. This decision MUST NOT be based on whether
-a Holder Binding JWT is provided by the Holder or not. Refer to <a href="#holder_binding_security" class="auto internal xref">Section 8.7</a> for
+a Holder Binding JWT is provided by the Holder or not. Refer to <a href="#holder_binding_security" class="auto internal xref">Section 8.6</a> for
 details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </li>
           <li id="section-6.2-4.2">Separate the Presentation into the SD-JWT, the Disclosures (if any), and the Holder Binding JWT (if provided).<a href="#section-6.2-4.2" class="pilcrow">¶</a>
@@ -2483,197 +2480,183 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
         <li class="normal" id="section-8-2.2">Claim values that are not issued by the Issuer cannot be successfully verified by the Verifier, if the Holder forged the Disclosures.<a href="#section-8-2.2" class="pilcrow">¶</a>
 </li>
       </ul>
-<div id="mandatory-digest-computation-of-the-revealed-claim-values-by-the-verifier">
-<section id="section-8.1">
-        <h3 id="name-mandatory-digest-computatio">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-mandatory-digest-computatio" class="section-name selfRef">Mandatory digest computation of the revealed claim values by the Verifier</a>
-        </h3>
-<p id="section-8.1-1">ToDo: add text explaining mechanisms that should be adopted to ensure that
-  Verifiers validate the claim values received in HS-Disclosures JWT by calculating the
-  digests of those values and comparing them with the digests in the SD-JWT:
-  - create a test suite that forces digest computation by the Verifiers,
-    and includes negative test cases in test vectors
-  - use only implementations/libraries that are compliant to the test suite
-  - etc.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-</section>
-</div>
 <div id="mandatory-signing-of-the-sd-jwt">
-<section id="section-8.2">
+<section id="section-8.1">
         <h3 id="name-mandatory-signing-of-the-sd">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-mandatory-signing-of-the-sd" class="section-name selfRef">Mandatory signing of the SD-JWT</a>
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-mandatory-signing-of-the-sd" class="section-name selfRef">Mandatory signing of the SD-JWT</a>
         </h3>
-<p id="section-8.2-1">The SD-JWT MUST be signed by the Issuer to protect integrity of the issued
+<p id="section-8.1-1">The SD-JWT MUST be signed by the Issuer to protect integrity of the issued
 claims. An attacker can modify or add claims if an SD-JWT is not signed (e.g.,
 change the "email" attribute to take over the victim's account or add an
-attribute indicating a fake academic qualification).<a href="#section-8.2-1" class="pilcrow">¶</a></p>
-<p id="section-8.2-2">The Verifier MUST always check the SD-JWT signature to ensure that the SD-JWT
+attribute indicating a fake academic qualification).<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1-2">The Verifier MUST always check the SD-JWT signature to ensure that the SD-JWT
 has not been tampered with since its issuance. If the signature on the SD-JWT
-cannot be verified, the SD-JWT MUST be rejected.<a href="#section-8.2-2" class="pilcrow">¶</a></p>
+cannot be verified, the SD-JWT MUST be rejected.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="manipulation-of-disclosures">
-<section id="section-8.3">
+<section id="section-8.2">
         <h3 id="name-manipulation-of-disclosures">
-<a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-manipulation-of-disclosures" class="section-name selfRef">Manipulation of Disclosures</a>
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-manipulation-of-disclosures" class="section-name selfRef">Manipulation of Disclosures</a>
         </h3>
-<p id="section-8.3-1">Holders can manipulate the Disclosures by changing the values of the claims
+<p id="section-8.2-1">Holders can manipulate the Disclosures by changing the values of the claims
 before sending them to the Issuer. The Issuer MUST check the Disclosures to
-ensure that the values of the claims are correct, i.e., the digests of the Disclosures are actually present in the signed SD-JWT.<a href="#section-8.3-1" class="pilcrow">¶</a></p>
-<p id="section-8.3-2">A naive Verifier that extracts
+ensure that the values of the claims are correct, i.e., the digests of the Disclosures are actually present in the signed SD-JWT.<a href="#section-8.2-1" class="pilcrow">¶</a></p>
+<p id="section-8.2-2">A naive Verifier that extracts
 all claim values from the Disclosures (without checking the hashes) and inserts them into the SD-JWT payload
 is vulnerable to this attack. However, in a structured SD-JWT, without comparing the digests of the
 Disclosures, such an implementation could not determine the correct place in a
 nested object where a claim needs to be inserted. Therefore, the naive implementation
-would not only be insecure, but also incorrect.<a href="#section-8.3-2" class="pilcrow">¶</a></p>
-<p id="section-8.3-3">The steps described in <a href="#verifier_verification" class="auto internal xref">Section 6.2</a> ensure that the Verifier
-checks the Disclosures correctly.<a href="#section-8.3-3" class="pilcrow">¶</a></p>
+would not only be insecure, but also incorrect.<a href="#section-8.2-2" class="pilcrow">¶</a></p>
+<p id="section-8.2-3">The steps described in <a href="#verifier_verification" class="auto internal xref">Section 6.2</a> ensure that the Verifier
+checks the Disclosures correctly.<a href="#section-8.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="salt-entropy">
-<section id="section-8.4">
+<section id="section-8.3">
         <h3 id="name-entropy-of-the-salt">
-<a href="#section-8.4" class="section-number selfRef">8.4. </a><a href="#name-entropy-of-the-salt" class="section-name selfRef">Entropy of the salt</a>
+<a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-entropy-of-the-salt" class="section-name selfRef">Entropy of the salt</a>
         </h3>
-<p id="section-8.4-1">The security model that conceals the plaintext claims relies on the fact
+<p id="section-8.3-1">The security model that conceals the plaintext claims relies on the fact
 that salts not revealed to an attacker cannot be learned or guessed by
 the attacker, even if other salts have been revealed. It is vitally
 important to adhere to this principle. As such, each salt MUST be created
 in such a manner that it is cryptographically random, long enough, and
 has high entropy that it is not practical for the attacker to guess. A
-new salt MUST be chosen for each claim independently from other salts.<a href="#section-8.4-1" class="pilcrow">¶</a></p>
+new salt MUST be chosen for each claim independently from other salts.<a href="#section-8.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="salt_minlength">
-<section id="section-8.5">
+<section id="section-8.4">
         <h3 id="name-minimum-length-of-the-salt">
-<a href="#section-8.5" class="section-number selfRef">8.5. </a><a href="#name-minimum-length-of-the-salt" class="section-name selfRef">Minimum length of the salt</a>
+<a href="#section-8.4" class="section-number selfRef">8.4. </a><a href="#name-minimum-length-of-the-salt" class="section-name selfRef">Minimum length of the salt</a>
         </h3>
-<p id="section-8.5-1">The RECOMMENDED minimum length of the randomly-generated portion of the salt is 128 bits.<a href="#section-8.5-1" class="pilcrow">¶</a></p>
-<p id="section-8.5-2">The Issuer MUST ensure that a new salt value is chosen for each claim,
+<p id="section-8.4-1">The RECOMMENDED minimum length of the randomly-generated portion of the salt is 128 bits.<a href="#section-8.4-1" class="pilcrow">¶</a></p>
+<p id="section-8.4-2">The Issuer MUST ensure that a new salt value is chosen for each claim,
 including when the same claim name occurs at different places in the
 structure of the SD-JWT. This can be seen in Example 3 in the Appendix,
 where multiple claims with the name <code>type</code> appear, but each of them has
-a different salt.<a href="#section-8.5-2" class="pilcrow">¶</a></p>
+a different salt.<a href="#section-8.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="choice-of-a-hash-algorithm">
-<section id="section-8.6">
+<section id="section-8.5">
         <h3 id="name-choice-of-a-hash-algorithm">
-<a href="#section-8.6" class="section-number selfRef">8.6. </a><a href="#name-choice-of-a-hash-algorithm" class="section-name selfRef">Choice of a Hash Algorithm</a>
+<a href="#section-8.5" class="section-number selfRef">8.5. </a><a href="#name-choice-of-a-hash-algorithm" class="section-name selfRef">Choice of a Hash Algorithm</a>
         </h3>
-<p id="section-8.6-1">For the security of this scheme, the hash algorithm is required to be preimage resistant and second-preimage
+<p id="section-8.5-1">For the security of this scheme, the hash algorithm is required to be preimage resistant and second-preimage
 resistant, i.e., it is infeasible to calculate the salt and claim value that result in
 a particular digest, and, for any salt and claim value pair, it is infeasible to find a different salt and claim value pair that
-result in the same digest, respectively.<a href="#section-8.6-1" class="pilcrow">¶</a></p>
-<p id="section-8.6-2">Hash algorithms that do not meet the aforementioned requirements MUST NOT be used.
+result in the same digest, respectively.<a href="#section-8.5-1" class="pilcrow">¶</a></p>
+<p id="section-8.5-2">Hash algorithms that do not meet the aforementioned requirements MUST NOT be used.
 Inclusion in the "Named Information Hash Algorithm" registry <span>[<a href="#IANA.Hash.Algorithms" class="cite xref">IANA.Hash.Algorithms</a>]</span>
 alone does not indicate a hash algorithm's suitability for use in SD-JWT (it contains several
 heavily truncated digests, such as <code>sha-256-32</code> and <code>sha-256-64</code>, which are unfit for security
-applications).<a href="#section-8.6-2" class="pilcrow">¶</a></p>
-<p id="section-8.6-3">Furthermore, the hash algorithms MD2, MD4, MD5, RIPEMD-160, and SHA-1
-revealed fundamental weaknesses and they MUST NOT be used.<a href="#section-8.6-3" class="pilcrow">¶</a></p>
+applications).<a href="#section-8.5-2" class="pilcrow">¶</a></p>
+<p id="section-8.5-3">Furthermore, the hash algorithms MD2, MD4, MD5, RIPEMD-160, and SHA-1
+revealed fundamental weaknesses and they MUST NOT be used.<a href="#section-8.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="holder_binding_security">
-<section id="section-8.7">
+<section id="section-8.6">
         <h3 id="name-holder-binding">
-<a href="#section-8.7" class="section-number selfRef">8.7. </a><a href="#name-holder-binding" class="section-name selfRef">Holder Binding</a>
+<a href="#section-8.6" class="section-number selfRef">8.6. </a><a href="#name-holder-binding" class="section-name selfRef">Holder Binding</a>
         </h3>
-<p id="section-8.7-1">Holder binding aims to ensure that the presenter of a credential is
+<p id="section-8.6-1">Holder binding aims to ensure that the presenter of a credential is
 actually the legitimate Holder of the credential. There are, in general,
 two approaches to Holder Binding: Claims-based Holder Binding and
-Crpytographic Holder Binding.<a href="#section-8.7-1" class="pilcrow">¶</a></p>
-<p id="section-8.7-2">Claims-based Holder Binding means that the Issuer includes claims in the
+Crpytographic Holder Binding.<a href="#section-8.6-1" class="pilcrow">¶</a></p>
+<p id="section-8.6-2">Claims-based Holder Binding means that the Issuer includes claims in the
 SD-JWT that a Verifier can correlate with the Holder, potentially with
 the help of other credentials presented at the same time. For example,
 in a vaccination certificate, the Issuer can include a claim that
 contains the Holder's name and birthdate, and a Verifier can correlate
 this data with the Holder's passport that has to be presented together
 with the vaccination certificate - either as a digital credential or a
-physical document.<a href="#section-8.7-2" class="pilcrow">¶</a></p>
-<p id="section-8.7-3">Cryptographic Holder Binding means that the Issuer includes some
+physical document.<a href="#section-8.6-2" class="pilcrow">¶</a></p>
+<p id="section-8.6-3">Cryptographic Holder Binding means that the Issuer includes some
 cryptographic data, usually a public key, belonging to the Holder. The
 Holder can then sign over some data defined by the Verifier to prove
-that the Holder is in possession of the private key.<a href="#section-8.7-3" class="pilcrow">¶</a></p>
-<p id="section-8.7-4">Without Holder Binding, a Verifier only gets the proof that the
+that the Holder is in possession of the private key.<a href="#section-8.6-3" class="pilcrow">¶</a></p>
+<p id="section-8.6-4">Without Holder Binding, a Verifier only gets the proof that the
 credential was issued by a particular Issuer, but the credential itself
 can be replayed by anyone who gets access to it. This means that, for
 example, after a credential was leaked to an attacker, the attacker can
 present the credential to any verifier that does not require Holder
 Binding. But also a malicious Verifier to which the Holder presented the
 credential can present the credential to another Verifier if that other
-Verifier does not require Holder Binding.<a href="#section-8.7-4" class="pilcrow">¶</a></p>
-<p id="section-8.7-5">Verifiers MUST decide whether Holder Binding is required for a
+Verifier does not require Holder Binding.<a href="#section-8.6-4" class="pilcrow">¶</a></p>
+<p id="section-8.6-5">Verifiers MUST decide whether Holder Binding is required for a
 particular use case or not before verifying a credential. This decision
 can be informed by various factors including, but not limited to the following:
 business requirements, the use case, the type of
 binding between a Holder and its credential that is required for a use
 case, the sensitivity of the use case, the expected properties of a
 credential, the type and contents of other credentials expected to be
-presented at the same time, etc.<a href="#section-8.7-5" class="pilcrow">¶</a></p>
-<p id="section-8.7-6">This can be showcased based on two scenarios for a mobile driver's license use case for SD-JWT:<a href="#section-8.7-6" class="pilcrow">¶</a></p>
-<p id="section-8.7-7"><strong>Scenario A:</strong> For the verification of the driver's license when
+presented at the same time, etc.<a href="#section-8.6-5" class="pilcrow">¶</a></p>
+<p id="section-8.6-6">This can be showcased based on two scenarios for a mobile driver's license use case for SD-JWT:<a href="#section-8.6-6" class="pilcrow">¶</a></p>
+<p id="section-8.6-7"><strong>Scenario A:</strong> For the verification of the driver's license when
 stopped by a police officer for exceeding a speed limit, Holder Binding may be necessary to ensure that the person
 driving the car and presenting the license is the actual Holder of the
 license. The Verifier (e.g., the software used by the police officer)
 will ensure that a Holder Binding JWT is present and signed with the Holder's private
 key. Claims-based Holder Binding may be used as well, e.g., by including a
-first name, last name and a date of birth that matches that of an insurance policy paper.<a href="#section-8.7-7" class="pilcrow">¶</a></p>
-<p id="section-8.7-8"><strong>Scenario B:</strong> A rental car agency may want to ensure, for insurance
+first name, last name and a date of birth that matches that of an insurance policy paper.<a href="#section-8.6-7" class="pilcrow">¶</a></p>
+<p id="section-8.6-8"><strong>Scenario B:</strong> A rental car agency may want to ensure, for insurance
 purposes, that all drivers named on the rental contract own a
 government-issued driver's license. The signer of the rental contract
 can present the mobile driver's license of all named drivers. In this
 case, the rental car agency does not need to check Holder Binding as the
 goal is not to verify the identity of the person presenting the license,
-but to verify that a license exists and is valid.<a href="#section-8.7-8" class="pilcrow">¶</a></p>
-<p id="section-8.7-9">It is important that a Verifier does not make its security policy
+but to verify that a license exists and is valid.<a href="#section-8.6-8" class="pilcrow">¶</a></p>
+<p id="section-8.6-9">It is important that a Verifier does not make its security policy
 decisions based on data that can be influenced by an attacker or that
 can be misinterpreted. For this reason, when deciding whether Holder
-binding is required or not, Verifiers MUST NOT take into account<a href="#section-8.7-9" class="pilcrow">¶</a></p>
+binding is required or not, Verifiers MUST NOT take into account<a href="#section-8.6-9" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-8.7-10.1">whether an Holder Binding JWT is present or not, as an attacker can
+<li class="normal" id="section-8.6-10.1">whether an Holder Binding JWT is present or not, as an attacker can
 remove the Holder Binding JWT from any Presentation and present it to the
-Verifier, or<a href="#section-8.7-10.1" class="pilcrow">¶</a>
+Verifier, or<a href="#section-8.6-10.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-8.7-10.2">whether Holder Binding data is present in the SD-JWT or not, as the
+          <li class="normal" id="section-8.6-10.2">whether Holder Binding data is present in the SD-JWT or not, as the
 Issuer might have added the key to the SD-JWT in a format/claim that
-is not recognized by the Verifier.<a href="#section-8.7-10.2" class="pilcrow">¶</a>
+is not recognized by the Verifier.<a href="#section-8.6-10.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-8.7-11">If a Verifier has decided that Holder Binding is required for a
+<p id="section-8.6-11">If a Verifier has decided that Holder Binding is required for a
 particular use case and the Holder Binding is not present, does not fulfill the requirements
 (e.g., on the signing algorithm), or no recognized
 Holder Binding data is present in the SD-JWT, the Verifier will reject the
-presentation, as described in <a href="#verifier_verification" class="auto internal xref">Section 6.2</a>.<a href="#section-8.7-11" class="pilcrow">¶</a></p>
+presentation, as described in <a href="#verifier_verification" class="auto internal xref">Section 6.2</a>.<a href="#section-8.6-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="blinding-claim-names">
-<section id="section-8.8">
+<section id="section-8.7">
         <h3 id="name-blinding-claim-names">
-<a href="#section-8.8" class="section-number selfRef">8.8. </a><a href="#name-blinding-claim-names" class="section-name selfRef">Blinding Claim Names</a>
+<a href="#section-8.7" class="section-number selfRef">8.7. </a><a href="#name-blinding-claim-names" class="section-name selfRef">Blinding Claim Names</a>
         </h3>
-<p id="section-8.8-1">SD-JWT ensures that names of claims that are selectively disclosable are
+<p id="section-8.7-1">SD-JWT ensures that names of claims that are selectively disclosable are
 always blinded. This prevents an attacker from learning the names of the
 disclosable claims. However, the names of the claims that are not
 disclosable are not blinded. This includes the keys of objects that themselves
 are not blinded, but contain disclosable claims. This limitation
 needs to be taken into account by Issuers when creating the structure of
-the SD-JWT.<a href="#section-8.8-1" class="pilcrow">¶</a></p>
+the SD-JWT.<a href="#section-8.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="issuer_signature_key_distribution">
-<section id="section-8.9">
+<section id="section-8.8">
         <h3 id="name-issuer-signature-key-distri">
-<a href="#section-8.9" class="section-number selfRef">8.9. </a><a href="#name-issuer-signature-key-distri" class="section-name selfRef">Issuer Signature Key Distribution and Rotation</a>
+<a href="#section-8.8" class="section-number selfRef">8.8. </a><a href="#name-issuer-signature-key-distri" class="section-name selfRef">Issuer Signature Key Distribution and Rotation</a>
         </h3>
-<p id="section-8.9-1">This specification does not define how signature verification keys of
+<p id="section-8.8-1">This specification does not define how signature verification keys of
 Issuers are distributed to Verifiers. However, it is RECOMMENDED that
 Issuers publish their keys in a way that allows for efficient and secure
 key rotation and revocation, for example, by publishing keys at a
 predefined location using the JSON Web Key Set (JWKS) format <span>[<a href="#RFC7517" class="cite xref">RFC7517</a>]</span>.
 Verifiers need to ensure that they are not using expired or revoked keys
 for signature verification using reasonable and appropriate means for the given
-key-distribution method.<a href="#section-8.9-1" class="pilcrow">¶</a></p>
+key-distribution method.<a href="#section-8.8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2699,7 +2682,7 @@ and Issuers and Verifiers may decide to do so as well.<a href="#section-9.1-1" c
 <p id="section-9.1-2">Not surprisingly, a leak of such data risks revealing private data of End-Users
 to third parties. Signed End-User data, the authenticity of which
 can be easily verified by third parties, further exacerbates the risk.
-As discussed in <a href="#holder_binding_security" class="auto internal xref">Section 8.7</a>, leaked
+As discussed in <a href="#holder_binding_security" class="auto internal xref">Section 8.6</a>, leaked
 SD-JWTs may also allow attackers to impersonate Holders unless Holder
 Binding is enforced and the attacker does not have access to the
 Holder's cryptographic keys. Altogether, leaked SD-JWT credentials may have
@@ -2718,7 +2701,7 @@ as soon as possible.<a href="#section-9.1-5" class="pilcrow">¶</a></p>
 sufficient to store the result of the verification and any End-User data
 that is needed for the application.<a href="#section-9.1-6" class="pilcrow">¶</a></p>
 <p id="section-9.1-7">If reliable and secure key rotation and revocation is ensured according
-to <a href="#issuer_signature_key_distribution" class="auto internal xref">Section 8.9</a>, Issuers may opt to publish
+to <a href="#issuer_signature_key_distribution" class="auto internal xref">Section 8.8</a>, Issuers may opt to publish
 expired or revoked private signing keys (after a grace period that
 ensures that the keys are not cached any longer at any Verifier). This
 reduces the value of any leaked credentials as the signatures on them
@@ -4161,27 +4144,37 @@ data. The original JSON data is then used by the application. See
 <p id="appendix-C-1">[[ To be removed from the final specification ]]<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 <p id="appendix-C-2">-03<a href="#appendix-C-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-3.1">Allow for recursive disclosures<a href="#appendix-C-3.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-3.1">Clarify that other specifications may define enveloping multiple Combined Formats for Presentation<a href="#appendix-C-3.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.2">Discussion on holder binding and privacy of stored credentials<a href="#appendix-C-3.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.2">Add an example of W3C vc-data-model that uses a JSON-LD object as the claims set<a href="#appendix-C-3.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.3">Add some context about SD-JWT being general-purpose despite being a product of the OAuth WG<a href="#appendix-C-3.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.3">Clarify requirements for the combined formats for issuance and presentation<a href="#appendix-C-3.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.4">More explicitly say that SD-JWTs have to be signed asymmetrically (no MAC and no <code>none</code>)<a href="#appendix-C-3.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.4">Added overview of the Security Considerations section<a href="#appendix-C-3.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.5">Make sha-256 the default hash algorithm, if the hash alg claim is omitted<a href="#appendix-C-3.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.5">Enhanced examples in the Privacy Considerations section<a href="#appendix-C-3.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.6">Use ES256 instead of RS256 in examples<a href="#appendix-C-3.6" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.6">Allow for recursive disclosures<a href="#appendix-C-3.6" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.7">Rename and move the c14n challenges section to an appendix<a href="#appendix-C-3.7" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.7">Discussion on holder binding and privacy of stored credentials<a href="#appendix-C-3.7" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.8">A bit more in security considerations for Choice of a Hash Algorithm (1st &amp; 2nd preimage resistant and not majorly truncated)<a href="#appendix-C-3.8" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.8">Add some context about SD-JWT being general-purpose despite being a product of the OAuth WG<a href="#appendix-C-3.8" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.9">Remove the notational figures from the Concepts section<a href="#appendix-C-3.9" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.9">More explicitly say that SD-JWTs have to be signed asymmetrically (no MAC and no <code>none</code>)<a href="#appendix-C-3.9" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.10">Change salt to always be a string (rather than any JSON type)<a href="#appendix-C-3.10" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.10">Make sha-256 the default hash algorithm, if the hash alg claim is omitted<a href="#appendix-C-3.10" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-3.11">Fix the Document History (which had a premature list for -03)<a href="#appendix-C-3.11" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-3.11">Use ES256 instead of RS256 in examples<a href="#appendix-C-3.11" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.12">Rename and move the c14n challenges section to an appendix<a href="#appendix-C-3.12" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.13">A bit more in security considerations for Choice of a Hash Algorithm (1st &amp; 2nd preimage resistant and not majorly truncated)<a href="#appendix-C-3.13" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.14">Remove the notational figures from the Concepts section<a href="#appendix-C-3.14" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.15">Change salt to always be a string (rather than any JSON type)<a href="#appendix-C-3.15" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.16">Fix the Document History (which had a premature list for -03)<a href="#appendix-C-3.16" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="appendix-C-4">-02<a href="#appendix-C-4" class="pilcrow">¶</a></p>

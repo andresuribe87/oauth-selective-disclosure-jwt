@@ -89,16 +89,14 @@ Table of Contents
      6.2.  Verification by the Verifier
    7.  Enveloping the Combined Format for Issuance and Presentation
    8.  Security Considerations
-     8.1.  Mandatory digest computation of the revealed claim values
-           by the Verifier
-     8.2.  Mandatory signing of the SD-JWT
-     8.3.  Manipulation of Disclosures
-     8.4.  Entropy of the salt
-     8.5.  Minimum length of the salt
-     8.6.  Choice of a Hash Algorithm
-     8.7.  Holder Binding
-     8.8.  Blinding Claim Names
-     8.9.  Issuer Signature Key Distribution and Rotation
+     8.1.  Mandatory signing of the SD-JWT
+     8.2.  Manipulation of Disclosures
+     8.3.  Entropy of the salt
+     8.4.  Minimum length of the salt
+     8.5.  Choice of a Hash Algorithm
+     8.6.  Holder Binding
+     8.7.  Blinding Claim Names
+     8.8.  Issuer Signature Key Distribution and Rotation
    9.  Privacy Considerations
      9.1.  Storage of Signed User Data
      9.2.  Confidentiality during Transport
@@ -386,8 +384,8 @@ Table of Contents
 
    *  Create an array of three elements in this order:
 
-      1.  A salt value MUST be a string.  See Section 8.4 and
-          Section 8.5 for security considerations.  It is RECOMMENDED to
+      1.  A salt value MUST be a string.  See Section 8.3 and
+          Section 8.4 for security considerations.  It is RECOMMENDED to
           base64url-encode minimum 128 bits of cryptographically secure
           pseudorandom data, producing a string.  The salt value MUST be
           unique for each claim that is to be selectively disclosed.
@@ -1178,7 +1176,7 @@ Table of Contents
    1.  Determine if Holder Binding is to be checked according to the
        Verifier's policy for the use case at hand.  This decision MUST
        NOT be based on whether a Holder Binding JWT is provided by the
-       Holder or not.  Refer to Section 8.7 for details.
+       Holder or not.  Refer to Section 8.6 for details.
 
    2.  Separate the Presentation into the SD-JWT, the Disclosures (if
        any), and the Holder Binding JWT (if provided).
@@ -1332,18 +1330,7 @@ Table of Contents
       successfully verified by the Verifier, if the Holder forged the
       Disclosures.
 
-8.1.  Mandatory digest computation of the revealed claim values by the
-      Verifier
-
-   ToDo: add text explaining mechanisms that should be adopted to ensure
-   that Verifiers validate the claim values received in HS-Disclosures
-   JWT by calculating the digests of those values and comparing them
-   with the digests in the SD-JWT: - create a test suite that forces
-   digest computation by the Verifiers, and includes negative test cases
-   in test vectors - use only implementations/libraries that are
-   compliant to the test suite - etc.
-
-8.2.  Mandatory signing of the SD-JWT
+8.1.  Mandatory signing of the SD-JWT
 
    The SD-JWT MUST be signed by the Issuer to protect integrity of the
    issued claims.  An attacker can modify or add claims if an SD-JWT is
@@ -1356,7 +1343,7 @@ Table of Contents
    signature on the SD-JWT cannot be verified, the SD-JWT MUST be
    rejected.
 
-8.3.  Manipulation of Disclosures
+8.2.  Manipulation of Disclosures
 
    Holders can manipulate the Disclosures by changing the values of the
    claims before sending them to the Issuer.  The Issuer MUST check the
@@ -1375,7 +1362,7 @@ Table of Contents
    The steps described in Section 6.2 ensure that the Verifier checks
    the Disclosures correctly.
 
-8.4.  Entropy of the salt
+8.3.  Entropy of the salt
 
    The security model that conceals the plaintext claims relies on the
    fact that salts not revealed to an attacker cannot be learned or
@@ -1386,7 +1373,7 @@ Table of Contents
    attacker to guess.  A new salt MUST be chosen for each claim
    independently from other salts.
 
-8.5.  Minimum length of the salt
+8.4.  Minimum length of the salt
 
    The RECOMMENDED minimum length of the randomly-generated portion of
    the salt is 128 bits.
@@ -1397,7 +1384,7 @@ Table of Contents
    Appendix, where multiple claims with the name type appear, but each
    of them has a different salt.
 
-8.6.  Choice of a Hash Algorithm
+8.5.  Choice of a Hash Algorithm
 
    For the security of this scheme, the hash algorithm is required to be
    preimage resistant and second-preimage resistant, i.e., it is
@@ -1416,7 +1403,7 @@ Table of Contents
    Furthermore, the hash algorithms MD2, MD4, MD5, RIPEMD-160, and SHA-1
    revealed fundamental weaknesses and they MUST NOT be used.
 
-8.7.  Holder Binding
+8.6.  Holder Binding
 
    Holder binding aims to ensure that the presenter of a credential is
    actually the legitimate Holder of the credential.  There are, in
@@ -1496,7 +1483,7 @@ Table of Contents
    recognized Holder Binding data is present in the SD-JWT, the Verifier
    will reject the presentation, as described in Section 6.2.
 
-8.8.  Blinding Claim Names
+8.7.  Blinding Claim Names
 
    SD-JWT ensures that names of claims that are selectively disclosable
    are always blinded.  This prevents an attacker from learning the
@@ -1506,7 +1493,7 @@ Table of Contents
    claims.  This limitation needs to be taken into account by Issuers
    when creating the structure of the SD-JWT.
 
-8.9.  Issuer Signature Key Distribution and Rotation
+8.8.  Issuer Signature Key Distribution and Rotation
 
    This specification does not define how signature verification keys of
    Issuers are distributed to Verifiers.  However, it is RECOMMENDED
@@ -1534,7 +1521,7 @@ Table of Contents
    Not surprisingly, a leak of such data risks revealing private data of
    End-Users to third parties.  Signed End-User data, the authenticity
    of which can be easily verified by third parties, further exacerbates
-   the risk.  As discussed in Section 8.7, leaked SD-JWTs may also allow
+   the risk.  As discussed in Section 8.6, leaked SD-JWTs may also allow
    attackers to impersonate Holders unless Holder Binding is enforced
    and the attacker does not have access to the Holder's cryptographic
    keys.  Altogether, leaked SD-JWT credentials may have a high monetary
@@ -1559,7 +1546,7 @@ Table of Contents
    data that is needed for the application.
 
    If reliable and secure key rotation and revocation is ensured
-   according to Section 8.9, Issuers may opt to publish expired or
+   according to Section 8.8, Issuers may opt to publish expired or
    revoked private signing keys (after a grace period that ensures that
    the keys are not cached any longer at any Verifier).  This reduces
    the value of any leaked credentials as the signatures on them can no
@@ -2998,6 +2985,19 @@ Appendix C.  Document History
    [[ To be removed from the final specification ]]
 
    -03
+
+   *  Clarify that other specifications may define enveloping multiple
+      Combined Formats for Presentation
+
+   *  Add an example of W3C vc-data-model that uses a JSON-LD object as
+      the claims set
+
+   *  Clarify requirements for the combined formats for issuance and
+      presentation
+
+   *  Added overview of the Security Considerations section
+
+   *  Enhanced examples in the Privacy Considerations section
 
    *  Allow for recursive disclosures
 
