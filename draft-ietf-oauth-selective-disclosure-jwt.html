@@ -2157,15 +2157,15 @@ are contained in the SD-JWT, along with the precise input to the digest
 calculation and the salts. To this end, the Issuer sends the Disclosure objects
 that were also used for the hash calculation, as described in <a href="#creating_disclosures" class="auto internal xref">Section 5.1.1.1</a>,
 to the Holder.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.3-2">The data format for sending the SD-JWT and the Disclosures to the Holder is
-as follows:<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">The data format for sending the SD-JWT and the Disclosures to the Holder MUST be a series of base64url-encoded values, each separated from the next by a single tilde ('~') character as follows:<a href="#section-5.3-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-3">
 <pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure N&gt;
 </pre><a href="#section-5.3-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.3-4">This is called the Combined Format for Issuance.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
-<p id="section-5.3-5">The Disclosures and SD-JWT are implicitly linked through the
-digest values of the Disclosures included in the SD-JWT.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
+<p id="section-5.3-4">The order of the base64url-encoded values MUST be an SD-JWT followed by the Disclosures.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-5">This is called the Combined Format for Issuance.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
+<p id="section-5.3-6">The Disclosures and SD-JWT are implicitly linked through the
+digest values of the Disclosures included in the SD-JWT.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
 <div id="example">
 <section id="section-5.3.1">
           <h4 id="name-example">
@@ -2210,19 +2210,19 @@ AxIl0
         </h3>
 <p id="section-5.4-1">For presentation to a Verifier, the Holder sends the SD-JWT and a selected
 subset of the Disclosures to the Verifier.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
-<p id="section-5.4-2">The data format for sending the SD-JWT and the Disclosures to the Verifier is
-as follows (line break added for readability):<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.4-2">The data format for sending the SD-JWT and the Disclosures to the Verifier MUST be a series of base64url-encoded values, each separated from the next by a single tilde ('~') character as follows:<a href="#section-5.4-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.4-3">
 <pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure M&gt;~&lt;optional Holder Binding JWT&gt;
 </pre><a href="#section-5.4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.4-4">This is called the Combined Format for Presentation.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
-<p id="section-5.4-5">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
+<p id="section-5.4-4">The order of the base64url-encoded values MUST be an SD-JWT, Disclosures, and an optional Holder Binding JWT. In case there is no Holder Binding JWT, the last element MUST be an empty string. The last separating tilde character MUST NOT be omitted.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.4-5">This is called the Combined Format for Presentation.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.4-6">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
 none, multiple, or all Disclosures. For data that the Holder does not want to reveal
 to the Verifier, the Holder MUST NOT send Disclosures or reveal the salt values in any
-other way.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
-<p id="section-5.4-6">A Holder MUST NOT send a Disclosure that was not included in the SD-JWT or send
-a Disclosure more than once.<a href="#section-5.4-6" class="pilcrow">¶</a></p>
+other way.<a href="#section-5.4-6" class="pilcrow">¶</a></p>
+<p id="section-5.4-7">A Holder MUST NOT send a Disclosure that was not included in the SD-JWT or send
+a Disclosure more than once.<a href="#section-5.4-7" class="pilcrow">¶</a></p>
 <div id="enabling_holder_binding">
 <section id="section-5.4.1">
           <h4 id="name-enabling-holder-binding">
