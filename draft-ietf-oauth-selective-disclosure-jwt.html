@@ -1322,7 +1322,10 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
                 <p id="section-toc.1-1.14.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-example-3-complex-structure" class="internal xref">Example 3 - Complex Structured SD-JWT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.4">
-                <p id="section-toc.1-1.14.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-example-4-w3c-verifiable-cr" class="internal xref">Example 4 - W3C Verifiable Credentials Data Model (work in progress)</a></p>
+                <p id="section-toc.1-1.14.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-example-4a-w3c-verifiable-c" class="internal xref">Example 4a - W3C Verifiable Credentials Data Model v2.0, not using JSON-LD</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14.2.5">
+                <p id="section-toc.1-1.14.2.5.1"><a href="#appendix-A.5" class="auto internal xref">A.5</a>.  <a href="#name-example-4b-w3c-verifiable-c" class="internal xref">Example 4b - W3C Verifiable Credentials Data Model v2.0, using JSON-LD</a></p>
 </li>
             </ul>
 </li>
@@ -1349,7 +1352,7 @@ secured against modification using JSON Web Signature (JWS) <span>[<a href="#RFC
 signatures. A consumer of a signed JWT that has checked the
 signature can safely assume that the contents of the token have not been
 modified.  However, anyone receiving an unencrypted JWT can read all the
-claims and likewise, anyone with the decryption key receiving an encrypted JWT
+claims. Likewise, anyone with the decryption key receiving encrypted JWT
 can also read all the claims.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">One of the common use cases of a signed JWT is representing a user's
 identity. As long as the signed JWT is one-time
@@ -1388,9 +1391,10 @@ values not disclosed in the Disclosures.<a href="#section-1-7" class="pilcrow">�
 or the concept of binding an SD-JWT to key material controlled by the
 Holder. The strength of the Holder Binding is conditional upon the trust
 in the protection of the private key of the key pair an SD-JWT is bound to.<a href="#section-1-8" class="pilcrow">¶</a></p>
-<p id="section-1-9">This specification aims to be easy to implement and to leverage
+<p id="section-1-9">SD-JWT can be used with any JSON-based representation of claims, including JSON-LD.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">This specification aims to be easy to implement and to leverage
 established and widely used data formats and cryptographic algorithms
-wherever possible.<a href="#section-1-9" class="pilcrow">¶</a></p>
+wherever possible.<a href="#section-1-10" class="pilcrow">¶</a></p>
 <div id="feature-summary">
 <section id="section-1.1">
         <h3 id="name-feature-summary">
@@ -2817,6 +2821,7 @@ for their contributions (some of which substantial) to this draft and to the ini
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-11-1">TBD<a href="#section-11-1" class="pilcrow">¶</a></p>
+<p id="section-11-2">@VC_JWT<a href="#section-11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <section id="section-12">
@@ -2887,9 +2892,13 @@ for their contributions (some of which substantial) to this draft and to the ini
       <dd>
 <span class="refAuthor">Rundgren, A.</span>, <span class="refAuthor">Jordan, B.</span>, and <span class="refAuthor">S. Erdtman</span>, <span class="refTitle">"JSON Canonicalization Scheme (JCS)"</span>, <span class="seriesInfo">RFC 8785</span>, <span class="seriesInfo">DOI 10.17487/RFC8785</span>, <time datetime="2020-06" class="refDate">June 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8785">https://www.rfc-editor.org/info/rfc8785</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="VC_DATA">[VC_DATA]</dt>
+<dt id="VC_DATA_v2.0">[VC_DATA_v2.0]</dt>
+      <dd>
+<span class="refAuthor">Sporny, M.</span>, <span class="refAuthor">Steele, O.</span>, <span class="refAuthor">Jones, M. B.</span>, <span class="refAuthor">Cohen, G.</span>, and <span class="refAuthor">O. Terbu</span>, <span class="refTitle">"Verifiable Credentials Data Model 1.0"</span>, <time datetime="2023-03-07" class="refDate">7 March 2023</time>, <span>&lt;<a href="https://www.w3.org/TR/vc-data-model-2.0/">https://www.w3.org/TR/vc-data-model-2.0/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="VC_JWT">[VC_JWT]</dt>
     <dd>
-<span class="refAuthor">Sporny, M.</span>, <span class="refAuthor">Noble, G.</span>, <span class="refAuthor">Longley, D.</span>, <span class="refAuthor">Burnett, D. C.</span>, <span class="refAuthor">Zundel, B.</span>, and <span class="refAuthor">D. Chadwick</span>, <span class="refTitle">"Verifiable Credentials Data Model 1.0"</span>, <time datetime="2019-11-19" class="refDate">19 November 2019</time>, <span>&lt;<a href="https://www.w3.org/TR/vc_data">https://www.w3.org/TR/vc_data</a>&gt;</span>. </dd>
+<span class="refAuthor">Steele, O.</span> and <span class="refAuthor">M. B. Jones</span>, <span class="refTitle">"Securing Verifiable Credentials using JSON Web Tokens"</span>, <time datetime="2023-03-03" class="refDate">3 March 2023</time>, <span>&lt;<a href="https://w3c.github.io/vc-jwt/">https://w3c.github.io/vc-jwt/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -3467,19 +3476,20 @@ pass the following result on to the application for further processing:<a href="
 </div>
 </section>
 </div>
-<div id="example-4-w3c-verifiable-credentials-data-model-work-in-progress">
+<div id="example-4a-w3c-verifiable-credentials-data-model-v2-0-not-using-json-ld">
 <section id="appendix-A.4">
-        <h3 id="name-example-4-w3c-verifiable-cr">
-<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-example-4-w3c-verifiable-cr" class="section-name selfRef">Example 4 - W3C Verifiable Credentials Data Model (work in progress)</a>
+        <h3 id="name-example-4a-w3c-verifiable-c">
+<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-example-4a-w3c-verifiable-c" class="section-name selfRef">Example 4a - W3C Verifiable Credentials Data Model v2.0, not using JSON-LD</a>
         </h3>
-<p id="appendix-A.4-1">This example illustrates how the artifacts defined in this specification can be
-represented using W3C Verifiable Credentials Data Model as defined in
-<span>[<a href="#VC_DATA" class="cite xref">VC_DATA</a>]</span>.<a href="#appendix-A.4-1" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-2">SD-JWT is equivalent to an Issuer-signed W3C Verifiable Credential (W3C VC). Disclosures are sent alongside a VC.<a href="#appendix-A.4-2" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-3">A Presentation with a Holder Binding JWT is equivalent to a Holder-signed W3C Verifiable Presentation (W3C VP).<a href="#appendix-A.4-3" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-4">Holder Binding is applied and the Holder Binding JWT is signed using a raw public key passed in a <code>cnf</code> Claim in a W3C VC (SD-JWT).<a href="#appendix-A.4-4" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-5">Below is a non-normative example of an SD-JWT represented as a verifiable credential
-encoded as JSON and signed as JWS compliant to <span>[<a href="#VC_DATA" class="cite xref">VC_DATA</a>]</span>.<a href="#appendix-A.4-5" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-1">This example illustrates how to use the artifacts defined in this specification to secure a payload
+that is represented as a W3C Verifiable Credentials Data Model v2.0 <span>[<a href="#VC_DATA_v2.0" class="cite xref">VC_DATA_v2.0</a>]</span>
+and does not use JSON-LD to provide semantic definitions for claims. The example uses a content type <code>credential-claims-set+json</code> defined in <span>[<a href="#VC_JWT" class="cite xref">VC_JWT</a>]</span>, Section 3 in a <code>cty</code> JOSE Header value.<a href="#appendix-A.4-1" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-2">SD-JWT is equivalent to an Issuer-signed W3C Verifiable Credential (W3C VC). Disclosures are sent alongside a W3C VC.<a href="#appendix-A.4-2" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-3">A Holder-signed Verifiable Presentation as defined in <span>[<a href="#VC_DATA_v2.0" class="cite xref">VC_DATA_v2.0</a>]</span> is equivalent to
+a Combined Format for Presentation with a Holder Binding JWT.<a href="#appendix-A.4-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-4">In this example, Holder Binding is applied and Verifiable Presentation can be signed using
+a Holder's public key passed in a <code>cnf</code> Claim in the SD-JWT.<a href="#appendix-A.4-4" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-5">Below is a non-normative example of an SD-JWT represented as a W3C VC without using JSON-LD.<a href="#appendix-A.4-5" class="pilcrow">¶</a></p>
 <p id="appendix-A.4-6">The following data will be used in this example:<a href="#appendix-A.4-6" class="pilcrow">¶</a></p>
 <div class="lang-json sourcecode" id="appendix-A.4-7">
 <pre>{
@@ -3671,6 +3681,374 @@ Il0
 <div class="alignLeft art-text artwork" id="appendix-A.4-64">
 <pre>["7HzBAKwJKA93FihvBg1E8Q", "is_over_65", true]
 </pre><a href="#appendix-A.4-64" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="example-4b-w3c-verifiable-credentials-data-model-v2-0-using-json-ld">
+<section id="appendix-A.5">
+        <h3 id="name-example-4b-w3c-verifiable-c">
+<a href="#appendix-A.5" class="section-number selfRef">A.5. </a><a href="#name-example-4b-w3c-verifiable-c" class="section-name selfRef">Example 4b - W3C Verifiable Credentials Data Model v2.0, using JSON-LD</a>
+        </h3>
+<p id="appendix-A.5-1">This example illustrates how to use the artifacts defined in this specification to secure a payload
+that is represented as a W3C Verifiable Credentials Data Model v2.0 <span>[<a href="#VC_DATA_v2.0" class="cite xref">VC_DATA_v2.0</a>]</span>
+and uses a JSON-LD object as the claims set. The example uses a content type <code>credential+ld+json</code> defined in <span>[<a href="#VC_DATA_v2.0" class="cite xref">VC_DATA_v2.0</a>]</span>, Section 6.3 in a <code>cty</code> JOSE Header value.<a href="#appendix-A.5-1" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-2">SD-JWT is equivalent to an Issuer-signed W3C Verifiable Credential (W3C VC). Disclosures are sent alongside a VC.<a href="#appendix-A.5-2" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-3">A Combined Format for Presentation with a Holder Binding JWT would be equivalent to a Holder-signed
+Verifiable Presentation as defined in <span>[<a href="#VC_DATA_v2.0" class="cite xref">VC_DATA_v2.0</a>]</span>.<a href="#appendix-A.5-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-4">In this example, Holder Binding is applied and a Combined Format for Presentation is signed
+using a Holder's public key passed in a <code>cnf</code> Claim in the SD-JWT.<a href="#appendix-A.5-4" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-5">Below is a non-normative example of an SD-JWT represented as a W3C VC using JSON-LD.<a href="#appendix-A.5-5" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-6">The following data will be used in this example:<a href="#appendix-A.5-6" class="pilcrow">¶</a></p>
+<div class="lang-json sourcecode" id="appendix-A.5-7">
+<pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vaccination/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VaccinationCertificate"
+  ],
+  "issuer": "https://example.com/issuer",
+  "issuanceDate": "2023-02-09T11:01:59Z",
+  "expirationDate": "2028-02-08T11:01:59Z",
+  "name": "COVID-19 Vaccination Certificate",
+  "description": "COVID-19 Vaccination Certificate",
+  "credentialSubject": {
+    "vaccine": {
+      "type": "Vaccine",
+      "atcCode": "J07BX03",
+      "medicinalProductName": "COVID-19 Vaccine Moderna",
+      "marketingAuthorizationHolder": "Moderna Biotech"
+    },
+    "nextVaccinationDate": "2021-08-16T13:40:12Z",
+    "countryOfVaccination": "GE",
+    "dateOfVaccination": "2021-06-23T13:40:12Z",
+    "order": "3/3",
+    "recipient": {
+      "type": "VaccineRecipient",
+      "gender": "Female",
+      "birthDate": "1961-08-17",
+      "givenName": "Marion",
+      "familyName": "Mustermann"
+    },
+    "type": "VaccinationEvent",
+    "administeringCentre": "Praxis Sommergarten",
+    "batchNumber": "1626382736",
+    "healthProfessional": "883110000015376"
+  }
+}
+</pre><a href="#appendix-A.5-7" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-8">The payload of a corresponding SD-JWT looks as follows:<a href="#appendix-A.5-8" class="pilcrow">¶</a></p>
+<div class="breakable lang-json sourcecode" id="appendix-A.5-9">
+<pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vaccination/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VaccinationCertificate"
+  ],
+  "issuer": "https://example.com/issuer",
+  "issuanceDate": "2023-02-09T11:01:59Z",
+  "expirationDate": "2028-02-08T11:01:59Z",
+  "name": "COVID-19 Vaccination Certificate",
+  "description": "COVID-19 Vaccination Certificate",
+  "credentialSubject": {
+    "_sd": [
+      "8-N936mMUuXx-Kbf6byQTDOwQoFcoapEvVPbYWiRV5M",
+      "GyDDvOMyEtqsI3vdjbaVSXJZp_WjX_JQIMVqehpr1cU",
+      "MGWjDeD0DvcvG2quwT0zT3wz72HisTJoOtimMc65Qtg",
+      "S7xgnTLcgRqHRipEu0xiEQceAaYh_mfjowFsNZORh4w",
+      "aO2ZezAuMOhmhVv0pQ-U_ZUB4py2hOHa-x7xmGywt8E",
+      "qkaVSrXEw2sbbqS5YdtU1HMNAEjMofTH_6DCxDr91LQ",
+      "ypFwyXOiHzulGDvpY46Jr1nDRexz35FYfBqJWe7xKqc"
+    ],
+    "vaccine": {
+      "_sd": [
+        "C10ypGMJiTgrgKICDu0TIJ5HSEEhRrsy-XgjPGSsxEk",
+        "HduAC5dITq5LsmcYJChAHrSanA0106-JQdkfqVI-Drs",
+        "HlXX723D-EgjoNr4nQVUbEpAg1Gaxwl74350UXfBBM0"
+      ],
+      "type": "Vaccine"
+    },
+    "recipient": {
+      "_sd": [
+        "-KMt3FVtI_7DuaDpFZGIfE751AwqnXKpLVCQaIpl6P4",
+        "8FbBeqe_wV1ES-RU28y8DDkfQv9dlGziVdd9R3jq-fQ",
+        "Cu8JNGQ2WRs6KHKngBKEaU9r6SMfnwoVVYGTPWwvxJc",
+        "YJI42JtoLHmwv2oi45QW6wmINZXTpYBxhD4eWlmEpiw"
+      ],
+      "type": "VaccineRecipient"
+    },
+    "type": "VaccinationEvent"
+  },
+  "_sd_alg": "sha-256",
+  "cnf": {
+    "jwk": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "TCAER19Zvu3OHF4j4W4vfSVoHIP1ILilDls7vCeGemc",
+      "y": "ZxjiWWbZMQGHVWKVQ4hbSIirsVfuecCE6t4jT9F2HZQ"
+    }
+  }
+}
+</pre><a href="#appendix-A.5-9" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-10">Disclosures:<a href="#appendix-A.5-10" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-11"><strong>Disclosure for <code>atcCode</code>:</strong><a href="#appendix-A.5-11" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-12">
+<pre>WyItdjRQVzNldk5TUktHbGNHeHZNbHhRIiwgImF0Y0NvZGUiLCAiSjA3QlgwMyJd
+</pre><a href="#appendix-A.5-12" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-13">Contents:<a href="#appendix-A.5-13" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-14">
+<pre>["-v4PW3evNSRKGlcGxvMlxQ", "atcCode", "J07BX03"]
+</pre><a href="#appendix-A.5-14" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-15">SHA-256 Hash: <code>HduAC5dITq5LsmcYJChAHrSanA0106-JQdkfqVI-Drs</code><a href="#appendix-A.5-15" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-16"><strong>Disclosure for <code>medicinalProductName</code>:</strong><a href="#appendix-A.5-16" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-17">
+<pre>WyJqZ2FzWTVvUE94VHVSZXAwYWhVWDR3IiwgIm1lZGljaW5hbFByb2R1Y3ROYW1lIiwg
+IkNPVklELTE5IFZhY2NpbmUgTW9kZXJuYSJd
+</pre><a href="#appendix-A.5-17" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-18">Contents:<a href="#appendix-A.5-18" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-19">
+<pre>["jgasY5oPOxTuRep0ahUX4w", "medicinalProductName", "COVID-19 Vaccine
+Moderna"]
+</pre><a href="#appendix-A.5-19" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-20">SHA-256 Hash: <code>C10ypGMJiTgrgKICDu0TIJ5HSEEhRrsy-XgjPGSsxEk</code><a href="#appendix-A.5-20" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-21"><strong>Disclosure for <code>marketingAuthorizationHolder</code>:</strong><a href="#appendix-A.5-21" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-22">
+<pre>WyJQRkF5dnIyeG03LTJTTlZUTmdsdjhBIiwgIm1hcmtldGluZ0F1dGhvcml6YXRpb25I
+b2xkZXIiLCAiTW9kZXJuYSBCaW90ZWNoIl0
+</pre><a href="#appendix-A.5-22" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-23">Contents:<a href="#appendix-A.5-23" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-24">
+<pre>["PFAyvr2xm7-2SNVTNglv8A", "marketingAuthorizationHolder", "Moderna
+Biotech"]
+</pre><a href="#appendix-A.5-24" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-25">SHA-256 Hash: <code>HlXX723D-EgjoNr4nQVUbEpAg1Gaxwl74350UXfBBM0</code><a href="#appendix-A.5-25" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-26"><strong>Disclosure for <code>nextVaccinationDate</code>:</strong><a href="#appendix-A.5-26" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-27">
+<pre>WyJTNFdBd0k0aEFDemx6eDZRclZaODdnIiwgIm5leHRWYWNjaW5hdGlvbkRhdGUiLCAi
+MjAyMS0wOC0xNlQxMzo0MDoxMloiXQ
+</pre><a href="#appendix-A.5-27" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-28">Contents:<a href="#appendix-A.5-28" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-29">
+<pre>["S4WAwI4hACzlzx6QrVZ87g", "nextVaccinationDate",
+"2021-08-16T13:40:12Z"]
+</pre><a href="#appendix-A.5-29" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-30">SHA-256 Hash: <code>aO2ZezAuMOhmhVv0pQ-U_ZUB4py2hOHa-x7xmGywt8E</code><a href="#appendix-A.5-30" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-31"><strong>Disclosure for <code>countryOfVaccination</code>:</strong><a href="#appendix-A.5-31" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-32">
+<pre>WyJybUtiMkVkbG5MVWFtUGdoSnZ3NURBIiwgImNvdW50cnlPZlZhY2NpbmF0aW9uIiwg
+IkdFIl0
+</pre><a href="#appendix-A.5-32" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-33">Contents:<a href="#appendix-A.5-33" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-34">
+<pre>["rmKb2EdlnLUamPghJvw5DA", "countryOfVaccination", "GE"]
+</pre><a href="#appendix-A.5-34" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-35">SHA-256 Hash: <code>S7xgnTLcgRqHRipEu0xiEQceAaYh_mfjowFsNZORh4w</code><a href="#appendix-A.5-35" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-36"><strong>Disclosure for <code>dateOfVaccination</code>:</strong><a href="#appendix-A.5-36" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-37">
+<pre>WyJhZlNPY2t0cW9kN3VpSTRnaEpDcHNBIiwgImRhdGVPZlZhY2NpbmF0aW9uIiwgIjIw
+MjEtMDYtMjNUMTM6NDA6MTJaIl0
+</pre><a href="#appendix-A.5-37" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-38">Contents:<a href="#appendix-A.5-38" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-39">
+<pre>["afSOcktqod7uiI4ghJCpsA", "dateOfVaccination",
+"2021-06-23T13:40:12Z"]
+</pre><a href="#appendix-A.5-39" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-40">SHA-256 Hash: <code>qkaVSrXEw2sbbqS5YdtU1HMNAEjMofTH_6DCxDr91LQ</code><a href="#appendix-A.5-40" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-41"><strong>Disclosure for <code>order</code>:</strong><a href="#appendix-A.5-41" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-42">
+<pre>WyJscmhHM1gyOG9QX3VtTGFwRG5lOUlnIiwgIm9yZGVyIiwgIjMvMyJd
+</pre><a href="#appendix-A.5-42" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-43">Contents:<a href="#appendix-A.5-43" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-44">
+<pre>["lrhG3X28oP_umLapDne9Ig", "order", "3/3"]
+</pre><a href="#appendix-A.5-44" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-45">SHA-256 Hash: <code>GyDDvOMyEtqsI3vdjbaVSXJZp_WjX_JQIMVqehpr1cU</code><a href="#appendix-A.5-45" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-46"><strong>Disclosure for <code>gender</code>:</strong><a href="#appendix-A.5-46" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-47">
+<pre>WyJMdlNISWdtc280elI5NFJjNm1SUUh3IiwgImdlbmRlciIsICJGZW1hbGUiXQ
+</pre><a href="#appendix-A.5-47" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-48">Contents:<a href="#appendix-A.5-48" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-49">
+<pre>["LvSHIgmso4zR94Rc6mRQHw", "gender", "Female"]
+</pre><a href="#appendix-A.5-49" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-50">SHA-256 Hash: <code>Cu8JNGQ2WRs6KHKngBKEaU9r6SMfnwoVVYGTPWwvxJc</code><a href="#appendix-A.5-50" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-51"><strong>Disclosure for <code>birthDate</code>:</strong><a href="#appendix-A.5-51" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-52">
+<pre>WyJGbnlha0RCczNTN3RrZUM0eWxfQjhnIiwgImJpcnRoRGF0ZSIsICIxOTYxLTA4LTE3
+Il0
+</pre><a href="#appendix-A.5-52" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-53">Contents:<a href="#appendix-A.5-53" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-54">
+<pre>["FnyakDBs3S7tkeC4yl_B8g", "birthDate", "1961-08-17"]
+</pre><a href="#appendix-A.5-54" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-55">SHA-256 Hash: <code>-KMt3FVtI_7DuaDpFZGIfE751AwqnXKpLVCQaIpl6P4</code><a href="#appendix-A.5-55" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-56"><strong>Disclosure for <code>givenName</code>:</strong><a href="#appendix-A.5-56" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-57">
+<pre>WyJxYzA5WWNDcVJ2M1dMT1lsOGZaZFl3IiwgImdpdmVuTmFtZSIsICJNYXJpb24iXQ
+</pre><a href="#appendix-A.5-57" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-58">Contents:<a href="#appendix-A.5-58" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-59">
+<pre>["qc09YcCqRv3WLOYl8fZdYw", "givenName", "Marion"]
+</pre><a href="#appendix-A.5-59" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-60">SHA-256 Hash: <code>8FbBeqe_wV1ES-RU28y8DDkfQv9dlGziVdd9R3jq-fQ</code><a href="#appendix-A.5-60" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-61"><strong>Disclosure for <code>familyName</code>:</strong><a href="#appendix-A.5-61" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-62">
+<pre>WyJUNDVqck1ZbThNa29WU1QtUXlhNGhBIiwgImZhbWlseU5hbWUiLCAiTXVzdGVybWFu
+biJd
+</pre><a href="#appendix-A.5-62" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-63">Contents:<a href="#appendix-A.5-63" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-64">
+<pre>["T45jrMYm8MkoVST-Qya4hA", "familyName", "Mustermann"]
+</pre><a href="#appendix-A.5-64" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-65">SHA-256 Hash: <code>YJI42JtoLHmwv2oi45QW6wmINZXTpYBxhD4eWlmEpiw</code><a href="#appendix-A.5-65" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-66"><strong>Disclosure for <code>administeringCentre</code>:</strong><a href="#appendix-A.5-66" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-67">
+<pre>WyJOeGtSS3hEdEttU2dPNkRteXpiRDB3IiwgImFkbWluaXN0ZXJpbmdDZW50cmUiLCAi
+UHJheGlzIFNvbW1lcmdhcnRlbiJd
+</pre><a href="#appendix-A.5-67" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-68">Contents:<a href="#appendix-A.5-68" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-69">
+<pre>["NxkRKxDtKmSgO6DmyzbD0w", "administeringCentre", "Praxis
+Sommergarten"]
+</pre><a href="#appendix-A.5-69" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-70">SHA-256 Hash: <code>MGWjDeD0DvcvG2quwT0zT3wz72HisTJoOtimMc65Qtg</code><a href="#appendix-A.5-70" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-71"><strong>Disclosure for <code>batchNumber</code>:</strong><a href="#appendix-A.5-71" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-72">
+<pre>WyJQQ2RiNkpITWZmMENiOVBWNHF3d29nIiwgImJhdGNoTnVtYmVyIiwgIjE2MjYzODI3
+MzYiXQ
+</pre><a href="#appendix-A.5-72" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-73">Contents:<a href="#appendix-A.5-73" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-74">
+<pre>["PCdb6JHMff0Cb9PV4qwwog", "batchNumber", "1626382736"]
+</pre><a href="#appendix-A.5-74" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-75">SHA-256 Hash: <code>ypFwyXOiHzulGDvpY46Jr1nDRexz35FYfBqJWe7xKqc</code><a href="#appendix-A.5-75" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-76"><strong>Disclosure for <code>healthProfessional</code>:</strong><a href="#appendix-A.5-76" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-77">
+<pre>WyJqUTBHTF9IRkxIdUpKeWFPYkVJa2x3IiwgImhlYWx0aFByb2Zlc3Npb25hbCIsICI4
+ODMxMTAwMDAwMTUzNzYiXQ
+</pre><a href="#appendix-A.5-77" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-78">Contents:<a href="#appendix-A.5-78" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-A.5-79">
+<pre>["jQ0GL_HFLHuJJyaObEIklw", "healthProfessional", "883110000015376"]
+</pre><a href="#appendix-A.5-79" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-80">SHA-256 Hash: <code>8-N936mMUuXx-Kbf6byQTDOwQoFcoapEvVPbYWiRV5M</code><a href="#appendix-A.5-80" class="pilcrow">¶</a></p>
+<p id="appendix-A.5-81">The following is a non-normative example of a Combined Format for Presentation for the SD-JWT with a Holder Binding JWT. It only discloses <code>type</code>, <code>medicinalProductName</code>, <code>atcCode</code> of the vaccine, <code>type</code> of the <code>recipient</code>, <code>type</code>, <code>order</code> and <code>dateOfVaccination</code>.<a href="#appendix-A.5-81" class="pilcrow">¶</a></p>
+<div class="lang-txt sourcecode" id="appendix-A.5-82">
+<pre>eyJhbGciOiAiRVMyNTYifQ.eyJAY29udGV4dCI6IFsiaHR0cHM6Ly93d3cudzMub3JnL
+zIwMTgvY3JlZGVudGlhbHMvdjEiLCAiaHR0cHM6Ly93M2lkLm9yZy92YWNjaW5hdGlvb
+i92MSJdLCAidHlwZSI6IFsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCAiVmFjY2luYXRpb
+25DZXJ0aWZpY2F0ZSJdLCAiaXNzdWVyIjogImh0dHBzOi8vZXhhbXBsZS5jb20vamRvZ
+SIsICJpc3N1YW5jZURhdGUiOiAiMjAyMy0wMi0wOVQxMTowMTo1OVoiLCAiZXhwaXJhd
+GlvbkRhdGUiOiAiMjAyOC0wMi0wOFQxMTowMTo1OVoiLCAibmFtZSI6ICJDT1ZJRC0xO
+SBWYWNjaW5hdGlvbiBDZXJ0aWZpY2F0ZSIsICJkZXNjcmlwdGlvbiI6ICJDT1ZJRC0xO
+SBWYWNjaW5hdGlvbiBDZXJ0aWZpY2F0ZSIsICJjcmVkZW50aWFsU3ViamVjdCI6IHsiX
+3NkIjogWyI4LU45MzZtTVV1WHgtS2JmNmJ5UVRET3dRb0Zjb2FwRXZWUGJZV2lSVjVNI
+iwgIkd5RER2T015RXRxc0kzdmRqYmFWU1hKWnBfV2pYX0pRSU1WcWVocHIxY1UiLCAiT
+UdXakRlRDBEdmN2RzJxdXdUMHpUM3d6NzJIaXNUSm9PdGltTWM2NVF0ZyIsICJTN3hnb
+lRMY2dScUhSaXBFdTB4aUVRY2VBYVloX21mam93RnNOWk9SaDR3IiwgImFPMlplekF1T
+U9obWhWdjBwUS1VX1pVQjRweTJoT0hhLXg3eG1HeXd0OEUiLCAicWthVlNyWEV3MnNiY
+nFTNVlkdFUxSE1OQUVqTW9mVEhfNkRDeERyOTFMUSIsICJ5cEZ3eVhPaUh6dWxHRHZwW
+TQ2SnIxbkRSZXh6MzVGWWZCcUpXZTd4S3FjIl0sICJ2YWNjaW5lIjogeyJfc2QiOiBbI
+kMxMHlwR01KaVRncmdLSUNEdTBUSUo1SFNFRWhScnN5LVhnalBHU3N4RWsiLCAiSGR1Q
+UM1ZElUcTVMc21jWUpDaEFIclNhbkEwMTA2LUpRZGtmcVZJLURycyIsICJIbFhYNzIzR
+C1FZ2pvTnI0blFWVWJFcEFnMUdheHdsNzQzNTBVWGZCQk0wIl0sICJ0eXBlIjogIlZhY
+2NpbmUifSwgInJlY2lwaWVudCI6IHsiX3NkIjogWyItS010M0ZWdElfN0R1YURwRlpHS
+WZFNzUxQXdxblhLcExWQ1FhSXBsNlA0IiwgIjhGYkJlcWVfd1YxRVMtUlUyOHk4RERrZ
+lF2OWRsR3ppVmRkOVIzanEtZlEiLCAiQ3U4Sk5HUTJXUnM2S0hLbmdCS0VhVTlyNlNNZ
+m53b1ZWWUdUUFd3dnhKYyIsICJZSkk0Mkp0b0xIbXd2Mm9pNDVRVzZ3bUlOWlhUcFlCe
+GhENGVXbG1FcGl3Il0sICJ0eXBlIjogIlZhY2NpbmVSZWNpcGllbnQifSwgInR5cGUiO
+iAiVmFjY2luYXRpb25FdmVudCJ9LCAiaXNzIjogImh0dHBzOi8vZXhhbXBsZS5jb20va
+XNzdWVyIiwgImlhdCI6IDE1MTYyMzkwMjIsICJleHAiOiAxNTE2MjQ3MDIyLCAiX3NkX
+2FsZyI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiRUMiLCAiY3J2I
+jogIlAtMjU2IiwgIngiOiAiVENBRVIxOVp2dTNPSEY0ajRXNHZmU1ZvSElQMUlMaWxEb
+HM3dkNlR2VtYyIsICJ5IjogIlp4amlXV2JaTVFHSFZXS1ZRNGhiU0lpcnNWZnVlY0NFN
+nQ0alQ5RjJIWlEifX19.Z5zQzcPFTkeNt49nS_Vtmuq49cpn6PuE3Y3UmFiKOxT9rlBx
+jmCwb3UqPzuyvL5G1vhswELD2d3iakMvtq3jgQ~WyJscmhHM1gyOG9QX3VtTGFwRG5lO
+UlnIiwgIm9yZGVyIiwgIjMvMyJd~WyJhZlNPY2t0cW9kN3VpSTRnaEpDcHNBIiwgImRh
+dGVPZlZhY2NpbmF0aW9uIiwgIjIwMjEtMDYtMjNUMTM6NDA6MTJaIl0~WyJqZ2FzWTVv
+UE94VHVSZXAwYWhVWDR3IiwgIm1lZGljaW5hbFByb2R1Y3ROYW1lIiwgIkNPVklELTE5
+IFZhY2NpbmUgTW9kZXJuYSJd~WyItdjRQVzNldk5TUktHbGNHeHZNbHhRIiwgImF0Y0N
+vZGUiLCAiSjA3QlgwMyJd~eyJhbGciOiAiRVMyNTYifQ.eyJub25jZSI6ICJYWk9VY28
+xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3Zlcml
+maWVyIiwgImlhdCI6IDE2NzYwNDg5NzV9.QVDqrgqbWpAlnC1pl69q-FmT1BomWLjD6g
+xfhhKlZVq7SZheXzXEBDdVf3rWAzJOFOMk84tAp3wjLb9HQrckpA
+</pre><a href="#appendix-A.5-82" class="pilcrow">¶</a>
+</div>
+<p id="appendix-A.5-83">After the validation, the Verifier will have the following data for further processing:<a href="#appendix-A.5-83" class="pilcrow">¶</a></p>
+<div class="lang-json sourcecode" id="appendix-A.5-84">
+<pre>{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/vaccination/v1"
+  ],
+  "type": [
+    "VerifiableCredential",
+    "VaccinationCertificate"
+  ],
+  "issuer": "https://example.com/issuer",
+  "issuanceDate": "2023-02-09T11:01:59Z",
+  "expirationDate": "2028-02-08T11:01:59Z",
+  "name": "COVID-19 Vaccination Certificate",
+  "description": "COVID-19 Vaccination Certificate",
+  "credentialSubject": {
+    "vaccine": {
+      "type": "Vaccine",
+      "medicinalProductName": "COVID-19 Vaccine Moderna",
+      "atcCode": "J07BX03"
+    },
+    "recipient": {
+      "type": "VaccineRecipient"
+    },
+    "type": "VaccinationEvent",
+    "order": "3/3",
+    "dateOfVaccination": "2021-06-23T13:40:12Z"
+  },
+  "_sd_alg": "sha-256",
+  "cnf": {
+    "jwk": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "TCAER19Zvu3OHF4j4W4vfSVoHIP1ILilDls7vCeGemc",
+      "y": "ZxjiWWbZMQGHVWKVQ4hbSIirsVfuecCE6t4jT9F2HZQ"
+    }
+  }
+}
+</pre><a href="#appendix-A.5-84" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
