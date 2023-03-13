@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 8 September 2023</td>
+<td class="center">Expires 14 September 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-03-07" class="published">7 March 2023</time>
+<time datetime="2023-03-13" class="published">13 March 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-09-08">8 September 2023</time></dd>
+<dd class="expires"><time datetime="2023-09-14">14 September 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1127,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 September 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2664,8 +2664,8 @@ example, by requiring the use of TLS.<a href="#section-9.2-2" class="pilcrow">¶
 <p id="section-9.2-3">This specification therefore considers the confidentiality of the data to be
 provided by the transport protocol and does not specify any encryption
 mechanism.<a href="#section-9.2-3" class="pilcrow">¶</a></p>
-<p id="section-9.2-4">Implementers MUST ensure that the transport protocol provides confidentiality,
-if the privacy of End-User data or correlation attacks by the passive observers are a concern. Implementers MAY define an
+<p id="section-9.2-4">Implementers MUST ensure that the transport protocol provides confidentiality
+if the privacy of End-User data or correlation attacks by passive observers are a concern. Implementers MAY define an
 envelope format (such as described in <a href="#enveloping" class="auto internal xref">Section 7</a> or nesting the SD-JWT Combined Format as
 the plaintext payload of a JWE) to encrypt the SD-JWT
 and associated Disclosures when transmitted over an insecure channel.<a href="#section-9.2-4" class="pilcrow">¶</a></p>
@@ -2702,10 +2702,10 @@ or two presentation sessions to the same user on the basis of unique values enco
         <h3 id="name-issuer-identifier">
 <a href="#section-9.5" class="section-number selfRef">9.5. </a><a href="#name-issuer-identifier" class="section-name selfRef">Issuer Identifier</a>
         </h3>
-<p id="section-9.5-1">Issuer issuing only one type of SD-JWT might have privacy implications, because if the Holder has an SD-JWT issued by that Issuer, its type and claim names can be determined.<a href="#section-9.5-1" class="pilcrow">¶</a></p>
+<p id="section-9.5-1">An Issuer issuing only one type of SD-JWT might have privacy implications, because if the Holder has an SD-JWT issued by that Issuer, its type and claim names can be determined.<a href="#section-9.5-1" class="pilcrow">¶</a></p>
 <p id="section-9.5-2">For example, if the National Cancer Institute only issued SD-JWTs with cancer registry information, it is possible to deduce that the Holder owning its SD-JWT is a cancer patient.<a href="#section-9.5-2" class="pilcrow">¶</a></p>
-<p id="section-9.5-3">Moreover, issuer identifier alone may reveal information about the user.<a href="#section-9.5-3" class="pilcrow">¶</a></p>
-<p id="section-9.5-4">For example, when a military organization or a drug rehab center issues a vaccine credential, verifiers can deduce that the holder is a military member or has a substance use disorder.<a href="#section-9.5-4" class="pilcrow">¶</a></p>
+<p id="section-9.5-3">Moreover, the issuer identifier alone may reveal information about the user.<a href="#section-9.5-3" class="pilcrow">¶</a></p>
+<p id="section-9.5-4">For example, when a military organization or a drug rehabilitation center issues a vaccine credential, verifiers can deduce that the holder is a military member or may have a substance use disorder.<a href="#section-9.5-4" class="pilcrow">¶</a></p>
 <p id="section-9.5-5">To mitigate this issue, a group of issuers may elect to use a common Issuer identifier. A group signature scheme outside the scope of this specification may also be used, instead of an individual signature.<a href="#section-9.5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
