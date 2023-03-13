@@ -1292,6 +1292,9 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
                 <p id="section-toc.1-1.9.2.4.1"><a href="#section-9.4" class="auto internal xref">9.4</a>.  <a href="#name-unlinkability" class="internal xref">Unlinkability</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.5">
+                <p id="section-toc.1-1.9.2.5.1"><a href="#section-9.5" class="auto internal xref">9.5</a>.  <a href="#name-issuer-identifier" class="internal xref">Issuer Identifier</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
@@ -2675,6 +2678,7 @@ key-distribution method.<a href="#section-8.9-1" class="pilcrow">¶</a></p>
       <h2 id="name-privacy-considerations">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
       </h2>
+<p id="section-9-1">The privacy principles of <span>[<a href="#ISO.29100" class="cite xref">ISO.29100</a>]</span> should be adhered to.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <div id="storage-of-signed-user-data">
 <section id="section-9.1">
         <h3 id="name-storage-of-signed-user-data">
@@ -2730,8 +2734,8 @@ example, by requiring the use of TLS.<a href="#section-9.2-2" class="pilcrow">¶
 <p id="section-9.2-3">This specification therefore considers the confidentiality of the data to be
 provided by the transport protocol and does not specify any encryption
 mechanism.<a href="#section-9.2-3" class="pilcrow">¶</a></p>
-<p id="section-9.2-4">Implementers MUST ensure that the transport protocol provides confidentiality,
-if the privacy of End-User data or correlation attacks are a concern. Implementers MAY define an
+<p id="section-9.2-4">Implementers MUST ensure that the transport protocol provides confidentiality
+if the privacy of End-User data or correlation attacks by passive observers are a concern. Implementers MAY define an
 envelope format (such as described in <a href="#enveloping" class="auto internal xref">Section 7</a> or nesting the SD-JWT Combined Format as
 the plaintext payload of a JWE) to encrypt the SD-JWT
 and associated Disclosures when transmitted over an insecure channel.<a href="#section-9.2-4" class="pilcrow">¶</a></p>
@@ -2761,6 +2765,18 @@ or two presentation sessions to the same user on the basis of unique values enco
           <li class="normal" id="section-9.4-3.2">Issue a batch of SD-JWTs to the Holder to enable the Holder to use a unique SD-JWT per Verifier. This only helps with Verifier/Verifier unlinkability.<a href="#section-9.4-3.2" class="pilcrow">¶</a>
 </li>
         </ul>
+</section>
+</div>
+<div id="issuer-identifier">
+<section id="section-9.5">
+        <h3 id="name-issuer-identifier">
+<a href="#section-9.5" class="section-number selfRef">9.5. </a><a href="#name-issuer-identifier" class="section-name selfRef">Issuer Identifier</a>
+        </h3>
+<p id="section-9.5-1">An Issuer issuing only one type of SD-JWT might have privacy implications, because if the Holder has an SD-JWT issued by that Issuer, its type and claim names can be determined.<a href="#section-9.5-1" class="pilcrow">¶</a></p>
+<p id="section-9.5-2">For example, if the National Cancer Institute only issued SD-JWTs with cancer registry information, it is possible to deduce that the Holder owning its SD-JWT is a cancer patient.<a href="#section-9.5-2" class="pilcrow">¶</a></p>
+<p id="section-9.5-3">Moreover, the issuer identifier alone may reveal information about the user.<a href="#section-9.5-3" class="pilcrow">¶</a></p>
+<p id="section-9.5-4">For example, when a military organization or a drug rehabilitation center issues a vaccine credential, verifiers can deduce that the holder is a military member or may have a substance use disorder.<a href="#section-9.5-4" class="pilcrow">¶</a></p>
+<p id="section-9.5-5">To mitigate this issue, a group of issuers may elect to use a common Issuer identifier. A group signature scheme outside the scope of this specification may also be used, instead of an individual signature.<a href="#section-9.5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2833,6 +2849,10 @@ for their contributions (some of which substantial) to this draft and to the ini
 <dt id="IANA.Hash.Algorithms">[IANA.Hash.Algorithms]</dt>
       <dd>
 <span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information Hash Algorithm"</span>, <span>&lt;<a href="https://www.iana.org/assignments/named-information/named-information.xhtml">https://www.iana.org/assignments/named-information/named-information.xhtml</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ISO.29100">[ISO.29100]</dt>
+      <dd>
+<span class="refAuthor">ISO</span>, <span class="refTitle">"ISO/IEC 29100:2011 Information technology — Security techniques — Privacy framework"</span>, <span>&lt;<a href="https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html">https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="OIDC.IDA">[OIDC.IDA]</dt>
       <dd>
