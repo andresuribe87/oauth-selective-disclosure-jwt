@@ -2151,7 +2151,7 @@ subset of the Disclosures to the Verifier.<a href="#section-5.4-1" class="pilcro
 <pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure M&gt;~&lt;optional Holder Binding JWT&gt;
 </pre><a href="#section-5.4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.4-4">The order of the base64url-encoded values MUST be an SD-JWT, Disclosures, and an optional Holder Binding JWT. In case there is no Holder Binding JWT, the last element is an empty string. The last separating tilde character MUST NOT be omitted.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.4-4">The order of the base64url-encoded values MUST be an SD-JWT, Disclosures, and an optional Holder Binding JWT. In case there is no Holder Binding JWT, the last element MUST be an empty string. The last separating tilde character MUST NOT be omitted.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.4-5">This is called the Combined Format for Presentation.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
 <p id="section-5.4-6">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
 none, multiple, or all Disclosures. For data that the Holder does not want to reveal
