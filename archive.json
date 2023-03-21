@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-03-14T00:55:28.911619+00:00",
+  "timestamp": "2023-03-21T00:59:44.121664+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -5467,7 +5467,7 @@
       "id": "I_kwDOHTmVzM5eCBRg",
       "title": "Terminology: \"JWT\" / JSON-LD Example",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/208",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danielfett",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -5478,8 +5478,8 @@
       ],
       "body": "Note to myself:\r\n\r\n- SD-JWT is a JWT (or JWS Serialization as discussed)\r\n- Content (in/out) needs to be JSON\r\n- Content does not need specific claims, can be JSON-LD\r\n- We should provide an example for JSON-LD",
       "createdAt": "2023-02-09T10:03:04Z",
-      "updatedAt": "2023-03-11T00:02:29Z",
-      "closedAt": null,
+      "updatedAt": "2023-03-19T09:48:07Z",
+      "closedAt": "2023-03-19T09:48:07Z",
       "comments": [
         {
           "author": "Sakurann",
@@ -5487,6 +5487,13 @@
           "body": "update processing rules to add a nuance \"take JSON\", which implies (?) it can be JSON-LD which is also JSON?\r\n\r\nalso nuance SD-JWT is based on a JWT. ",
           "createdAt": "2023-02-22T17:16:51Z",
           "updatedAt": "2023-02-22T17:16:51Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR merged",
+          "createdAt": "2023-03-19T09:48:07Z",
+          "updatedAt": "2023-03-19T09:48:07Z"
         }
       ]
     },
