@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-03-28T01:02:22.813459+00:00",
+  "timestamp": "2023-03-30T01:01:48.795858+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -5220,7 +5220,7 @@
       "labels": [],
       "body": "We currently do not support selective disclosure for elements in an array (we do support it for keys within objects within arrays, but not for arbitrary array elements).\r\n\r\nExample:\r\n\r\nThe key `foo` in `{\"foo\": [23, \"bar\", false]}` can be SD, but we can't apply SD to the array elements, i.e., we cannot disclose `23` without disclosing `\"bar\"`. \r\n\r\nProposal:\r\n\r\nFor object keys, we use the new key `_sd` to collect the disclosure hashes. For arrays, we would need to mark the array as selectively disclosable, e.g., by using a special first element in the array like this:\r\n\r\n`{\"foo\": [\"_sd\", \"7pHe1uQ5uSClgAxXdG0E6dKnBgXcxEO1zvoQO9E5Lr4\", \"9-VdSnvRTZNDo-4Bxcp3X-V9VtLOCRUkR6oLWZQl81I\",\r\n      \"nTzPZ3Q68z1Ko_9ao9LK0mSYXY5gY6UG6KEkQ_BdqU0\"]}`\r\n\r\nThe three hashes correspond to the three elements in the array. The verifier can resolve the disclosed elements into their original values and ignore/replace the other values. Order is preserved. This works for arbitrary element types.\r\n\r\nThis would not allow to mix SD and non-SD elements in an array, but it seems unlikely that that would be a problem. WDYT @bc-pi @Sakurann?\r\n   ",
       "createdAt": "2022-12-27T15:36:00Z",
-      "updatedAt": "2023-02-25T14:34:00Z",
+      "updatedAt": "2023-03-29T05:16:09Z",
       "closedAt": null,
       "comments": [
         {
@@ -5260,7 +5260,7 @@
         },
         {
           "author": "tlodderstedt",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "The most obvious example is the EBSI schema for diplomas. \r\n\r\nhttps://ec.europa.eu/digital-building-blocks/code/projects/EBSI/repos/json-schema/browse/schemas/ebsi-muti-uni-pilot/verifiable-diploma/2022-11/examples/Ildiko%20Mazar_Graduate%20University%20Study%20of%20Civil%20Engineering_shortened.json\r\n\r\nWhen I tried to transform this into a sd-jwt, I learned it uses arrays on various levels for the different objects (e.g. achievements). I would assume it is desirable to be able to selectively disclose those. \r\n\r\nI have also worked on an example of an eID (PID in eIDAS terms) VC that has different kins of holder binding. The syntax is inspired by a proposal Oliver Terbu and Paul Bastian presented at IIW. \r\n\r\n``` json\r\n{\r\n    \"iss\": \"https://pid_issuer.memberstate.eu\",\r\n    \"iat\": 1541493724,\r\n    \"type\": \"PersonIdentificationData\",\r\n            \"holder\":\r\n            {\r\n                \"binding\":\r\n                    [\r\n                        {\r\n                            \"type\": \"CryptographicBinding2022\",\r\n                            \"did\": \"did:example:1386147674571545\"\r\n                        },\r\n                                                {\r\n                            \"type\": \"BiometricBinding2022\",\r\n                            \"template\": \"...\"\r\n                        },\r\n                    ],\r\n            },\r\n    \"credentialSubject\":\r\n      {\r\n        \"given_name\": \"Erika\",\r\n        \"family_name\": \"Mustermann\",\r\n        \"nationalities\": [\"DE\"],\r\n        \"birth_family_name\": \"Schmidt\",\r\n        \"birthdate\": \"1973-01-01\",\r\n        \"place_of_birth\": \"Regensburg\",\r\n        \"address\":\r\n          {\r\n            \"postal_code\": \"12345\",\r\n            \"locality\": \"Irgendwo\",\r\n            \"street_address\": \"Sonnenstrasse 23\",\r\n            \"country_code\": \"DE\"\r\n          },\r\n        \"is_over_18\": true,\r\n        \"is_over_21\": true,\r\n        \"is_over_65\": false\r\n      }\r\n  }\r\n``` \r\n\r\n\r\nBoth entries define a certain binding (one to a cryptographically bound identifier, the other one has a biometric template). Only one of them is relevant for a certain verifier (online - crypto, offline/supervised - biometry). So I would like to disclose them individually. \r\n",
           "createdAt": "2023-01-25T09:12:13Z",
           "updatedAt": "2023-01-25T09:14:38Z"
@@ -5285,6 +5285,34 @@
           "body": "As I'm a newbie in SD-JWT discussion, I don't know whether this issue has already reached an agreed solution or not. But if not yet, another approach that may be worth considering is to **include an array index in the claim name** when a disclosure is prepared. For example, ...\r\n\r\n**Plain Payload**\r\n\r\n```json\r\n{\r\n  \"array\": [ \"value0\", \"value1\" ]\r\n}\r\n```\r\n\r\n**Disclosure for the first element**\r\n\r\n```json\r\n[ \"{salt}\", \"array[0]\", \"value0\" ]\r\n```\r\n\r\n**Payload with `_sd`**\r\n\r\n```json\r\n{\r\n  \"_sd\": [ \"{digest of the Disclosure}\" ],\r\n  \"array\": [ null, \"value1\" ]\r\n}\r\n```\r\n\r\n",
           "createdAt": "2023-02-25T14:33:59Z",
           "updatedAt": "2023-02-25T14:33:59Z"
+        },
+        {
+          "author": "jogu",
+          "authorAssociation": "NONE",
+          "body": "The nationalities example is kind of interesting - if I've understood the proposals, all of them require that disclosing one of your nationalities requires disclosing that you have more than one nationality. i.e. if I'm French & Iranian, I think there's no way to selectivity disclose \"I'm a French national\" without disclosing \"I also have another nationality\" because [even if the nationality claim was not previously disclosed] disclosing one element will disclose the number of elements in the array?\r\n",
+          "createdAt": "2023-03-28T03:19:36Z",
+          "updatedAt": "2023-03-28T03:19:36Z"
+        },
+        {
+          "author": "TakahikoKawasaki",
+          "authorAssociation": "NONE",
+          "body": "@jogu I suppose that [decoy digests](https://www.ietf.org/archive/id/draft-ietf-oauth-selective-disclosure-jwt-03.html#name-decoy-digests-2) can be used for the concern.",
+          "createdAt": "2023-03-28T03:33:19Z",
+          "updatedAt": "2023-03-28T03:33:19Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Taka's idea would nicely work around two problems that my proposals above have:\r\n\r\n* There would be two very different types of Disclosures.\r\n*  The number of elements would always be disclosed.\r\n\r\nI would like to entertain a slightly modified version of Taka's proposal:\r\n\r\n1. To avoid string manipulation, escaping problems, and a temptation to use jsonpath or similar, the disclosures would not encode the element index in the key name, but separately - like this:\r\n\r\n```\r\n[ \"{salt}\", [\"array\", 2], \"value0\" ]\r\n```\r\n\r\nAdmittedly, this would introduce polymorphism, but it would not be much worse than with my approach above.\r\n\r\n2. I would not allow non-sd plaintext values in the array in the SD-JWT, but for simplicity constrain arrays to \"always disclosed\" or \"always sd\". The array in the SD-JWT would just be omitted:\r\n\r\n```\r\n{\r\n  \"_sd\": [ \"{digest of the Disclosure}\" ]\r\n}\r\n```",
+          "createdAt": "2023-03-29T02:30:52Z",
+          "updatedAt": "2023-03-29T02:30:52Z"
+        },
+        {
+          "author": "TakahikoKawasaki",
+          "authorAssociation": "NONE",
+          "body": "Encoding an array name and an index into an array like `[\"array\", 2]` seems a good idea.",
+          "createdAt": "2023-03-29T05:16:08Z",
+          "updatedAt": "2023-03-29T05:16:08Z"
         }
       ]
     },
@@ -5854,9 +5882,17 @@
       "labels": [],
       "body": "[Example 2b](https://drafts.oauth.net/oauth-selective-disclosure-jwt/draft-ietf-oauth-selective-disclosure-jwt.html#name-example-2b-adding-decoys) states that it was created using data from [Example 2a](https://drafts.oauth.net/oauth-selective-disclosure-jwt/draft-ietf-oauth-selective-disclosure-jwt.html#name-example-2a-handling-structu), but adding decoy values. I'd expect its `_sd` param to be a superset of example 2a's, but it's not the case. Am I missing something?",
       "createdAt": "2023-03-27T20:23:08Z",
-      "updatedAt": "2023-03-27T20:23:08Z",
+      "updatedAt": "2023-03-29T02:02:56Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Example 2b includes different nonces than Example 2a.\r\n\r\nWe try to use deterministic random numbers to generate the examples, but in this case, due to the order in which the decoys and regular salts are created, this approach does not produce the same nonces for the same \"real\" disclosures.",
+          "createdAt": "2023-03-29T02:02:56Z",
+          "updatedAt": "2023-03-29T02:02:56Z"
+        }
+      ]
     },
     {
       "number": 241,
@@ -5870,9 +5906,86 @@
       "labels": [],
       "body": "It would be useful to publish the issuer's public key used to generate the examples. This would allow implementations for validate the JWS from the spec. ",
       "createdAt": "2023-03-27T20:25:22Z",
-      "updatedAt": "2023-03-27T20:25:31Z",
+      "updatedAt": "2023-03-29T01:55:43Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "The key pairs can be found here: https://github.com/oauth-wg/oauth-selective-disclosure-jwt/blob/master/sd_jwt/demo_settings.py\r\n\r\nHowever, there is the idea of exposing all data (keys, examples, outputs of reference implementation, etc.) in a more accessible way to allow cross-library testing. I have not worked on that yet, but it's on my list.",
+          "createdAt": "2023-03-29T01:55:43Z",
+          "updatedAt": "2023-03-29T01:55:43Z"
+        }
+      ]
+    },
+    {
+      "number": 242,
+      "id": "I_kwDOHTmVzM5h_DL7",
+      "title": "use of decoys results in rejection by the holder as well as the verifier",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/242",
+      "state": "OPEN",
+      "author": "panva",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "When decoys are used (_sd members not corresponding to a disclosure are added) the [Processing by the Holder](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.1-2.3) says to\r\n\r\n> If any of the digests cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\nI imagine this is not intended and the holder should ignore missing disclosures instead?\r\n\r\nSame in [Verification by the Verifier](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.2-4.5.2.2.2.2.2.1)\r\n\r\n> Find the Disclosure referenced by the digests. If no such Disclosure can be found, the Verifier MUST reject the presentation.",
+      "createdAt": "2023-03-28T13:09:01Z",
+      "updatedAt": "2023-03-29T01:53:22Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "panva",
+          "authorAssociation": "NONE",
+          "body": "Actually the following in [Verification by the Verifier](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.2-4.5.2.2.2.2.2.1) doesn't make sense to me at all since the whole point is to selectively not release disclosures.\r\n\r\n> If no such Disclosure can be found, the Verifier MUST reject the presentation.",
+          "createdAt": "2023-03-28T13:13:18Z",
+          "updatedAt": "2023-03-28T13:13:18Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Good point/catch Filip. I think the intent was to say that if a disclosure\nis found that isn't referenced by a _sd hash value, that should be a\nrejection. But the language got turned around somewhat. I think anyway. It\nneeds to be fixed or clarified regardless though.\n\nOn Tue, Mar 28, 2023, 8:13 AM Filip Skokan ***@***.***> wrote:\n\n> Actually the following in Verification by the Verifier\n> <https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.2-4.5.2.2.2.2.2.1>\n> doesn't make sense to me at all since the whole point is to selectively not\n> release disclosures.\n>\n> If no such Disclosure can be found, the Verifier MUST reject the\n> presentation.\n>\n> \u2014\n> Reply to this email directly, view it on GitHub\n> <https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/242#issuecomment-1486865620>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/ARAXIJ54F7DQGYS7DIMCCG3W6LPXTANCNFSM6AAAAAAWKRSF7U>\n> .\n> You are receiving this because you are subscribed to this thread.Message\n> ID: ***@***.***\n> com>\n>\n\n-- \n_CONFIDENTIALITY NOTICE: This email may contain confidential and privileged \nmaterial for the sole use of the intended recipient(s). Any review, use, \ndistribution or disclosure by others is strictly prohibited.\u00a0 If you have \nreceived this communication in error, please notify the sender immediately \nby e-mail and delete the message and any file attachments from your \ncomputer. Thank you._\n",
+          "createdAt": "2023-03-28T20:56:43Z",
+          "updatedAt": "2023-03-28T20:56:43Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "**Processing by the Holder:**\r\n> > If any of the digests cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\nThis seems fine to me. In the context, \"the digests\" refers to \"the digests of the Disclosures\". If there is a Disclosure that hashes to a digest not found in any _sd array, the SD-JWT is invalid.\r\n \r\nMaybe we can clarify by modifying this to:\r\n\r\n> If there is a digest of a Disclosure that cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\n**Verification by the Verifier:**\r\n\r\n> > Find the Disclosure referenced by the digests. If no such Disclosure can be found, the Verifier MUST reject the presentation.\r\n\r\nThis is wrong and should read \"If no such Disclosure can be found, the digests MUST be ignored.\"\r\n\r\nThanks for bringing this up, Filip!\r\n",
+          "createdAt": "2023-03-29T01:53:22Z",
+          "updatedAt": "2023-03-29T01:53:22Z"
+        }
+      ]
+    },
+    {
+      "number": 243,
+      "id": "I_kwDOHTmVzM5iCmSU",
+      "title": "Progressive multiple hop redaction / disclosure",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/243",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There are use cases where an original issuer chooses not to apply holder binding, and expects a document to be progressively redacted as it is exchanged between multiple parties, for example:\r\n\r\nOriginal full disclosure -> selective disclosure 1 -> selective disclosure 2 ->  selective disclosure 3 -> ...\r\n\r\nA concrete use case is in supply chain documents exchanged relating to supplier origins.\r\n\r\nThis construction is possible in sd-jwt with no changes to the specification, but with caveats about holder binding and possibly unique privacy and security considerations. \r\n\r\nIf we can agree to some rough text here, I am happy to raise a PR.\r\n\r\n",
+      "createdAt": "2023-03-29T00:29:43Z",
+      "updatedAt": "2023-03-29T01:42:59Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Rough proposed text for security / privacy considerations:\r\n\r\n### 9.x Progressive Redaction\r\n\r\nIssuers should be aware that when holder binding is not present, documents can be progressively redacted by any holder, and further redaction can be applied to an already disclosed token.\r\n\r\nFor example, a device manufacturer might produce an SD-JWT containing information about upstream and downstream supply chain contributors.\r\n\r\nEach supply chain party can verify only the disclosed claims they have received from an upstream party, and they can choose to redact claims before presenting the redacted token to a downstream party.\r\n\r\nIn some scenarios this behavior could be desirable, but if it is not, issuers are encouraged to apply holder binding.\r\n",
+          "createdAt": "2023-03-29T00:53:26Z",
+          "updatedAt": "2023-03-29T00:53:26Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Sounds reasonable to me.",
+          "createdAt": "2023-03-29T01:42:58Z",
+          "updatedAt": "2023-03-29T01:42:58Z"
+        }
+      ]
     }
   ],
   "pulls": [
