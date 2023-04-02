@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-03-30T01:01:48.795858+00:00",
+  "timestamp": "2023-04-02T01:01:30.247365+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -5930,7 +5930,7 @@
       "labels": [],
       "body": "When decoys are used (_sd members not corresponding to a disclosure are added) the [Processing by the Holder](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.1-2.3) says to\r\n\r\n> If any of the digests cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\nI imagine this is not intended and the holder should ignore missing disclosures instead?\r\n\r\nSame in [Verification by the Verifier](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-selective-disclosure-jwt-03#section-6.2-4.5.2.2.2.2.2.1)\r\n\r\n> Find the Disclosure referenced by the digests. If no such Disclosure can be found, the Verifier MUST reject the presentation.",
       "createdAt": "2023-03-28T13:09:01Z",
-      "updatedAt": "2023-03-29T01:53:22Z",
+      "updatedAt": "2023-03-30T11:09:38Z",
       "closedAt": null,
       "comments": [
         {
@@ -5953,6 +5953,13 @@
           "body": "**Processing by the Holder:**\r\n> > If any of the digests cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\nThis seems fine to me. In the context, \"the digests\" refers to \"the digests of the Disclosures\". If there is a Disclosure that hashes to a digest not found in any _sd array, the SD-JWT is invalid.\r\n \r\nMaybe we can clarify by modifying this to:\r\n\r\n> If there is a digest of a Disclosure that cannot be found, the Holder MUST reject the SD-JWT.\r\n\r\n**Verification by the Verifier:**\r\n\r\n> > Find the Disclosure referenced by the digests. If no such Disclosure can be found, the Verifier MUST reject the presentation.\r\n\r\nThis is wrong and should read \"If no such Disclosure can be found, the digests MUST be ignored.\"\r\n\r\nThanks for bringing this up, Filip!\r\n",
           "createdAt": "2023-03-29T01:53:22Z",
           "updatedAt": "2023-03-29T01:53:22Z"
+        },
+        {
+          "author": "c2bo",
+          "authorAssociation": "NONE",
+          "body": "Don't we then also need something at the end of Verification by the Verifier - `5.  Process the Disclosures.  For each Disclosure provided:` that makes sure all of the provided disclosures match a digest in the payload and reject if that is not the case or am I missing something here?",
+          "createdAt": "2023-03-30T11:09:38Z",
+          "updatedAt": "2023-03-30T11:09:38Z"
         }
       ]
     },
@@ -5984,6 +5991,65 @@
           "body": "Sounds reasonable to me.",
           "createdAt": "2023-03-29T01:42:58Z",
           "updatedAt": "2023-03-29T01:42:58Z"
+        }
+      ]
+    },
+    {
+      "number": 244,
+      "id": "I_kwDOHTmVzM5iMX27",
+      "title": "Recursive disclosures: Enforce ordering of disclosures?",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/244",
+      "state": "OPEN",
+      "author": "c2bo",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "When implementing the validation of a SD-JWT, we will run into problems (or rather increased complexity) for recursive disclosures if they are not presented in order. If we take the current example for recursive disclosures:\r\n\r\n**address Disclosure:**\r\n```\r\nWyJGcDBqLTd6Q2FOVFdmX3dLNjdzeGlnIiwgImFkZHJlc3MiLCB7Il9zZCI6IFsiMXpn\r\nc3U5RmU2YmtiUVk5ekpzZlBUbzF1QlBNVmw0OG00RWFmeEpUWVN1MCIsICJES3ROX3FX\r\nX2hheVlDR0NLaWhTMzlNM3NvYnMxUlRla3hhS25NYkUxNy1RIiwgImgyRHh4RTgwQzdx\r\nUld4Q1Fqd1I5NmRhNDZqcjJCOGJMU1J3QWRiWlNSbG8iLCAidWRGV0Z4XzkxTmdDamhM\r\nVEhKQXZ2QUh3TlQydmxIQnNXeFBJT3hLMllkbyJdfV0\r\n```\r\n**address Content:**\r\n```\r\n[\"Fp0j-7zCaNTWf_wK67sxig\", \"address\", {\"_sd\":\r\n[\"1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0\",\r\n\"DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q\",\r\n\"h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo\",\r\n\"udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo\"]}]\r\n```\r\n\r\n**street_address Disclosure:**\r\n```\r\nWyIyUzBkSXhpSE9CblVldFBKMW5GbERBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs\r\nc3RyLiAxMiJd\r\n```\r\n**street_address Content:**\r\n```\r\n[\"2S0dIxiHOBnUetPJ1nFlDA\", \"street_address\", \"Schulstr. 12\"]\r\n```\r\n**streed_address digest:**\r\n```\r\nudFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo\r\n```\r\n\r\nThese should imho be presented in order: The `streed_address` disclosure that is referencing a digest from the `_sd` element from the `address` disclosure should be presented only after the address disclosure is presented. This would make the implementation of validation quite a bit easier because you need to hold less internal state or avoid re-ordering the disclosures before further processing them.\r\n\r\nDoes it make sense to you to put this burden of ordering on the holder (when creating the presentation) instead of the verifier?",
+      "createdAt": "2023-03-30T11:14:46Z",
+      "updatedAt": "2023-03-31T17:06:05Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "kenkenpan",
+          "authorAssociation": "NONE",
+          "body": "I am not sure about SD-JWT specification, however ICAO Doc9303 SOD and ISO mdoc both use map structure to identify the original data of hash values. ",
+          "createdAt": "2023-03-30T11:52:09Z",
+          "updatedAt": "2023-03-30T11:52:09Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "If the processing starts with the digest values in the _sd claim and\noperates on each of the referenced disclosures (possibly recursively), the\norder of the disclosures themselves shouldn't really matter.\n\nOn Thu, Mar 30, 2023, 6:14 AM Christian Bormann ***@***.***>\nwrote:\n\n> When implementing the validation of a SD-JWT, we will run into problems\n> (or rather increased complexity) for recursive disclosures if they are not\n> presented in order. If we take the current example for recursive\n> disclosures:\n>\n> *address Disclosure:*\n>\n> WyJGcDBqLTd6Q2FOVFdmX3dLNjdzeGlnIiwgImFkZHJlc3MiLCB7Il9zZCI6IFsiMXpn\n> c3U5RmU2YmtiUVk5ekpzZlBUbzF1QlBNVmw0OG00RWFmeEpUWVN1MCIsICJES3ROX3FX\n> X2hheVlDR0NLaWhTMzlNM3NvYnMxUlRla3hhS25NYkUxNy1RIiwgImgyRHh4RTgwQzdx\n> Uld4Q1Fqd1I5NmRhNDZqcjJCOGJMU1J3QWRiWlNSbG8iLCAidWRGV0Z4XzkxTmdDamhM\n> VEhKQXZ2QUh3TlQydmxIQnNXeFBJT3hLMllkbyJdfV0\n>\n> *address Content:*\n>\n> [\"Fp0j-7zCaNTWf_wK67sxig\", \"address\", {\"_sd\":\n> [\"1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0\",\n> \"DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q\",\n> \"h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo\",\n> \"udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo\"]}]\n>\n> *street_address Disclosure:*\n>\n> WyIyUzBkSXhpSE9CblVldFBKMW5GbERBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs\n> c3RyLiAxMiJd\n>\n> *street_address Content:*\n>\n> [\"2S0dIxiHOBnUetPJ1nFlDA\", \"street_address\", \"Schulstr. 12\"]\n>\n> *streed_address digest:*\n>\n> udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo\n>\n> These should imho be presented in order: The streed_address disclosure\n> that is referencing a digest from the _sd element from the address\n> disclosure should be presented only after the address disclosure is\n> presented. This would make the implementation of validation quite a bit\n> easier because you need to hold less internal state or avoid re-ordering\n> the disclosures before further processing them.\n>\n> Does it make sense to you to put this burden of ordering on the holder\n> (when creating the presentation) instead of the verifier?\n>\n> \u2014\n> Reply to this email directly, view it on GitHub\n> <https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/244>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/ARAXIJ6BXBEEEDGRJWJTAHTW6VTLFANCNFSM6AAAAAAWNEP4U4>\n> .\n> You are receiving this because you are subscribed to this thread.Message\n> ID: ***@***.***>\n>\n\n-- \n_CONFIDENTIALITY NOTICE: This email may contain confidential and privileged \nmaterial for the sole use of the intended recipient(s). Any review, use, \ndistribution or disclosure by others is strictly prohibited.\u00a0 If you have \nreceived this communication in error, please notify the sender immediately \nby e-mail and delete the message and any file attachments from your \ncomputer. Thank you._\n",
+          "createdAt": "2023-03-30T13:32:04Z",
+          "updatedAt": "2023-03-30T13:32:04Z"
+        },
+        {
+          "author": "c2bo",
+          "authorAssociation": "NONE",
+          "body": "That is the way i did an initial/experimental implementation (which also made sense in my mind), but the steps provided in the spec start with the disclosures and then process all `_sd` fields for each disclosure unless I am misunderstanding this part?\r\n\r\n```\r\n 5.  Process the Disclosures.  For each Disclosure provided:\r\n\r\n       1.  Calculate the digest over the base64url string as described\r\n           in Section 5.1.1.2.\r\n\r\n       2.  Find all _sd keys in the SD-JWT payload.  For each such key:\r\n\r\n           1.  If the key does not refer to an array, the Verifier MUST\r\n               reject the Presentation.\r\n\r\n           2.  Otherwise, process each digest in the _sd array as\r\n               follows:\r\n\r\n               1.  Find the Disclosure referenced by the digests.  If no\r\n                   such Disclosure can be found, the Verifier MUST\r\n                   reject the presentation.\r\n\r\n               2.  If the Disclosure is not a JSON-encoded array of\r\n                   three elements, the Verifier MUST reject the\r\n                   Presentation.\r\n\r\n               3.  Insert, at the level of the _sd key, a new claim\r\n                   using the claim name and claim value from the\r\n                   Disclosure.\r\n\r\n               4.  If the claim name already exists at the same level,\r\n                   the Verifier MUST reject the Presentation.\r\n\r\n               5.  If the decoded value contains an _sd key, recursively\r\n                   process the key as described before.\r\n\r\n       3.  If any digests were found more than once in the previous\r\n           step, the Verifier MUST reject the Presentation.\r\n\r\n       4.  Remove all _sd keys from the SD-JWT payload.\r\n\r\n       5.  Remove the claim _sd_alg from the SD-JWT payload.\r\n```\r\n\r\nAfter re-reading this, I guess the \"for each Disclosure provided\" part needs to be moved to part 5.1 - otherwise the removal of _sd and _sd_alg also don't work or make sense?\r\n\r\nSo basically:\r\n- calculate digests for all disclosures\r\n- walk over the jwt payload and find all _sd fields (digests)\r\n- find disclosures that match the digest (the reject part here is wrong)\r\n  -  if this contains new _sd fields walk them recursively\r\n- check that all disclosures were consumed\r\n- remove all _sd keys from payload\r\n- remove _sd_alg from payload\r\n",
+          "createdAt": "2023-03-30T14:57:37Z",
+          "updatedAt": "2023-03-30T14:57:37Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yeah, I think that basic algorithm you describe is correct and the text in\nthe draft needs to be adjusted somewhat to better reflect that.\n\nOn Thu, Mar 30, 2023, 9:57 AM Christian Bormann ***@***.***>\nwrote:\n\n> That is the way i did an initial/experimental implementation (which also\n> made sense in my mind), but the steps provided in the spec start with the\n> disclosures and then process all _sd fields for each disclosure unless I\n> am misunderstanding this part?\n>\n>  5.  Process the Disclosures.  For each Disclosure provided:\n>\n>        1.  Calculate the digest over the base64url string as described\n>            in Section 5.1.1.2.\n>\n>        2.  Find all _sd keys in the SD-JWT payload.  For each such key:\n>\n>            1.  If the key does not refer to an array, the Verifier MUST\n>                reject the Presentation.\n>\n>            2.  Otherwise, process each digest in the _sd array as\n>                follows:\n>\n>                1.  Find the Disclosure referenced by the digests.  If no\n>                    such Disclosure can be found, the Verifier MUST\n>                    reject the presentation.\n>\n>                2.  If the Disclosure is not a JSON-encoded array of\n>                    three elements, the Verifier MUST reject the\n>                    Presentation.\n>\n>                3.  Insert, at the level of the _sd key, a new claim\n>                    using the claim name and claim value from the\n>                    Disclosure.\n>\n>                4.  If the claim name already exists at the same level,\n>                    the Verifier MUST reject the Presentation.\n>\n>                5.  If the decoded value contains an _sd key, recursively\n>                    process the key as described before.\n>\n>        3.  If any digests were found more than once in the previous\n>            step, the Verifier MUST reject the Presentation.\n>\n>        4.  Remove all _sd keys from the SD-JWT payload.\n>\n>        5.  Remove the claim _sd_alg from the SD-JWT payload.\n>\n> After re-reading this, I guess the \"for each Disclosure provided\" part\n> needs to be moved to part 5.1 - otherwise the removal of _sd and _sd_alg\n> also don't work or make sense?\n>\n> So basically:\n>\n>    - calculate digests for all disclosures\n>    - walk over the jwt payload and find all _sd fields (digests)\n>    - find disclosures that match the digest (the reject part here is\n>    wrong)\n>       - if this contains new _sd fields walk them recursively\n>    - check that all disclosures were consumed\n>    - remove all _sd keys from payload\n>    - remove _sd_alg from payload\n>\n> \u2014\n> Reply to this email directly, view it on GitHub\n> <https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/244#issuecomment-1490455621>,\n> or unsubscribe\n> <https://github.com/notifications/unsubscribe-auth/ARAXIJY37K5ENYE77334BJLW6WNOXANCNFSM6AAAAAAWNEP4U4>\n> .\n> You are receiving this because you commented.Message ID:\n> ***@***.***>\n>\n\n-- \n_CONFIDENTIALITY NOTICE: This email may contain confidential and privileged \nmaterial for the sole use of the intended recipient(s). Any review, use, \ndistribution or disclosure by others is strictly prohibited.\u00a0 If you have \nreceived this communication in error, please notify the sender immediately \nby e-mail and delete the message and any file attachments from your \ncomputer. Thank you._\n",
+          "createdAt": "2023-03-31T10:30:30Z",
+          "updatedAt": "2023-03-31T10:30:30Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "The \"2. Find all _sd keys\" and everything below needs to be one level higher, then it should be correct.",
+          "createdAt": "2023-03-31T14:14:13Z",
+          "updatedAt": "2023-03-31T14:14:13Z"
+        },
+        {
+          "author": "c2bo",
+          "authorAssociation": "NONE",
+          "body": "Does this make sense to you?\r\n```\r\n 5.  Process the Disclosures:\r\n\r\n       1. For each Disclosure provided:\r\n     \r\n               1.  Calculate the digest over the base64url string as described\r\n                    in Section 5.1.1.2.\r\n\r\n       2.  Find all _sd keys in the SD-JWT payload.  For each such key:\r\n       \r\n               1.  If the key does not refer to an array, the Verifier MUST\r\n                   reject the Presentation.\r\n\r\n               2.  Otherwise, process each digest in the _sd array as\r\n                   follows:\r\n\r\n                      1.  Find the Disclosure referenced by the digest. If no such\r\n                           Disclosure can be found, the digests MUST be ignored.\r\n\r\n                      2.  If the Disclosure is not a JSON-encoded array of\r\n                          three elements, the Verifier MUST reject the \r\n                          Presentation.\r\n\r\n                      3.  Insert, at the level of the _sd key, a new claim\r\n                          using the claim name and claim value from the\r\n                          Disclosure.\r\n\r\n                      4.  If the claim name already exists at the same level,\r\n                           the Verifier MUST reject the Presentation.\r\n\r\n                      5.  If the decoded value contains an _sd key, recursively\r\n                          process the key as described before.\r\n\r\n       3.   If any digests were found more than once in the previous\r\n           step, the Verifier MUST reject the Presentation.\r\n\r\n       4.  If any disclosures did not correspond to a digest in the jwt\r\n          payload, the Verifier MUST reject the Presentation.\r\n\r\n       5.  Remove all _sd keys from the SD-JWT payload.\r\n\r\n       6.  Remove the claim _sd_alg from the SD-JWT payload.\r\n```",
+          "createdAt": "2023-03-31T17:06:04Z",
+          "updatedAt": "2023-03-31T17:06:04Z"
         }
       ]
     }
