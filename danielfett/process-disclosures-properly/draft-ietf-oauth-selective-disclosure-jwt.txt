@@ -1132,13 +1132,14 @@ Table of Contents
 
    2.  Hash all of the Disclosures separately.
 
-   3.  Find the places in the SD-JWT where the digests of the
+   3.  Find the _sd arrays in the SD-JWT where the digests of the
        Disclosures are included and decode the respective plaintext
        values from the Disclosures at the appropriate places.  The
        processing MUST take into account that digests might be included
        not only directly in the SD-JWT, but also in other Disclosures.
-       If any of the digests cannot be found, the Holder MUST reject the
-       SD-JWT.
+       If there is a Disclosure with a digest that cannot be found in
+       any _sd array, the SD-JWT is invalid and the Holder MUST reject
+       the SD-JWT.
 
    It is up to the Holder how to maintain the mapping between the
    Disclosures and the plaintext claim values to be able to display them
@@ -1220,7 +1221,7 @@ Table of Contents
 
                1.  Using the previously calculated digests, find the
                    matching Disclosure.  If no such Disclosure can be
-                   found, the Verifier MUST reject the presentation.
+                   found, the digest MUST be ignored.
 
                2.  If the Disclosure is not a JSON-encoded array of
                    three elements, the Verifier MUST reject the
