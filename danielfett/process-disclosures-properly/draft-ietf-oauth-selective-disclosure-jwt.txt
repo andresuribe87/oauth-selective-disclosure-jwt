@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 5 October 2023                                        Microsoft
+Expires: 6 October 2023                                        Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                            3 April 2023
+                                                            4 April 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 October 2023.
+   This Internet-Draft will expire on 6 October 2023.
 
 Copyright Notice
 
@@ -1198,8 +1198,8 @@ Table of Contents
            claims, if provided in the SD-JWT, and not selectively
            disclosed.
 
-       5.  Check that the _sd_alg claim is present and its value is
-           understood and the hash algorithm is deemed secure.
+       5.  Check that the _sd_alg claim value is understood and the hash
+           algorithm is deemed secure.
 
    4.  Process the Disclosures and _sd keys in the SD-JWT as follows:
 
@@ -1638,9 +1638,9 @@ Table of Contents
    David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, John
    Mattsson, Matthew Miller, Justin Richer, Kushal Das, Mike Jones, Nat
    Sakimura, Orie Steele, Pieter Kasselman, Ryosuke Abe, Shawn
-   Butterfield, Torsten Lodderstedt, and Vittorio Bertocci for their
-   contributions (some of which substantial) to this draft and to the
-   initial set of implementations.
+   Butterfield, Filip Skokan, Christian Bormann, Torsten Lodderstedt,
+   and Vittorio Bertocci for their contributions (some of which
+   substantial) to this draft and to the initial set of implementations.
 
    The work on this draft was started at OAuth Security Workshop 2022 in
    Trondheim, Norway.
