@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-04-04T00:58:25.919672+00:00",
+  "timestamp": "2023-04-06T00:55:44.636011+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -23208,18 +23208,26 @@
       "labels": [],
       "body": "Fixes Issue #244 ",
       "createdAt": "2023-04-03T03:19:28Z",
-      "updatedAt": "2023-04-03T07:37:19Z",
+      "updatedAt": "2023-04-05T20:46:50Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "7aa6f926bfc684eae530ebf1210d74b636ae0a06",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "danielfett/process-disclosures-properly",
-      "headRefOid": "088a60c1943e2346fd58a48a32048f9063f191ff",
+      "headRefOid": "d87195f5a8ca2e97055a0e923edfd1692dd7a185",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks @danielfett! I think the two folks should be acknowledged and the small change around the `_sd_alg` claim incorporated. Then I think this should be merged and we should publish a -04 as basically a bug fix. The issue @panva https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/242#issuecomment-1486865620 found kinda undermines the whole point of SD-JWT and we should have a published version out that fixes that. ",
+          "createdAt": "2023-04-04T20:37:16Z",
+          "updatedAt": "2023-04-04T20:37:16Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOHTmVzM5RkOZQ",
@@ -23232,6 +23240,39 @@
           "body": "",
           "createdAt": "2023-04-03T07:37:19Z",
           "updatedAt": "2023-04-03T07:37:19Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5RwpCE",
+          "commit": {
+            "abbreviatedOid": "088a60c"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-04T20:08:40Z",
+          "updatedAt": "2023-04-04T20:08:41Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n    5. Check that the `_sd_alg` claim value is understood and the hash algorithm is deemed secure.\r\n```\r\n\r\nThe `_sd_alg` claim  is optional with a default now so removing the \"is present\" part. I know it's not directly related to this PR but I just noticed it. \r\n",
+              "createdAt": "2023-04-04T20:08:40Z",
+              "updatedAt": "2023-04-04T20:11:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5RxhTC",
+          "commit": {
+            "abbreviatedOid": "d87195f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-04-04T23:52:37Z",
+          "updatedAt": "2023-04-04T23:52:37Z",
           "comments": []
         }
       ]
@@ -23248,7 +23289,7 @@
       "labels": [],
       "body": "See #243 ",
       "createdAt": "2023-04-03T16:41:44Z",
-      "updatedAt": "2023-04-03T16:41:45Z",
+      "updatedAt": "2023-04-04T02:01:46Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "7aa6f926bfc684eae530ebf1210d74b636ae0a06",
