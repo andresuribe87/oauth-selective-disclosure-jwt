@@ -1220,9 +1220,10 @@ Table of Contents
            2.  Otherwise, process each entry in the _sd array as
                follows:
 
-               1.  Using the previously calculated digests, find the
-                   matching Disclosure.  If no such Disclosure can be
-                   found, the digest MUST be ignored.
+               1.  Compare the value with the digests calculated
+                   previously and find the matching Disclosure.  If no
+                   such Disclosure can be found, the digest MUST be
+                   ignored.
 
                2.  If the Disclosure is not a JSON-encoded array of
                    three elements, the Verifier MUST reject the
