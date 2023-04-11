@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 8 October 2023                                        Microsoft
+Expires: 13 October 2023                                       Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                            6 April 2023
+                                                           11 April 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 October 2023.
+   This Internet-Draft will expire on 13 October 2023.
 
 Copyright Notice
 
@@ -1208,10 +1208,11 @@ Table of Contents
 
        2.  For each Disclosure provided:
 
-           1.  Calculate the digest over the base64url string as
+           1.  Calculate the digest over the base64url-encoded string as
                described in Section 5.1.1.2.
 
-       3.  Find all _sd keys in the SD-JWT payload.  For each such key:
+       3.  Find all _sd keys in the SD-JWT payload.  For each such key
+           perform the following steps (*):
 
            1.  If the key does not refer to an array, the Verifier MUST
                reject the Presentation.
@@ -1235,8 +1236,8 @@ Table of Contents
                    the Verifier MUST reject the Presentation.
 
                5.  If the decoded value contains an _sd key in an
-                   object, recursively process the key as described
-                   here.
+                   object, recursively process the key using the steps
+                   described in (*).
 
        4.  If any digests were found more than once in the previous
            step, the Verifier MUST reject the Presentation.
