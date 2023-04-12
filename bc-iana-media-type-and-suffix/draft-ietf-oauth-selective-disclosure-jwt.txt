@@ -1672,8 +1672,8 @@ Table of Contents
       series of base64url-encoded values (some of which may be the empty
       string) separated by period ('.') or tilde ('~') characters.
 
-   *  See the Security Considerations section of [[ this specification
-      ]], [RFC7519], and [RFC8725].
+   *  Security considerations: See the Security Considerations section
+      of [[ this specification ]], [RFC7519], and [RFC8725].
 
    *  Interoperability considerations: n/a
 
