@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-04-13T00:56:09.552748+00:00",
+  "timestamp": "2023-04-16T01:00:45.047600+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -5807,7 +5807,7 @@
       "labels": [],
       "body": "Below is how Disclosures are currently formatted in the examples. Maybe only me, but I think it might be more readable if there were indentations or bulletpoints...\r\n\r\n> **Disclosure for is_over_65:**\r\n> \r\n> WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ\r\n> \r\n> Contents:\r\n> \r\n> [\"4D7v7RVM8vLu07KQUBj8_Q\", \"is_over_65\", true]\r\n> \r\n> SHA-256 Hash: 8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58\r\n\r\nMaybe something like:\r\n\r\n> Claim `is_over_65`:\r\n> - Disclosure: WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ\r\n> - Contents: [\"4D7v7RVM8vLu07KQUBj8_Q\", \"is_over_65\", true]\r\n> - SHA-256 Hash: 8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58\r\n\r\n\r\n",
       "createdAt": "2023-03-10T23:01:11Z",
-      "updatedAt": "2023-03-13T09:22:47Z",
+      "updatedAt": "2023-04-14T14:29:10Z",
       "closedAt": null,
       "comments": [
         {
@@ -5816,6 +5816,13 @@
           "body": "I did consider that, but there were some problems regarding the length of the lines in the legacy text format. But I can give this another try.",
           "createdAt": "2023-03-13T09:22:44Z",
           "updatedAt": "2023-03-13T09:22:44Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "New attempt to fix this in #252. ",
+          "createdAt": "2023-04-14T14:29:10Z",
+          "updatedAt": "2023-04-14T14:29:10Z"
         }
       ]
     },
@@ -5830,10 +5837,12 @@
       "assignees": [
         "danielfett"
       ],
-      "labels": [],
+      "labels": [
+        "has-PR"
+      ],
       "body": "Issue #87 discusses the security and privacy targets. This was fixed in PR #225, but we should add more details on the attacker model.",
       "createdAt": "2023-03-13T12:50:15Z",
-      "updatedAt": "2023-03-13T12:50:16Z",
+      "updatedAt": "2023-04-14T13:34:04Z",
       "closedAt": null,
       "comments": []
     },
@@ -23644,7 +23653,7 @@
       "labels": [],
       "body": "See #243 ",
       "createdAt": "2023-04-03T16:41:44Z",
-      "updatedAt": "2023-04-12T20:42:20Z",
+      "updatedAt": "2023-04-14T12:21:20Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "7aa6f926bfc684eae530ebf1210d74b636ae0a06",
@@ -23682,6 +23691,142 @@
               "body": "```suggestion\r\n## Selective Disclosure without Holder Binding\r\n\r\nThe Issuers and the Verifiers should be aware that when Holder Binding is not present,\r\nany entity that is not the original receiver can be presenting the Combined Format for Presentation.\r\nWhen doing so, that entity may be applying selective disclosure to the SD-JWT\r\nthat has already been previously selectively disclosed.\r\n\r\nFor example, a device manufacturer might produce an SD-JWT\r\ncontaining information about upstream and downstream supply chain contributors.\r\nEach supply chain party can verify only the claims that were selectively disclosed to them\r\nby an upstream party, and they can choose to apply selective disclosure to those claims\r\nwhen presenting to a downstream party.\r\n\r\nIn some scenarios this behavior could be desirable,\r\nbut if it is not, the Issuers are encouraged to apply Holder Binding.\r\n```\r\nI like the direction of the text, tried to paraphrase so that already defined terms are re-used.\r\nUnless progressive redaction\" is a term well-defined in supply chain industry..?\r\n",
               "createdAt": "2023-04-11T02:38:10Z",
               "updatedAt": "2023-04-11T02:39:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5RqWfB",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "I think the focus for enforcing holder binding should be on the Verifiers (the Issuers must be cooperating for HB to work, but it's not their duty to enforce it).\r\n\r\nAlso changed some wording.",
+          "createdAt": "2023-04-04T02:01:16Z",
+          "updatedAt": "2023-04-14T08:50:01Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "This text is phrased to show a problem, but we might as well word this to highlight a feature (and then notice that this might be undesirable in some circumstances).",
+              "createdAt": "2023-04-04T02:01:17Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 18,
+              "body": "This is both a duty of the Issuers and the Verifiers. The Verifiers need to enforce the holder binding.",
+              "createdAt": "2023-04-04T02:01:46Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 4,
+              "body": "This is a somewhat nondescript section title and feels duplicate to the \"Holder Binding\" title above; how about this?\r\n```suggestion\r\n## Forwarding Credentials\r\n```",
+              "createdAt": "2023-04-14T08:43:46Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nWhen Holder Binding is not enforced,\r\nany entity in possession of a Combined Format for Presentation can forward the contents to third parties.\r\n```",
+              "createdAt": "2023-04-14T08:45:26Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nWhen doing so, that entity may remove Disclosures such that the receiver\r\nlearns only a subset of the claims contained in the original Combined Format for Presentation.\r\n```",
+              "createdAt": "2023-04-14T08:47:06Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nby an upstream party, and they can choose to further restrict the disclosed claims \r\nwhen presenting to a downstream party.\r\n```",
+              "createdAt": "2023-04-14T08:47:58Z",
+              "updatedAt": "2023-04-14T08:49:44Z"
+            },
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nIn some scenarios this behavior could be desirable,\r\nbut if it is not, Verifiers MUST enforce Holder Binding.\r\n```",
+              "createdAt": "2023-04-14T08:48:28Z",
+              "updatedAt": "2023-04-14T12:21:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Skkh7",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-14T11:56:30Z",
+          "updatedAt": "2023-04-14T11:56:30Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nIn some scenarios this behavior could be desirable,\r\nbut if it is not, Verifiers are encouraged to enforce Holder Binding.\r\n```\r\nmaybe not use a MUST here? ",
+              "createdAt": "2023-04-14T11:56:30Z",
+              "updatedAt": "2023-04-14T11:56:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5SkpUB",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-14T12:06:14Z",
+          "updatedAt": "2023-04-14T12:06:15Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "or \"need to\"?",
+              "createdAt": "2023-04-14T12:06:14Z",
+              "updatedAt": "2023-04-14T12:06:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Skr-5",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-14T12:13:26Z",
+          "updatedAt": "2023-04-14T12:13:26Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "\"need to\" would work too. I was just wanting to avoid introducing the capitalized normative language in this section that is about general conceptual guidance. ",
+              "createdAt": "2023-04-14T12:13:26Z",
+              "updatedAt": "2023-04-14T12:13:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Sku0o",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-14T12:21:05Z",
+          "updatedAt": "2023-04-14T12:21:06Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nIn some scenarios this behavior could be desirable,\r\nbut if it is not, Verifiers need to enforce Holder Binding.\r\n```",
+              "createdAt": "2023-04-14T12:21:05Z",
+              "updatedAt": "2023-04-14T12:21:06Z"
             }
           ]
         }
@@ -23839,6 +23984,135 @@
               "updatedAt": "2023-04-12T18:41:02Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 250,
+      "id": "PR_kwDOHTmVzM5OU8cS",
+      "title": "Attempt to improve description of security properties",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/250",
+      "state": "OPEN",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "This fixes Issue #235. The main  change is to better describe in which role the adversary acts.",
+      "createdAt": "2023-04-14T13:33:36Z",
+      "updatedAt": "2023-04-14T21:26:49Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "danielfett/attacker-model",
+      "headRefOid": "85b7022ee2e4b533a4672153a00417f0bd5797dc",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5Sn7Cz",
+          "commit": {
+            "abbreviatedOid": "85b7022"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-14T21:26:48Z",
+          "updatedAt": "2023-04-14T21:26:49Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I'm finding the main sentence kinda hard to process. What about just something inspired by the text you had in the parenthetical? \r\n\r\n```suggestion\r\n**Integrity:** A malicious Holder cannot modify names or values of selectively disclosable claims without detection by the Verifier.\r\n```\r\n\r\n",
+              "createdAt": "2023-04-14T21:26:48Z",
+              "updatedAt": "2023-04-14T21:26:49Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 251,
+      "id": "PR_kwDOHTmVzM5OVIYh",
+      "title": "Remove Example 2b to fix Issue #240",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/251",
+      "state": "OPEN",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "To fix Issue #240, I found that removing Example 2b is the best way to go. \r\n\r\nI tried to fixate the nonces used in the examples despite decoys being generated in one of the examples, but that got quite messy and introduces a lot of unsafe code paths into the python code.\r\n\r\nAn alternative would be to manage the example manually, but that is a source for errors, so let's not do that.",
+      "createdAt": "2023-04-14T14:03:49Z",
+      "updatedAt": "2023-04-14T18:41:06Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "danielfett/example-2b-description",
+      "headRefOid": "862687ab43fc7169cc2d135ba66a28ec30a7799b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The decoy concept is intuitive enough that a separate example isn't needed, I think. And per #240 the separate example that has a completely different set of digests might cause confusion. So removing 2b seems like a good course of action. \r\n\r\nThe change is larger than I'd have expected. Are all the other file changes due to regenerating examples? I think so but it caught my attention. And it seems like #252 and this will be difficult to resolve. But maybe you've already considered that.  \r\n",
+          "createdAt": "2023-04-14T18:41:06Z",
+          "updatedAt": "2023-04-14T18:41:06Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 252,
+      "id": "PR_kwDOHTmVzM5OVOmM",
+      "title": "Improved formatting for disclosures",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/252",
+      "state": "OPEN",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #231 ",
+      "createdAt": "2023-04-14T14:19:15Z",
+      "updatedAt": "2023-04-14T18:08:26Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "danielfett/doctor-disclosure-description",
+      "headRefOid": "a4ad0919c156a3b215b4034b7ec672ba2aacf3b1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This is the HTML output after this fix:\r\n![Screenshot_20230414_161944](https://user-images.githubusercontent.com/89476/232071527-5e6d2ee7-b888-42e6-9260-3226ad0e11f5.png)\r\n\r\n",
+          "createdAt": "2023-04-14T14:22:32Z",
+          "updatedAt": "2023-04-14T14:23:06Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5SnEcv",
+          "commit": {
+            "abbreviatedOid": "a4ad091"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Kinda hard (for me anyway) to review all the file changes but looking at https://drafts.oauth.net/oauth-selective-disclosure-jwt/danielfett/doctor-disclosure-description/draft-ietf-oauth-selective-disclosure-jwt.html and the new formatting looks good. ",
+          "createdAt": "2023-04-14T18:08:25Z",
+          "updatedAt": "2023-04-14T18:08:25Z",
+          "comments": []
         }
       ]
     }
