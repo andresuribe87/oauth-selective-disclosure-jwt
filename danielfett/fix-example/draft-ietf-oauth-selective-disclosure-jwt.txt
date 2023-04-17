@@ -878,9 +878,9 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.fVpcoTq99c
-   OGRndl2kGhIWHfiYH0F5Gc7xsP-pEIjbcbmINml32lPyUfLkEjhx8y2MRgqa3v2iR6_y
-   w16e_DgA
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.D7zXHQgMee
+   BXNTiCmfq1SVRkixyj4mpZoxCLcuibWxa_eixmr5B-g-DPAY93k2rs1-PqSD5aKrqwHs
+   rg_p2lRw
 
    The Issuer creates the following Disclosures:
 
@@ -1011,9 +1011,9 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.fVpcoTq99c
-   OGRndl2kGhIWHfiYH0F5Gc7xsP-pEIjbcbmINml32lPyUfLkEjhx8y2MRgqa3v2iR6_y
-   w16e_DgA~WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV8
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.D7zXHQgMee
+   BXNTiCmfq1SVRkixyj4mpZoxCLcuibWxa_eixmr5B-g-DPAY93k2rs1-PqSD5aKrqwHs
+   rg_p2lRw~WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV8
    0MiJd~WyJhYTFPYmdlUkJnODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9obi
    Jd~WyI2VWhsZU5HUmJtc0xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~
    WyJ2S0t6alFSOWtsbFh2OWVkNUJ1ZHZRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
@@ -1066,16 +1066,16 @@ Table of Contents
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1681723473
+     "iat": 1677838084
    }
 
    Which is then signed by the Holder to create a JWT like the
    following:
 
    eyJhbGciOiAiRVMyNTYifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnI
-   iwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2O
-   DE3MjM0NzN9.XSdpwJuqWKr_hrrBc5URx4aZc1KD-7-g1MRAKVv2QLXEQmqOwq5I-mOv
-   DmNFVhlFxciMDT7KR6Cbe9Hc4JNufQ
+   iwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2N
+   zc4MzgwODR9.9yDey7Mo8ZBljM31FKpzGROJwKZbsxPlNl1B8l4y820bDEOnUL7AhzZj
+   GJFBaUrPkrWVtWP0FO4FcB44Ma0LDg
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1108,17 +1108,17 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.fVpcoTq99c
-   OGRndl2kGhIWHfiYH0F5Gc7xsP-pEIjbcbmINml32lPyUfLkEjhx8y2MRgqa3v2iR6_y
-   w16e_DgA~WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmV
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.D7zXHQgMee
+   BXNTiCmfq1SVRkixyj4mpZoxCLcuibWxa_eixmr5B-g-DPAY93k2rs1-PqSD5aKrqwHs
+   rg_p2lRw~WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmV
    ldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCA
    icmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJhYTFPYmdlUkJ
    nODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyI2VWhsZU5HUmJtc0
    xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~eyJhbGciOiAiRVMyNTYif
    Q.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwcz
-   ovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODE3MjM0NzN9.XSdpwJuqW
-   Kr_hrrBc5URx4aZc1KD-7-g1MRAKVv2QLXEQmqOwq5I-mOvDmNFVhlFxciMDT7KR6Cbe
-   9Hc4JNufQ
+   ovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2Nzc4MzgwODR9.9yDey7Mo8
+   ZBljM31FKpzGROJwKZbsxPlNl1B8l4y820bDEOnUL7AhzZjGJFBaUrPkrWVtWP0FO4Fc
+   B44Ma0LDg
 
 6.  Verification and Processing
 
@@ -1761,24 +1761,17 @@ A.1.  Example 2a: Handling Structured Claims
 
    {
      "_sd": [
-       "-tLyIcynje8xxh8YyDtENsXoVJ5iuJvkNucadlpAiv8",
-       "AaYi2dZcRr5RfuIPKoLd-CbMG5lfocyImWZUnwtXJmo",
-       "O2RA9HGLHwfPEnDETYxCbsDObb_ixjhuAbsqT9kfIx8",
-       "SQw2y0MQ-DH92rbcCe5UWOH8Osp_Pkk6jdU4MuvncRk",
-       "ktFM-PK3bvcgCniqChsNLIk4WQ1B8dYoC8VQoiXUD3w",
-       "xXys8mKzg-C5VOwLRwYUcSY_Xroot-SZ2A2ohUXexsE"
+       "-rAXuBrq1MIGJnPr_vGdgVhinHfvtw6HMvkMQ6rk1Po",
+       "ZRtxg42klTl-Ap_OiwNVh49ZCGM059AmHPayFqbMilE",
+       "g_WrTVyjFFsppeKOjcgAK8nLTeY8IcPAYSz00xNn5Rk",
+       "hblncirSgqjt8gTQ56jy7FUd1cpCg0orxca0C-o9aoo",
+       "lagH02GaboFAO6_d2R8jpdjO-Xxnh4aVAG9cE8iV4Sg",
+       "p3vzUx7kYcA_dOlOQpyf8Z8J4s1ZPfhXWZNFuI4JgvU",
+       "s2OMJlfL0E9i46-mM3sQKxJ0bEs3bNwBrzXhObM7iR0"
      ],
      "iss": "https://example.com/issuer",
      "iat": 1516239022,
      "exp": 1735689661,
-     "address": {
-       "_sd": [
-         "CbGKwxOE18qLWlOyBPpqtCedDB21qb7GrTMkhmT4ymw",
-         "TL6A9_JZbaxfLcLAfCg_vt4po8YxYhPcdUL_fGbiHDo",
-         "bLyifiZw-lh6TuZyJ9CdI22T67kWRC5Bn9Ugk3j5Hpc",
-         "c4KwZeDCgZIu2cFGYT9jqiMuPHiblGByusyfDV2pwYo"
-       ]
-     },
      "_sd_alg": "sha-256"
    }
 
@@ -1786,157 +1779,127 @@ A.1.  Example 2a: Handling Structured Claims
 
    *Disclosure for sub:*
 
-   SHA-256 Hash: -tLyIcynje8xxh8YyDtENsXoVJ5iuJvkNucadlpAiv8
+   SHA-256 Hash: hblncirSgqjt8gTQ56jy7FUd1cpCg0orxca0C-o9aoo
 
    Disclosure:
 
-   WyJ2WkVDRnprSmcybElCX0h0U0kxOUVRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
+   WyIzWFQxYV8tOFBRNFlweEZnczRiUG9RIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
    MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
 
    Contents:
 
-   ["vZECFzkJg2lIB_HtSI19EQ", "sub",
+   ["3XT1a_-8PQ4YpxFgs4bPoQ", "sub",
    "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
 
    *Disclosure for given_name:*
 
-   SHA-256 Hash: AaYi2dZcRr5RfuIPKoLd-CbMG5lfocyImWZUnwtXJmo
+   SHA-256 Hash: lagH02GaboFAO6_d2R8jpdjO-Xxnh4aVAG9cE8iV4Sg
 
    Disclosure:
 
-   WyJ4LWdFWHdtNGRRT2wyOWcxaERtLTR3IiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
+   WyJ3M3RSbkptLTZ4YXhtMHdWVFMxYV9nIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
    MGNlIl0
 
    Contents:
 
-   ["x-gEXwm4dQOl29g1hDm-4w", "given_name", "\u592a\u90ce"]
+   ["w3tRnJm-6xaxm0wVTS1a_g", "given_name", "\u592a\u90ce"]
 
    *Disclosure for family_name:*
 
-   SHA-256 Hash: ktFM-PK3bvcgCniqChsNLIk4WQ1B8dYoC8VQoiXUD3w
+   SHA-256 Hash: -rAXuBrq1MIGJnPr_vGdgVhinHfvtw6HMvkMQ6rk1Po
 
    Disclosure:
 
-   WyJFT09mZ1F5Ml9sWFJ1d1RqbGRCZWV3IiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
+   WyJGM3MxUENGOUt3eklEaUtKajZrekpRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
    NzUzMCJd
 
    Contents:
 
-   ["EOOfgQy2_lXRuwTjldBeew", "family_name", "\u5c71\u7530"]
+   ["F3s1PCF9KwzIDiKJj6kzJQ", "family_name", "\u5c71\u7530"]
 
    *Disclosure for email:*
 
-   SHA-256 Hash: O2RA9HGLHwfPEnDETYxCbsDObb_ixjhuAbsqT9kfIx8
+   SHA-256 Hash: p3vzUx7kYcA_dOlOQpyf8Z8J4s1ZPfhXWZNFuI4JgvU
 
    Disclosure:
 
-   WyJzYlE1SmZseldSaWhoN0szVUtibjF3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
+   WyJpQl9adWNHQ3dmampRald5MEV0RVlnIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
    bCBhZGRyZXNzXCJAZXhhbXBsZS5qcCJd
 
    Contents:
 
-   ["sbQ5JflzWRihh7K3UKbn1w", "email", "\"unusual email
+   ["iB_ZucGCwfjjQjWy0EtEYg", "email", "\"unusual email
    address\"@example.jp"]
 
    *Disclosure for phone_number:*
 
-   SHA-256 Hash: xXys8mKzg-C5VOwLRwYUcSY_Xroot-SZ2A2ohUXexsE
+   SHA-256 Hash: ZRtxg42klTl-Ap_OiwNVh49ZCGM059AmHPayFqbMilE
 
    Disclosure:
 
-   WyJteHhoSjBiU3ZkdzR5R3VWdHhUU3RnIiwgInBob25lX251bWJlciIsICIrODEtODAt
+   WyJMR3hTaXJELTdsRHB6SWlsVHpYdXdnIiwgInBob25lX251bWJlciIsICIrODEtODAt
    MTIzNC01Njc4Il0
 
    Contents:
 
-   ["mxxhJ0bSvdw4yGuVtxTStg", "phone_number", "+81-80-1234-5678"]
+   ["LGxSirD-7lDpzIilTzXuwg", "phone_number", "+81-80-1234-5678"]
 
-   *Disclosure for street_address:*
+   *Disclosure for address:*
 
-   SHA-256 Hash: c4KwZeDCgZIu2cFGYT9jqiMuPHiblGByusyfDV2pwYo
-
-   Disclosure:
-
-   WyJKT3hSSmZ0bl8ya09CM0dBVkI2S3ZBIiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
-   MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
-   NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
-
-   Contents:
-
-   ["JOxRJftn_2kOB3GAVB6KvA", "street_address", "\u6771\u4eac\u90fd\u6e
-   2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u2212\uff18"]
-
-   *Disclosure for locality:*
-
-   SHA-256 Hash: CbGKwxOE18qLWlOyBPpqtCedDB21qb7GrTMkhmT4ymw
+   SHA-256 Hash: s2OMJlfL0E9i46-mM3sQKxJ0bEs3bNwBrzXhObM7iR0
 
    Disclosure:
 
-   WyJZQVY0S3hGTlZ1SjRILW5uc0xPODBRIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
-   Y1x1OTBmZCJd
+   WyJlT1hQUDJNYTAzNTNiai1qLTVPRGFnIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
+   ZXNzIjogIlx1Njc3MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1
+   NTcxMlx1ZmYxNFx1NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCIsICJsb2NhbGl0
+   eSI6ICJcdTY3NzFcdTRlYWNcdTkwZmQiLCAicmVnaW9uIjogIlx1NmUyZlx1NTMzYSIs
+   ICJjb3VudHJ5IjogIkpQIn1d
 
    Contents:
 
-   ["YAV4KxFNVuJ4H-nnsLO80Q", "locality", "\u6771\u4eac\u90fd"]
-
-   *Disclosure for region:*
-
-   SHA-256 Hash: TL6A9_JZbaxfLcLAfCg_vt4po8YxYhPcdUL_fGbiHDo
-
-   Disclosure:
-
-   WyJ3SVpuclNTb2J1YnZJUlhrdG9pYXVBIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
-   XQ
-
-   Contents:
-
-   ["wIZnrSSobubvIRXktoiauA", "region", "\u6e2f\u533a"]
-
-   *Disclosure for country:*
-
-   SHA-256 Hash: bLyifiZw-lh6TuZyJ9CdI22T67kWRC5Bn9Ugk3j5Hpc
-
-   Disclosure:
-
-   WyJ0UlJ2dVUwUi1zZmZITzNPUVYyOUtRIiwgImNvdW50cnkiLCAiSlAiXQ
-
-   Contents:
-
-   ["tRRvuU0R-sffHO3OQV29KQ", "country", "JP"]
+   ["eOXPP2Ma0353bj-j-5ODag", "address", {"street_address": "\u6771\u4e
+   ac\u90fd\u6e2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u2212
+   \uff18", "locality": "\u6771\u4eac\u90fd", "region": "\u6e2f\u533a",
+   "country": "JP"}]
 
    *Disclosure for birthdate:*
 
-   SHA-256 Hash: SQw2y0MQ-DH92rbcCe5UWOH8Osp_Pkk6jdU4MuvncRk
+   SHA-256 Hash: g_WrTVyjFFsppeKOjcgAK8nLTeY8IcPAYSz00xNn5Rk
 
    Disclosure:
 
-   WyJLS0hOQ1g2S1hVOFpkX2F2bWtkYjhRIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+   WyJwN3dJOHpfenlzQUN4ODVYOTgtWmFRIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
    Il0
 
    Contents:
 
-   ["KKHNCX6KXU8Zd_avmkdb8Q", "birthdate", "1940-01-01"]
+   ["p7wI8z_zysACx85X98-ZaQ", "birthdate", "1940-01-01"]
 
    A Presentation for the SD-JWT that discloses only region and country
    of the address property and without a Holder Binding JWT could look
    as follows:
 
-   eyJhbGciOiAiRVMyNTYifQ.eyJfc2QiOiBbIi10THlJY3luamU4eHhoOFl5RHRFTnNYb
-   1ZKNWl1SnZrTnVjYWRscEFpdjgiLCAiQWFZaTJkWmNScjVSZnVJUEtvTGQtQ2JNRzVsZ
-   m9jeUltV1pVbnd0WEptbyIsICJPMlJBOUhHTEh3ZlBFbkRFVFl4Q2JzRE9iYl9peGpod
-   UFic3FUOWtmSXg4IiwgIlNRdzJ5ME1RLURIOTJyYmNDZTVVV09IOE9zcF9Qa2s2amRVN
-   E11dm5jUmsiLCAia3RGTS1QSzNidmNnQ25pcUNoc05MSWs0V1ExQjhkWW9DOFZRb2lYV
-   UQzdyIsICJ4WHlzOG1LemctQzVWT3dMUndZVWNTWV9Ycm9vdC1TWjJBMm9oVVhleHNFI
-   l0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAiaWF0IjogMTUxN
-   jIzOTAyMiwgImV4cCI6IDE3MzU2ODk2NjEsICJhZGRyZXNzIjogeyJfc2QiOiBbIkNiR
-   0t3eE9FMThxTFdsT3lCUHBxdENlZERCMjFxYjdHclRNa2htVDR5bXciLCAiVEw2QTlfS
-   lpiYXhmTGNMQWZDZ192dDRwbzhZeFloUGNkVUxfZkdiaUhEbyIsICJiTHlpZmlady1sa
-   DZUdVp5SjlDZEkyMlQ2N2tXUkM1Qm45VWdrM2o1SHBjIiwgImM0S3daZURDZ1pJdTJjR
-   kdZVDlqcWlNdVBIaWJsR0J5dXN5ZkRWMnB3WW8iXX0sICJfc2RfYWxnIjogInNoYS0yN
-   TYifQ.7gJPO-YpI3C-oTt-QnUeuuwhZvlGpFhmCndSu8ZHU5ue_lNB7sshwuNqEiygIR
-   ojRGxBmF0938AskBHuG7-R_w~WyJ3SVpuclNTb2J1YnZJUlhrdG9pYXVBIiwgInJlZ2l
-   vbiIsICJcdTZlMmZcdTUzM2EiXQ~WyJ0UlJ2dVUwUi1zZmZITzNPUVYyOUtRIiwgImNv
-   dW50cnkiLCAiSlAiXQ~
+   eyJhbGciOiAiRVMyNTYifQ.eyJfc2QiOiBbIi1yQVh1QnJxMU1JR0puUHJfdkdkZ1Zoa
+   W5IZnZ0dzZITXZrTVE2cmsxUG8iLCAiWlJ0eGc0MmtsVGwtQXBfT2l3TlZoNDlaQ0dNM
+   DU5QW1IUGF5RnFiTWlsRSIsICJnX1dyVFZ5akZGc3BwZUtPamNnQUs4bkxUZVk4SWNQQ
+   VlTejAweE5uNVJrIiwgImhibG5jaXJTZ3FqdDhnVFE1Nmp5N0ZVZDFjcENnMG9yeGNhM
+   EMtbzlhb28iLCAibGFnSDAyR2Fib0ZBTzZfZDJSOGpwZGpPLVh4bmg0YVZBRzljRThpV
+   jRTZyIsICJwM3Z6VXg3a1ljQV9kT2xPUXB5ZjhaOEo0czFaUGZoWFdaTkZ1STRKZ3ZVI
+   iwgInMyT01KbGZMMEU5aTQ2LW1NM3NRS3hKMGJFczNiTndCcnpYaE9iTTdpUjAiXSwgI
+   mlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2MjM5M
+   DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiJ9.RSSv9c9Q
+   ph0QhSNonj_biqZr1koH1WbNBw_FQMD4-taS8oqieeUr5i_rugbdkvANo2q92HtvzJ8S
+   KfOpLBi2Vw~WyJGM3MxUENGOUt3eklEaUtKajZrekpRIiwgImZhbWlseV9uYW1lIiwgI
+   lx1NWM3MVx1NzUzMCJd~WyJwN3dJOHpfenlzQUN4ODVYOTgtWmFRIiwgImJpcnRoZGF0
+   ZSIsICIxOTQwLTAxLTAxIl0~WyJ3M3RSbkptLTZ4YXhtMHdWVFMxYV9nIiwgImdpdmVu
+   X25hbWUiLCAiXHU1OTJhXHU5MGNlIl0~WyJpQl9adWNHQ3dmampRald5MEV0RVlnIiwg
+   ImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAZXhhbXBsZS5qcCJd~WyJ
+   lT1hQUDJNYTAzNTNiai1qLTVPRGFnIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRyZXN
+   zIjogIlx1Njc3MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTc
+   xMlx1ZmYxNFx1NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCIsICJsb2NhbGl0eSI
+   6ICJcdTY3NzFcdTRlYWNcdTkwZmQiLCAicmVnaW9uIjogIlx1NmUyZlx1NTMzYSIsICJ
+   jb3VudHJ5IjogIkpQIn1d~
 
 A.2.  Example 2b: Adding Decoys
 
@@ -2289,8 +2252,8 @@ A.3.  Example 3 - Complex Structured SD-JWT
    TlxTnNuQTdHenJtWFBCS2tEbyIsICJkN2xuN3hPLVJSRVhtZWNCVkVwd0x3ckVqWjNGS
    3NfS0xoQ0Qwdkw3NFVzIiwgImZJVzZ6WFJ0UlNRTmNOSzVndnBSc1pGa2FOOEJNaDM2V
    Xdoc2RabHhvVG8iLCAiZlN3M1V5eHdORmZfQ2pZQ0NCWUNSeFpDR0ItTElTMzVQZXkyV
-   DdHX2NIdyJdfX0sICJfc2RfYWxnIjogInNoYS0yNTYifQ.X-fvdmbGJvWaDytIY6JDHY
-   jCrGUxBRVEZ6lj4vlnIDTZJzKyx6WeIDokyynlq7IYLnZ4WWJnp2GqKfAI3qRwKg~WyJ
+   DdHX2NIdyJdfX0sICJfc2RfYWxnIjogInNoYS0yNTYifQ.gRq0kmKG8b3e6fW74FMEc6
+   0D0z9EfblAYHXoMQLUXyLACQabr3WjEnzP_-Us-KvclwMy9MmuPi_rT6LINMAwcg~WyJ
    jZllESjNFR2JFTFMyYkhsTWlrQ3FBIiwgInRpbWUiLCAiMjAxMi0wNC0yM1QxODoyNVo
    iXQ~WyJrMm53eWt1eGdhdERDVllxTVg3WXVRIiwgIm1ldGhvZCIsICJwaXBwIl0~WyI5
    VEFiRnplajZoNGFDSVc2dTZoWFZBIiwgImFkZHJlc3MiLCB7ImxvY2FsaXR5IjogIk1h
@@ -2613,9 +2576,6 @@ A.5.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
    The payload of a corresponding SD-JWT looks as follows:
 
    {
-     "iss": "https://example.com/issuer",
-     "iat": 1516239022,
-     "exp": 1735689661,
      "@context": [
        "https://www.w3.org/2018/credentials/v1",
        "https://w3id.org/vaccination/v1"
@@ -2630,27 +2590,33 @@ A.5.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
      "name": "COVID-19 Vaccination Certificate",
      "description": "COVID-19 Vaccination Certificate",
      "credentialSubject": {
+       "_sd": [
+         "8-N936mMUuXx-Kbf6byQTDOwQoFcoapEvVPbYWiRV5M",
+         "GyDDvOMyEtqsI3vdjbaVSXJZp_WjX_JQIMVqehpr1cU",
+         "MGWjDeD0DvcvG2quwT0zT3wz72HisTJoOtimMc65Qtg",
+         "S7xgnTLcgRqHRipEu0xiEQceAaYh_mfjowFsNZORh4w",
+         "aO2ZezAuMOhmhVv0pQ-U_ZUB4py2hOHa-x7xmGywt8E",
+         "qkaVSrXEw2sbbqS5YdtU1HMNAEjMofTH_6DCxDr91LQ",
+         "ypFwyXOiHzulGDvpY46Jr1nDRexz35FYfBqJWe7xKqc"
+       ],
        "vaccine": {
-         "type": "Vaccine",
-         "atcCode": "J07BX03",
-         "medicinalProductName": "COVID-19 Vaccine Moderna",
-         "marketingAuthorizationHolder": "Moderna Biotech"
+         "_sd": [
+           "C10ypGMJiTgrgKICDu0TIJ5HSEEhRrsy-XgjPGSsxEk",
+           "HduAC5dITq5LsmcYJChAHrSanA0106-JQdkfqVI-Drs",
+           "HlXX723D-EgjoNr4nQVUbEpAg1Gaxwl74350UXfBBM0"
+         ],
+         "type": "Vaccine"
        },
-       "nextVaccinationDate": "2021-08-16T13:40:12Z",
-       "countryOfVaccination": "GE",
-       "dateOfVaccination": "2021-06-23T13:40:12Z",
-       "order": "3/3",
        "recipient": {
-         "type": "VaccineRecipient",
-         "gender": "Female",
-         "birthDate": "1961-08-17",
-         "givenName": "Marion",
-         "familyName": "Mustermann"
+         "_sd": [
+           "-KMt3FVtI_7DuaDpFZGIfE751AwqnXKpLVCQaIpl6P4",
+           "8FbBeqe_wV1ES-RU28y8DDkfQv9dlGziVdd9R3jq-fQ",
+           "Cu8JNGQ2WRs6KHKngBKEaU9r6SMfnwoVVYGTPWwvxJc",
+           "YJI42JtoLHmwv2oi45QW6wmINZXTpYBxhD4eWlmEpiw"
+         ],
+         "type": "VaccineRecipient"
        },
-       "type": "VaccinationEvent",
-       "administeringCentre": "Praxis Sommergarten",
-       "batchNumber": "1626382736",
-       "healthProfessional": "883110000015376"
+       "type": "VaccinationEvent"
      },
      "_sd_alg": "sha-256",
      "cnf": {
@@ -2665,48 +2631,209 @@ A.5.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
 
    Disclosures:
 
+   *Disclosure for atcCode:*
+
+   WyItdjRQVzNldk5TUktHbGNHeHZNbHhRIiwgImF0Y0NvZGUiLCAiSjA3QlgwMyJd
+
+   Contents:
+
+   ["-v4PW3evNSRKGlcGxvMlxQ", "atcCode", "J07BX03"]
+
+   SHA-256 Hash: HduAC5dITq5LsmcYJChAHrSanA0106-JQdkfqVI-Drs
+
+   *Disclosure for medicinalProductName:*
+
+   WyJqZ2FzWTVvUE94VHVSZXAwYWhVWDR3IiwgIm1lZGljaW5hbFByb2R1Y3ROYW1lIiwg
+   IkNPVklELTE5IFZhY2NpbmUgTW9kZXJuYSJd
+
+   Contents:
+
+   ["jgasY5oPOxTuRep0ahUX4w", "medicinalProductName", "COVID-19 Vaccine
+   Moderna"]
+
+   SHA-256 Hash: C10ypGMJiTgrgKICDu0TIJ5HSEEhRrsy-XgjPGSsxEk
+
+   *Disclosure for marketingAuthorizationHolder:*
+
+   WyJQRkF5dnIyeG03LTJTTlZUTmdsdjhBIiwgIm1hcmtldGluZ0F1dGhvcml6YXRpb25I
+   b2xkZXIiLCAiTW9kZXJuYSBCaW90ZWNoIl0
+
+   Contents:
+
+   ["PFAyvr2xm7-2SNVTNglv8A", "marketingAuthorizationHolder", "Moderna
+   Biotech"]
+
+   SHA-256 Hash: HlXX723D-EgjoNr4nQVUbEpAg1Gaxwl74350UXfBBM0
+
+   *Disclosure for nextVaccinationDate:*
+
+   WyJTNFdBd0k0aEFDemx6eDZRclZaODdnIiwgIm5leHRWYWNjaW5hdGlvbkRhdGUiLCAi
+   MjAyMS0wOC0xNlQxMzo0MDoxMloiXQ
+
+   Contents:
+
+   ["S4WAwI4hACzlzx6QrVZ87g", "nextVaccinationDate",
+   "2021-08-16T13:40:12Z"]
+
+   SHA-256 Hash: aO2ZezAuMOhmhVv0pQ-U_ZUB4py2hOHa-x7xmGywt8E
+
+   *Disclosure for countryOfVaccination:*
+
+   WyJybUtiMkVkbG5MVWFtUGdoSnZ3NURBIiwgImNvdW50cnlPZlZhY2NpbmF0aW9uIiwg
+   IkdFIl0
+
+   Contents:
+
+   ["rmKb2EdlnLUamPghJvw5DA", "countryOfVaccination", "GE"]
+
+   SHA-256 Hash: S7xgnTLcgRqHRipEu0xiEQceAaYh_mfjowFsNZORh4w
+
+   *Disclosure for dateOfVaccination:*
+
+   WyJhZlNPY2t0cW9kN3VpSTRnaEpDcHNBIiwgImRhdGVPZlZhY2NpbmF0aW9uIiwgIjIw
+   MjEtMDYtMjNUMTM6NDA6MTJaIl0
+
+   Contents:
+
+   ["afSOcktqod7uiI4ghJCpsA", "dateOfVaccination",
+   "2021-06-23T13:40:12Z"]
+
+   SHA-256 Hash: qkaVSrXEw2sbbqS5YdtU1HMNAEjMofTH_6DCxDr91LQ
+
+   *Disclosure for order:*
+
+   WyJscmhHM1gyOG9QX3VtTGFwRG5lOUlnIiwgIm9yZGVyIiwgIjMvMyJd
+
+   Contents:
+
+   ["lrhG3X28oP_umLapDne9Ig", "order", "3/3"]
+
+   SHA-256 Hash: GyDDvOMyEtqsI3vdjbaVSXJZp_WjX_JQIMVqehpr1cU
+
+   *Disclosure for gender:*
+
+   WyJMdlNISWdtc280elI5NFJjNm1SUUh3IiwgImdlbmRlciIsICJGZW1hbGUiXQ
+
+   Contents:
+
+   ["LvSHIgmso4zR94Rc6mRQHw", "gender", "Female"]
+
+   SHA-256 Hash: Cu8JNGQ2WRs6KHKngBKEaU9r6SMfnwoVVYGTPWwvxJc
+
+   *Disclosure for birthDate:*
+
+   WyJGbnlha0RCczNTN3RrZUM0eWxfQjhnIiwgImJpcnRoRGF0ZSIsICIxOTYxLTA4LTE3
+   Il0
+
+   Contents:
+
+   ["FnyakDBs3S7tkeC4yl_B8g", "birthDate", "1961-08-17"]
+
+   SHA-256 Hash: -KMt3FVtI_7DuaDpFZGIfE751AwqnXKpLVCQaIpl6P4
+
+   *Disclosure for givenName:*
+
+   WyJxYzA5WWNDcVJ2M1dMT1lsOGZaZFl3IiwgImdpdmVuTmFtZSIsICJNYXJpb24iXQ
+
+   Contents:
+
+   ["qc09YcCqRv3WLOYl8fZdYw", "givenName", "Marion"]
+
+   SHA-256 Hash: 8FbBeqe_wV1ES-RU28y8DDkfQv9dlGziVdd9R3jq-fQ
+
+   *Disclosure for familyName:*
+
+   WyJUNDVqck1ZbThNa29WU1QtUXlhNGhBIiwgImZhbWlseU5hbWUiLCAiTXVzdGVybWFu
+   biJd
+
+   Contents:
+
+   ["T45jrMYm8MkoVST-Qya4hA", "familyName", "Mustermann"]
+
+   SHA-256 Hash: YJI42JtoLHmwv2oi45QW6wmINZXTpYBxhD4eWlmEpiw
+
+   *Disclosure for administeringCentre:*
+
+   WyJOeGtSS3hEdEttU2dPNkRteXpiRDB3IiwgImFkbWluaXN0ZXJpbmdDZW50cmUiLCAi
+   UHJheGlzIFNvbW1lcmdhcnRlbiJd
+
+   Contents:
+
+   ["NxkRKxDtKmSgO6DmyzbD0w", "administeringCentre", "Praxis
+   Sommergarten"]
+
+   SHA-256 Hash: MGWjDeD0DvcvG2quwT0zT3wz72HisTJoOtimMc65Qtg
+
+   *Disclosure for batchNumber:*
+
+   WyJQQ2RiNkpITWZmMENiOVBWNHF3d29nIiwgImJhdGNoTnVtYmVyIiwgIjE2MjYzODI3
+   MzYiXQ
+
+   Contents:
+
+   ["PCdb6JHMff0Cb9PV4qwwog", "batchNumber", "1626382736"]
+
+   SHA-256 Hash: ypFwyXOiHzulGDvpY46Jr1nDRexz35FYfBqJWe7xKqc
+
+   *Disclosure for healthProfessional:*
+
+   WyJqUTBHTF9IRkxIdUpKeWFPYkVJa2x3IiwgImhlYWx0aFByb2Zlc3Npb25hbCIsICI4
+   ODMxMTAwMDAwMTUzNzYiXQ
+
+   Contents:
+
+   ["jQ0GL_HFLHuJJyaObEIklw", "healthProfessional", "883110000015376"]
+
+   SHA-256 Hash: 8-N936mMUuXx-Kbf6byQTDOwQoFcoapEvVPbYWiRV5M
+
    The following is a non-normative example of a Combined Format for
    Presentation for the SD-JWT with a Holder Binding JWT.  It only
    discloses type, medicinalProductName, atcCode of the vaccine, type of
    the recipient, type, order and dateOfVaccination.
 
-   eyJhbGciOiAiRVMyNTYifQ.eyJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1Z
-   XIiLCAiaWF0IjogMTUxNjIzOTAyMiwgImV4cCI6IDE3MzU2ODk2NjEsICJAY29udGV4d
-   CI6IFsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiLCAiaHR0c
-   HM6Ly93M2lkLm9yZy92YWNjaW5hdGlvbi92MSJdLCAidHlwZSI6IFsiVmVyaWZpYWJsZ
-   UNyZWRlbnRpYWwiLCAiVmFjY2luYXRpb25DZXJ0aWZpY2F0ZSJdLCAiaXNzdWVyIjogI
-   mh0dHBzOi8vZXhhbXBsZS5jb20vaXNzdWVyIiwgImlzc3VhbmNlRGF0ZSI6ICIyMDIzL
-   TAyLTA5VDExOjAxOjU5WiIsICJleHBpcmF0aW9uRGF0ZSI6ICIyMDI4LTAyLTA4VDExO
-   jAxOjU5WiIsICJuYW1lIjogIkNPVklELTE5IFZhY2NpbmF0aW9uIENlcnRpZmljYXRlI
-   iwgImRlc2NyaXB0aW9uIjogIkNPVklELTE5IFZhY2NpbmF0aW9uIENlcnRpZmljYXRlI
-   iwgImNyZWRlbnRpYWxTdWJqZWN0IjogeyJ2YWNjaW5lIjogeyJ0eXBlIjogIlZhY2Npb
-   mUiLCAiYXRjQ29kZSI6ICJKMDdCWDAzIiwgIm1lZGljaW5hbFByb2R1Y3ROYW1lIjogI
-   kNPVklELTE5IFZhY2NpbmUgTW9kZXJuYSIsICJtYXJrZXRpbmdBdXRob3JpemF0aW9uS
-   G9sZGVyIjogIk1vZGVybmEgQmlvdGVjaCJ9LCAibmV4dFZhY2NpbmF0aW9uRGF0ZSI6I
-   CIyMDIxLTA4LTE2VDEzOjQwOjEyWiIsICJjb3VudHJ5T2ZWYWNjaW5hdGlvbiI6ICJHR
-   SIsICJkYXRlT2ZWYWNjaW5hdGlvbiI6ICIyMDIxLTA2LTIzVDEzOjQwOjEyWiIsICJvc
-   mRlciI6ICIzLzMiLCAicmVjaXBpZW50IjogeyJ0eXBlIjogIlZhY2NpbmVSZWNpcGllb
-   nQiLCAiZ2VuZGVyIjogIkZlbWFsZSIsICJiaXJ0aERhdGUiOiAiMTk2MS0wOC0xNyIsI
-   CJnaXZlbk5hbWUiOiAiTWFyaW9uIiwgImZhbWlseU5hbWUiOiAiTXVzdGVybWFubiJ9L
-   CAidHlwZSI6ICJWYWNjaW5hdGlvbkV2ZW50IiwgImFkbWluaXN0ZXJpbmdDZW50cmUiO
-   iAiUHJheGlzIFNvbW1lcmdhcnRlbiIsICJiYXRjaE51bWJlciI6ICIxNjI2MzgyNzM2I
-   iwgImhlYWx0aFByb2Zlc3Npb25hbCI6ICI4ODMxMTAwMDAwMTUzNzYifSwgIl9zZF9hb
-   GciOiAic2hhLTI1NiIsICJjbmYiOiB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6I
-   CJQLTI1NiIsICJ4IjogIlRDQUVSMTladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN
-   3ZDZUdlbWMiLCAieSI6ICJaeGppV1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0N
-   GpUOUYySFpRIn19fQ.LtUI2RubvSfo0R1uZQnUXXFjsGO_FAeg6jCslnooZ7lBCKIIiR
-   0fPeRk5BWuzKGPoJqA-YO1BE1M2lnY45HfYQ~eyJhbGciOiAiRVMyNTYifQ.eyJub25j
-   ZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1w
-   bGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODE3MjM0NzN9.oLsJAtUf05LGIG_Ly9X
-   fqX-1fDsBlOWCJ8iVgiIIbcGIF3smVklH332CNiJjFt0gHSQ8pMC9flRj8oaa73Zqxg
+   eyJhbGciOiAiRVMyNTYifQ.eyJAY29udGV4dCI6IFsiaHR0cHM6Ly93d3cudzMub3JnL
+   zIwMTgvY3JlZGVudGlhbHMvdjEiLCAiaHR0cHM6Ly93M2lkLm9yZy92YWNjaW5hdGlvb
+   i92MSJdLCAidHlwZSI6IFsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCAiVmFjY2luYXRpb
+   25DZXJ0aWZpY2F0ZSJdLCAiaXNzdWVyIjogImh0dHBzOi8vZXhhbXBsZS5jb20vamRvZ
+   SIsICJpc3N1YW5jZURhdGUiOiAiMjAyMy0wMi0wOVQxMTowMTo1OVoiLCAiZXhwaXJhd
+   GlvbkRhdGUiOiAiMjAyOC0wMi0wOFQxMTowMTo1OVoiLCAibmFtZSI6ICJDT1ZJRC0xO
+   SBWYWNjaW5hdGlvbiBDZXJ0aWZpY2F0ZSIsICJkZXNjcmlwdGlvbiI6ICJDT1ZJRC0xO
+   SBWYWNjaW5hdGlvbiBDZXJ0aWZpY2F0ZSIsICJjcmVkZW50aWFsU3ViamVjdCI6IHsiX
+   3NkIjogWyI4LU45MzZtTVV1WHgtS2JmNmJ5UVRET3dRb0Zjb2FwRXZWUGJZV2lSVjVNI
+   iwgIkd5RER2T015RXRxc0kzdmRqYmFWU1hKWnBfV2pYX0pRSU1WcWVocHIxY1UiLCAiT
+   UdXakRlRDBEdmN2RzJxdXdUMHpUM3d6NzJIaXNUSm9PdGltTWM2NVF0ZyIsICJTN3hnb
+   lRMY2dScUhSaXBFdTB4aUVRY2VBYVloX21mam93RnNOWk9SaDR3IiwgImFPMlplekF1T
+   U9obWhWdjBwUS1VX1pVQjRweTJoT0hhLXg3eG1HeXd0OEUiLCAicWthVlNyWEV3MnNiY
+   nFTNVlkdFUxSE1OQUVqTW9mVEhfNkRDeERyOTFMUSIsICJ5cEZ3eVhPaUh6dWxHRHZwW
+   TQ2SnIxbkRSZXh6MzVGWWZCcUpXZTd4S3FjIl0sICJ2YWNjaW5lIjogeyJfc2QiOiBbI
+   kMxMHlwR01KaVRncmdLSUNEdTBUSUo1SFNFRWhScnN5LVhnalBHU3N4RWsiLCAiSGR1Q
+   UM1ZElUcTVMc21jWUpDaEFIclNhbkEwMTA2LUpRZGtmcVZJLURycyIsICJIbFhYNzIzR
+   C1FZ2pvTnI0blFWVWJFcEFnMUdheHdsNzQzNTBVWGZCQk0wIl0sICJ0eXBlIjogIlZhY
+   2NpbmUifSwgInJlY2lwaWVudCI6IHsiX3NkIjogWyItS010M0ZWdElfN0R1YURwRlpHS
+   WZFNzUxQXdxblhLcExWQ1FhSXBsNlA0IiwgIjhGYkJlcWVfd1YxRVMtUlUyOHk4RERrZ
+   lF2OWRsR3ppVmRkOVIzanEtZlEiLCAiQ3U4Sk5HUTJXUnM2S0hLbmdCS0VhVTlyNlNNZ
+   m53b1ZWWUdUUFd3dnhKYyIsICJZSkk0Mkp0b0xIbXd2Mm9pNDVRVzZ3bUlOWlhUcFlCe
+   GhENGVXbG1FcGl3Il0sICJ0eXBlIjogIlZhY2NpbmVSZWNpcGllbnQifSwgInR5cGUiO
+   iAiVmFjY2luYXRpb25FdmVudCJ9LCAiaXNzIjogImh0dHBzOi8vZXhhbXBsZS5jb20va
+   XNzdWVyIiwgImlhdCI6IDE1MTYyMzkwMjIsICJleHAiOiAxNTE2MjQ3MDIyLCAiX3NkX
+   2FsZyI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiRUMiLCAiY3J2I
+   jogIlAtMjU2IiwgIngiOiAiVENBRVIxOVp2dTNPSEY0ajRXNHZmU1ZvSElQMUlMaWxEb
+   HM3dkNlR2VtYyIsICJ5IjogIlp4amlXV2JaTVFHSFZXS1ZRNGhiU0lpcnNWZnVlY0NFN
+   nQ0alQ5RjJIWlEifX19.Z5zQzcPFTkeNt49nS_Vtmuq49cpn6PuE3Y3UmFiKOxT9rlBx
+   jmCwb3UqPzuyvL5G1vhswELD2d3iakMvtq3jgQ~WyJscmhHM1gyOG9QX3VtTGFwRG5lO
+   UlnIiwgIm9yZGVyIiwgIjMvMyJd~WyJhZlNPY2t0cW9kN3VpSTRnaEpDcHNBIiwgImRh
+   dGVPZlZhY2NpbmF0aW9uIiwgIjIwMjEtMDYtMjNUMTM6NDA6MTJaIl0~WyJqZ2FzWTVv
+   UE94VHVSZXAwYWhVWDR3IiwgIm1lZGljaW5hbFByb2R1Y3ROYW1lIiwgIkNPVklELTE5
+   IFZhY2NpbmUgTW9kZXJuYSJd~WyItdjRQVzNldk5TUktHbGNHeHZNbHhRIiwgImF0Y0N
+   vZGUiLCAiSjA3QlgwMyJd~eyJhbGciOiAiRVMyNTYifQ.eyJub25jZSI6ICJYWk9VY28
+   xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3Zlcml
+   maWVyIiwgImlhdCI6IDE2NzYwNDg5NzV9.QVDqrgqbWpAlnC1pl69q-FmT1BomWLjD6g
+   xfhhKlZVq7SZheXzXEBDdVf3rWAzJOFOMk84tAp3wjLb9HQrckpA
 
    After the validation, the Verifier will have the following data for
    further processing:
 
    {
-     "iss": "https://example.com/issuer",
-     "iat": 1516239022,
-     "exp": 1735689661,
      "@context": [
        "https://www.w3.org/2018/credentials/v1",
        "https://w3id.org/vaccination/v1"
@@ -2723,25 +2850,15 @@ A.5.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
      "credentialSubject": {
        "vaccine": {
          "type": "Vaccine",
-         "atcCode": "J07BX03",
          "medicinalProductName": "COVID-19 Vaccine Moderna",
-         "marketingAuthorizationHolder": "Moderna Biotech"
+         "atcCode": "J07BX03"
        },
-       "nextVaccinationDate": "2021-08-16T13:40:12Z",
-       "countryOfVaccination": "GE",
-       "dateOfVaccination": "2021-06-23T13:40:12Z",
-       "order": "3/3",
        "recipient": {
-         "type": "VaccineRecipient",
-         "gender": "Female",
-         "birthDate": "1961-08-17",
-         "givenName": "Marion",
-         "familyName": "Mustermann"
+         "type": "VaccineRecipient"
        },
        "type": "VaccinationEvent",
-       "administeringCentre": "Praxis Sommergarten",
-       "batchNumber": "1626382736",
-       "healthProfessional": "883110000015376"
+       "order": "3/3",
+       "dateOfVaccination": "2021-06-23T13:40:12Z"
      },
      "_sd_alg": "sha-256",
      "cnf": {
