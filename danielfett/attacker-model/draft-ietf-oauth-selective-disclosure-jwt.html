@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 16 October 2023</td>
+<td class="center">Expires 19 October 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-04-14" class="published">14 April 2023</time>
+<time datetime="2023-04-17" class="published">17 April 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-10-16">16 October 2023</time></dd>
+<dd class="expires"><time datetime="2023-10-19">19 October 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1127,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 October 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 October 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2484,9 +2484,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 information from an SD-JWT about any claim name or claim value that was not
 explicitly disclosed by the Holder unless that information can be derived from
 other disclosed claims or external sources.<a href="#section-8-2" class="pilcrow">¶</a></p>
-<p id="section-8-3"><strong>Integrity:</strong> The claims verified by a Verifier are a subset of the claims
-released by the Issuer, even if the Holder is malicious (i.e., a Holder cannot
-modify claim names or claim values without the Verifier noticing during verification).<a href="#section-8-3" class="pilcrow">¶</a></p>
+<p id="section-8-3"><strong>Integrity:</strong> A malicious Holder cannot modify names or values of selectively disclosable claims without detection by the Verifier.<a href="#section-8-3" class="pilcrow">¶</a></p>
 <p id="section-8-4">Additionally, Holder Binding can be achieved as described in <a href="#holder_binding_security" class="auto internal xref">Section 8.6</a>.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <div id="mandatory-signing-of-the-sd-jwt">
 <section id="section-8.1">
