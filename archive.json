@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-04-18T00:56:41.515265+00:00",
+  "timestamp": "2023-04-20T00:57:46.795940+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -2087,17 +2087,15 @@
       "author": "peppelinux",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [
-        "has-PR"
-      ],
+      "labels": [],
       "body": "We have \r\n\r\n````\r\n{\r\n  \"alg\": \"RS256\"\r\n}\r\n````\r\n\r\nwe may have something like\r\n\r\n````\r\n{\r\n  \"typ\": \"SD-JWT\"\r\n  \"alg\": \"RS256\"\r\n}\r\n````",
       "createdAt": "2022-06-17T11:42:04Z",
-      "updatedAt": "2022-12-08T20:13:39Z",
+      "updatedAt": "2023-04-18T08:06:27Z",
       "closedAt": null,
       "comments": [
         {
           "author": "tlodderstedt",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "+1",
           "createdAt": "2022-06-17T12:32:06Z",
           "updatedAt": "2022-06-17T12:32:06Z"
@@ -6227,9 +6225,17 @@
       "labels": [],
       "body": "Do we need implementation consideration \"to suggests not to do anything with the content of a Disclosure until/unless it's digest value is found in an _sd element.\" maybe it is already clear.",
       "createdAt": "2023-04-11T16:18:03Z",
-      "updatedAt": "2023-04-11T16:18:03Z",
+      "updatedAt": "2023-04-18T14:34:58Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think it's clear enough as it is. That was just a note in the PR about why I thought a particular verification step was in the appropriate place.  I don't think it needs an implementation consideration or anything more.   ",
+          "createdAt": "2023-04-18T14:34:58Z",
+          "updatedAt": "2023-04-18T14:34:58Z"
+        }
+      ]
     },
     {
       "number": 253,
@@ -6396,9 +6402,17 @@
       "labels": [],
       "body": "Why `create the decoy digests by hashing over a cryptographically secure random number` (and use `the same digest function as for. the Disclosures`)? \r\n\r\nFeedback received why apply a cryptographic hash function over the output of a cryptographically secure RNG. That is a bit excessive. However, having read a bit about the topic. Since there is no cryptographically secure RNG of the operating system, it is possible to analyze the decoys to determine entropy / detect patterns, thereby undermining security. but hashing the RNG output just makes this process a lot slower. It simply adds computational overhead to any attempt to brute force it. \r\n\r\nIt seems to that the text simply \"inherited\" the security best practice from generating sensitive material like tokens. In the context of decoys the risks are perhaps not that great, but it is not like adding a SHA256 step results in any performance hit",
       "createdAt": "2023-04-17T15:29:23Z",
-      "updatedAt": "2023-04-17T15:43:58Z",
+      "updatedAt": "2023-04-18T08:49:45Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "The application of the hash function is a simple and computationally cheap way to reduce the chances that decoys become easily distinguishable from the real digests, for example because of\r\n\r\n * bad implementation of the nonce (e.g., insufficient length or insufficient entropy), or\r\n * properties of the hash function that make the output distinguishable from nonces (although practically used hash functions probably don't have this problem).\r\n\r\nFor example, without applying the hash, if the hash function is switched from SHA256 to SHA512, the developer needs to adapt the choice of the nonce accordingly. With the proposed method, the nonce can just always be, e.g., a 128 bit integer that gets hashed to whatever the hash function defines.",
+          "createdAt": "2023-04-18T08:49:45Z",
+          "updatedAt": "2023-04-18T08:49:45Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -23875,7 +23889,7 @@
       "labels": [],
       "body": "See #243 ",
       "createdAt": "2023-04-03T16:41:44Z",
-      "updatedAt": "2023-04-17T19:45:47Z",
+      "updatedAt": "2023-04-19T13:59:27Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "7aa6f926bfc684eae530ebf1210d74b636ae0a06",
@@ -24131,6 +24145,164 @@
               "updatedAt": "2023-04-17T19:45:47Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0n-0",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:07:14Z",
+          "updatedAt": "2023-04-18T08:11:46Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "I think this is relevant to #254. Is `Credentials` a term used for SD-JWT + disclosures..?",
+              "createdAt": "2023-04-18T08:07:14Z",
+              "updatedAt": "2023-04-18T08:11:46Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "whitespace in the end of line 794 needs to be removed or won't compile",
+              "createdAt": "2023-04-18T08:08:20Z",
+              "updatedAt": "2023-04-18T08:11:46Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "I would prefer `further remove`. further restrict means something different to me.",
+              "createdAt": "2023-04-18T08:09:33Z",
+              "updatedAt": "2023-04-18T08:11:46Z"
+            },
+            {
+              "originalPosition": 18,
+              "body": "I think the point is **the Issuers** need to enforce holder binding if it does not want anyone to be able to forward sd-jwts all over. it's not about verifiers ignoring holder binding when it is present.\r\n\r\n(I am ok with `need to enforce` but it should be issuers, not verifiers)",
+              "createdAt": "2023-04-18T08:11:04Z",
+              "updatedAt": "2023-04-18T08:11:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0rUP",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:14:44Z",
+          "updatedAt": "2023-04-18T08:14:44Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "How can an Issuer enforce holder binding when the Verifier can always opt not to check it?",
+              "createdAt": "2023-04-18T08:14:44Z",
+              "updatedAt": "2023-04-18T08:14:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0r46",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:16:00Z",
+          "updatedAt": "2023-04-18T08:16:00Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "\"further reduce\"?",
+              "createdAt": "2023-04-18T08:16:00Z",
+              "updatedAt": "2023-04-18T08:16:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S5pHr",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "OR13",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T19:59:13Z",
+          "updatedAt": "2023-04-18T19:59:14Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Issuer needs to be aware that without binding, the credential is basically a Netflix password in a big family.\r\nVerifier (Netflix) needs to be aware that accepting a password with no binding maybe means the current user is not the original account holder.\r\n\r\nSorry for trollish analogy, but they both need to be given guidance (Issuer and Verifier).",
+              "createdAt": "2023-04-18T19:59:13Z",
+              "updatedAt": "2023-04-18T19:59:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S7tkI",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-19T07:04:52Z",
+          "updatedAt": "2023-04-19T07:04:52Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Yes, both need guidance, but the Issuer cannot _enforce_ holder binding. Only the Verifier can. The Issuer should _support_ holder binding though.",
+              "createdAt": "2023-04-19T07:04:52Z",
+              "updatedAt": "2023-04-19T07:04:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S7t5x",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-19T07:05:50Z",
+          "updatedAt": "2023-04-19T07:05:51Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nby an upstream party, and they can choose to further reduce the disclosed claims\r\nwhen presenting to a downstream party.\r\n```",
+              "createdAt": "2023-04-19T07:05:51Z",
+              "updatedAt": "2023-04-19T07:05:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S-mUb",
+          "commit": {
+            "abbreviatedOid": "52d4b5b"
+          },
+          "author": "OR13",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-19T13:59:26Z",
+          "updatedAt": "2023-04-19T13:59:26Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "The issuer \"enables\" holder binding\", the verifier \"enforces\" it.",
+              "createdAt": "2023-04-19T13:59:26Z",
+              "updatedAt": "2023-04-19T13:59:27Z"
+            }
+          ]
         }
       ]
     },
@@ -24146,13 +24318,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-04-11T23:48:18Z",
-      "updatedAt": "2023-04-17T17:52:08Z",
+      "updatedAt": "2023-04-18T13:52:05Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "9cff950d1e2bc9a629f030061f7d3d6f5babfb4d",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "bc-iana-media-type-and-suffix",
-      "headRefOid": "dd28a137417dc1ef5ccc067dc4e33fd926bdf750",
+      "headRefOid": "2fe54c5a0dc23dd9c943d42ccf4afac838cea24c",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -24379,6 +24551,46 @@
           "createdAt": "2023-04-17T17:52:08Z",
           "updatedAt": "2023-04-17T17:52:08Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0jNV",
+          "commit": {
+            "abbreviatedOid": "dd28a13"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T07:56:30Z",
+          "updatedAt": "2023-04-18T07:56:30Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "ok, so do I understand that the same application/sd-jwt will be used regardless whether it is issuance and presentation and the receiver is expected to know which combined format it is, based on the context, protocol?",
+              "createdAt": "2023-04-18T07:56:30Z",
+              "updatedAt": "2023-04-18T07:56:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S3EQO",
+          "commit": {
+            "abbreviatedOid": "f1a54df"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T13:47:01Z",
+          "updatedAt": "2023-04-18T13:47:01Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Yes @Sakurann, I believe so. ",
+              "createdAt": "2023-04-18T13:47:01Z",
+              "updatedAt": "2023-04-18T13:47:01Z"
+            }
+          ]
         }
       ]
     },
@@ -24394,7 +24606,7 @@
       "labels": [],
       "body": "This fixes Issue #235. The main  change is to better describe in which role the adversary acts.",
       "createdAt": "2023-04-14T13:33:36Z",
-      "updatedAt": "2023-04-17T08:49:41Z",
+      "updatedAt": "2023-04-18T08:33:45Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
@@ -24498,6 +24710,66 @@
               "updatedAt": "2023-04-17T08:49:40Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0vcV",
+          "commit": {
+            "abbreviatedOid": "85b7022"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:23:57Z",
+          "updatedAt": "2023-04-18T08:23:58Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "is \"selective disclosure\" a security property..?",
+              "createdAt": "2023-04-18T08:23:57Z",
+              "updatedAt": "2023-04-18T08:23:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0wmA",
+          "commit": {
+            "abbreviatedOid": "292200e"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:26:24Z",
+          "updatedAt": "2023-04-18T08:26:28Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "then it should be explained more, including a security property HB achieves",
+              "createdAt": "2023-04-18T08:26:24Z",
+              "updatedAt": "2023-04-18T08:26:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S01KM",
+          "commit": {
+            "abbreviatedOid": "85b7022"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-04-18T08:33:45Z",
+          "updatedAt": "2023-04-18T08:33:45Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "It is if we define it, and I think we should because that's the main goal of the spec. I'm open to better names, though.",
+              "createdAt": "2023-04-18T08:33:45Z",
+              "updatedAt": "2023-04-18T08:33:45Z"
+            }
+          ]
         }
       ]
     },
@@ -24513,7 +24785,7 @@
       "labels": [],
       "body": "To fix Issue #240, I found that removing Example 2b is the best way to go. \r\n\r\nI tried to fixate the nonces used in the examples despite decoys being generated in one of the examples, but that got quite messy and introduces a lot of unsafe code paths into the python code.\r\n\r\nAn alternative would be to manage the example manually, but that is a source for errors, so let's not do that.",
       "createdAt": "2023-04-14T14:03:49Z",
-      "updatedAt": "2023-04-17T16:17:16Z",
+      "updatedAt": "2023-04-18T08:36:00Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
@@ -24545,6 +24817,13 @@
           "body": "That was my initial approach, but with that change there's really not that much value to the example: It just shows a bunch of digests, where the number of digests is higher than it was previously. The fact that the digests are different can be confusing for readers at worst and the example is not very helpful at best.",
           "createdAt": "2023-04-17T08:45:44Z",
           "updatedAt": "2023-04-17T08:46:08Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "So instead of showing the decoy digests in the examples you propose to list them seperately and not show a complete example with decoy digests?",
+          "createdAt": "2023-04-18T08:35:59Z",
+          "updatedAt": "2023-04-18T08:35:59Z"
         }
       ],
       "reviews": [
@@ -24559,6 +24838,19 @@
           "body": "",
           "createdAt": "2023-04-17T16:17:16Z",
           "updatedAt": "2023-04-17T16:17:16Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0t8f",
+          "commit": {
+            "abbreviatedOid": "862687a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "given feedback in issue #260. I am not still not sure entirely removing is a good option...\r\nCould we add to example 2 a text saying \"if the issuer wants to use decoys, these strings would be added to an `_sd` array: <2-3 decoy digests>\"?",
+          "createdAt": "2023-04-18T08:20:38Z",
+          "updatedAt": "2023-04-18T08:20:38Z",
           "comments": []
         }
       ]
@@ -24575,7 +24867,7 @@
       "labels": [],
       "body": "Fixes #231 ",
       "createdAt": "2023-04-14T14:19:15Z",
-      "updatedAt": "2023-04-14T18:08:26Z",
+      "updatedAt": "2023-04-18T08:27:50Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
@@ -24593,6 +24885,13 @@
           "body": "This is the HTML output after this fix:\r\n![Screenshot_20230414_161944](https://user-images.githubusercontent.com/89476/232071527-5e6d2ee7-b888-42e6-9260-3226ad0e11f5.png)\r\n\r\n",
           "createdAt": "2023-04-14T14:22:32Z",
           "updatedAt": "2023-04-14T14:23:06Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "would it be easier to read \r\n> `phone_numer` Claim\r\n\r\ninstead of\r\n\r\n> Claim `phone_number`",
+          "createdAt": "2023-04-18T08:27:50Z",
+          "updatedAt": "2023-04-18T08:27:50Z"
         }
       ],
       "reviews": [
@@ -24623,7 +24922,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-04-17T11:10:30Z",
-      "updatedAt": "2023-04-17T16:37:16Z",
+      "updatedAt": "2023-04-18T08:15:30Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "4cce100aa2bbbbf4eb8cf52a5de7a9b4479931c3",
@@ -24655,6 +24954,13 @@
           "body": "> This time I removed all changed output files to not cause merge conflicts with the other PRs we have.\r\n\r\nOk, that's sort of what I suspected.\r\n\r\n> It seems like we should switch to generating the examples in github actions and not committing them.\r\n\r\nMaybe...\r\n",
           "createdAt": "2023-04-17T12:48:37Z",
           "updatedAt": "2023-04-17T12:48:37Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "(trusting it will be merged to minimize conflicting changes with other PRs)",
+          "createdAt": "2023-04-18T08:15:29Z",
+          "updatedAt": "2023-04-18T08:15:29Z"
         }
       ],
       "reviews": [
@@ -24669,6 +24975,19 @@
           "body": "",
           "createdAt": "2023-04-17T16:37:16Z",
           "updatedAt": "2023-04-17T16:37:16Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5S0rgR",
+          "commit": {
+            "abbreviatedOid": "11651b1"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-04-18T08:15:09Z",
+          "updatedAt": "2023-04-18T08:15:09Z",
           "comments": []
         }
       ]
@@ -24685,7 +25004,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-04-17T13:52:48Z",
-      "updatedAt": "2023-04-17T15:24:33Z",
+      "updatedAt": "2023-04-18T13:49:03Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "70a7d52db804a16cae98ad223da87a54836c885e",
@@ -24696,7 +25015,22 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I didn't realize both of you were convinced it is a good idea to remove this step altogether, without clarifying anywhere in the text implementers might want to do it, and why?",
+          "createdAt": "2023-04-18T08:03:21Z",
+          "updatedAt": "2023-04-18T08:05:32Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Seems fine to remove it. ",
+          "createdAt": "2023-04-18T13:49:03Z",
+          "updatedAt": "2023-04-18T13:49:03Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOHTmVzM5SwQv5",
