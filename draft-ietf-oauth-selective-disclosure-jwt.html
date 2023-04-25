@@ -1300,6 +1300,14 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#section-11.1" class="auto internal xref">11.1</a>.  <a href="#name-media-type-registration" class="internal xref">Media Type Registration</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
+                <p id="section-toc.1-1.11.2.2.1"><a href="#section-11.2" class="auto internal xref">11.2</a>.  <a href="#name-structured-syntax-suffix-re" class="internal xref">Structured Syntax Suffix Registration</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-normative-references" class="internal xref">Normative References</a></p>
@@ -2831,7 +2839,86 @@ for their contributions (some of which substantial) to this draft and to the ini
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-11-1">TBD<a href="#section-11-1" class="pilcrow">¶</a></p>
-<p id="section-11-2">@VC_JWT<a href="#section-11-2" class="pilcrow">¶</a></p>
+<div id="media-type-registration">
+<section id="section-11.1">
+        <h3 id="name-media-type-registration">
+<a href="#section-11.1" class="section-number selfRef">11.1. </a><a href="#name-media-type-registration" class="section-name selfRef">Media Type Registration</a>
+        </h3>
+<p id="section-11.1-1">This section requests registration of the "application/sd-jwt" media type <span>[<a href="#RFC2046" class="cite xref">RFC2046</a>]</span> in
+the "Media Types" registry <span>[<a href="#IANA.MediaTypes" class="cite xref">IANA.MediaTypes</a>]</span> in the manner described
+in <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span>, which can be used to indicate that the content is an SD-JWT.<a href="#section-11.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-11.1-2.1">Type name: application<a href="#section-11.1-2.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.2">Subtype name: sd-jwt<a href="#section-11.1-2.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.3">Required parameters: n/a<a href="#section-11.1-2.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.4">Optional parameters: n/a<a href="#section-11.1-2.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.5">Encoding considerations: binary; application/sd-jwt values are a series of base64url-encoded values (some of which may be the empty string) separated by period ('.') or tilde ('~') characters.<a href="#section-11.1-2.5" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.6">Security considerations: See the Security Considerations section of [[ this specification ]], <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>, and <span>[<a href="#RFC8725" class="cite xref">RFC8725</a>]</span>.<a href="#section-11.1-2.6" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.7">Interoperability considerations: n/a<a href="#section-11.1-2.7" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.8">Published specification: [[ this specification ]]<a href="#section-11.1-2.8" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.9">Applications that use this media type: TBD<a href="#section-11.1-2.9" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.10">Fragment identifier considerations: n/a<a href="#section-11.1-2.10" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.11">Additional information:
+Magic number(s): n/a
+File extension(s): n/a
+Macintosh file type code(s): n/a<a href="#section-11.1-2.11" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.12">Person &amp; email address to contact for further information: Daniel Fett, mail@danielfett.de<a href="#section-11.1-2.12" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.13">Intended usage: COMMON<a href="#section-11.1-2.13" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.14">Restrictions on usage: none<a href="#section-11.1-2.14" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.15">Author: Daniel Fett, mail@danielfett.de<a href="#section-11.1-2.15" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.16">Change Controller: IESG<a href="#section-11.1-2.16" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.1-2.17">Provisional registration?  No<a href="#section-11.1-2.17" class="pilcrow">¶</a>
+</li>
+        </ul>
+</section>
+</div>
+<div id="structured-syntax-suffix-registration">
+<section id="section-11.2">
+        <h3 id="name-structured-syntax-suffix-re">
+<a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-structured-syntax-suffix-re" class="section-name selfRef">Structured Syntax Suffix Registration</a>
+        </h3>
+<p id="section-11.2-1">This section requests registration of the "+sd-jwt" structured syntax suffix in
+the "Structured Syntax Suffix" registry <span>[<a href="#IANA.StructuredSuffix" class="cite xref">IANA.StructuredSuffix</a>]</span> in
+the manner described in [RFC6838], which can be used to indicate that
+the media type is encoded as an SD-JWT.<a href="#section-11.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-11.2-2.1">Name: SD-JWT<a href="#section-11.2-2.1" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.2">+suffix: +sd-jwt<a href="#section-11.2-2.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.3">References: [[ this specification ]]<a href="#section-11.2-2.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.4">Encoding considerations: binary; SD-JWT values are a series of base64url-encoded values (some of which may be the empty string) separated by period ('.') or tilde ('~') characters.<a href="#section-11.2-2.4" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.5">Interoperability considerations: n/a<a href="#section-11.2-2.5" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.6">Fragment identifier considerations: n/a<a href="#section-11.2-2.6" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.7">Security considerations: See the Security Considerations section of [[ this specification ]], <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>, and <span>[<a href="#RFC8725" class="cite xref">RFC8725</a>]</span>.<a href="#section-11.2-2.7" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.8">Contact: Daniel Fett, mail@danielfett.de<a href="#section-11.2-2.8" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-11.2-2.9">Author/Change controller: IESG<a href="#section-11.2-2.9" class="pilcrow">¶</a>
+</li>
+        </ul>
+</section>
+</div>
 </section>
 </div>
 <section id="section-12">
@@ -2866,6 +2953,14 @@ for their contributions (some of which substantial) to this draft and to the ini
       <dd>
 <span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information Hash Algorithm"</span>, <span>&lt;<a href="https://www.iana.org/assignments/named-information/named-information.xhtml">https://www.iana.org/assignments/named-information/named-information.xhtml</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="IANA.MediaTypes">[IANA.MediaTypes]</dt>
+      <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Media Types"</span>, <span>&lt;<a href="https://www.iana.org/assignments/media-types/media-types.xhtml">https://www.iana.org/assignments/media-types/media-types.xhtml</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="IANA.StructuredSuffix">[IANA.StructuredSuffix]</dt>
+      <dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Structured Syntax Suffixs"</span>, <span>&lt;<a href="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="ISO.29100">[ISO.29100]</dt>
       <dd>
 <span class="refAuthor">ISO</span>, <span class="refTitle">"ISO/IEC 29100:2011 Information technology — Security techniques — Privacy framework"</span>, <span>&lt;<a href="https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html">https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html</a>&gt;</span>. </dd>
@@ -2877,6 +2972,14 @@ for their contributions (some of which substantial) to this draft and to the ini
 <dt id="RFC0020">[RFC0020]</dt>
       <dd>
 <span class="refAuthor">Cerf, V.</span>, <span class="refTitle">"ASCII format for network interchange"</span>, <span class="seriesInfo">STD 80</span>, <span class="seriesInfo">RFC 20</span>, <span class="seriesInfo">DOI 10.17487/RFC0020</span>, <time datetime="1969-10" class="refDate">October 1969</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc20">https://www.rfc-editor.org/info/rfc20</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC2046">[RFC2046]</dt>
+      <dd>
+<span class="refAuthor">Freed, N.</span> and <span class="refAuthor">N. Borenstein</span>, <span class="refTitle">"Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types"</span>, <span class="seriesInfo">RFC 2046</span>, <span class="seriesInfo">DOI 10.17487/RFC2046</span>, <time datetime="1996-11" class="refDate">November 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2046">https://www.rfc-editor.org/info/rfc2046</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6838">[RFC6838]</dt>
+      <dd>
+<span class="refAuthor">Freed, N.</span>, <span class="refAuthor">Klensin, J.</span>, and <span class="refAuthor">T. Hansen</span>, <span class="refTitle">"Media Type Specifications and Registration Procedures"</span>, <span class="seriesInfo">BCP 13</span>, <span class="seriesInfo">RFC 6838</span>, <span class="seriesInfo">DOI 10.17487/RFC6838</span>, <time datetime="2013-01" class="refDate">January 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc6838">https://www.rfc-editor.org/info/rfc6838</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7515">[RFC7515]</dt>
       <dd>
@@ -4169,157 +4272,164 @@ data. The original JSON data is then used by the application. See
 <a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-C-1">[[ To be removed from the final specification ]]<a href="#appendix-C-1" class="pilcrow">¶</a></p>
-<p id="appendix-C-2">-04<a href="#appendix-C-2" class="pilcrow">¶</a></p>
+<p id="appendix-C-2">-05<a href="#appendix-C-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-3.1">Improve description of processing of disclosures<a href="#appendix-C-3.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-3.1">Added initial IANA media type and structured suffix registration requests<a href="#appendix-C-3.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-3.2">Added considerations around forwarding credentials<a href="#appendix-C-3.2" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-4">-03<a href="#appendix-C-4" class="pilcrow">¶</a></p>
+<p id="appendix-C-4">-04<a href="#appendix-C-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-5.1">Clarify that other specifications may define enveloping multiple Combined Formats for Presentation<a href="#appendix-C-5.1" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.2">Add an example of W3C vc-data-model that uses a JSON-LD object as the claims set<a href="#appendix-C-5.2" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.3">Clarify requirements for the combined formats for issuance and presentation<a href="#appendix-C-5.3" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.4">Added overview of the Security Considerations section<a href="#appendix-C-5.4" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.5">Enhanced examples in the Privacy Considerations section<a href="#appendix-C-5.5" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.6">Allow for recursive disclosures<a href="#appendix-C-5.6" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.7">Discussion on holder binding and privacy of stored credentials<a href="#appendix-C-5.7" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.8">Add some context about SD-JWT being general-purpose despite being a product of the OAuth WG<a href="#appendix-C-5.8" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.9">More explicitly say that SD-JWTs have to be signed asymmetrically (no MAC and no <code>none</code>)<a href="#appendix-C-5.9" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.10">Make sha-256 the default hash algorithm, if the hash alg claim is omitted<a href="#appendix-C-5.10" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.11">Use ES256 instead of RS256 in examples<a href="#appendix-C-5.11" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.12">Rename and move the c14n challenges section to an appendix<a href="#appendix-C-5.12" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.13">A bit more in security considerations for Choice of a Hash Algorithm (1st &amp; 2nd preimage resistant and not majorly truncated)<a href="#appendix-C-5.13" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.14">Remove the notational figures from the Concepts section<a href="#appendix-C-5.14" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.15">Change salt to always be a string (rather than any JSON type)<a href="#appendix-C-5.15" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-5.16">Fix the Document History (which had a premature list for -03)<a href="#appendix-C-5.16" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-5.1">Improve description of processing of disclosures<a href="#appendix-C-5.1" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-6">-02<a href="#appendix-C-6" class="pilcrow">¶</a></p>
+<p id="appendix-C-6">-03<a href="#appendix-C-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-7.1">Disclosures are now delivered not as a JWT but as separate base64url-encoded JSON objects.<a href="#appendix-C-7.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-7.1">Clarify that other specifications may define enveloping multiple Combined Formats for Presentation<a href="#appendix-C-7.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.2">In the SD-JWT, digests are collected under a <code>_sd</code> claim per level.<a href="#appendix-C-7.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.2">Add an example of W3C vc-data-model that uses a JSON-LD object as the claims set<a href="#appendix-C-7.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.3">Terms "II-Disclosures" and "HS-Disclosures" are replaced with "Disclosures".<a href="#appendix-C-7.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.3">Clarify requirements for the combined formats for issuance and presentation<a href="#appendix-C-7.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.4">Holder Binding is now separate from delivering the Disclosures and implemented, if required, with a separate JWT.<a href="#appendix-C-7.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.4">Added overview of the Security Considerations section<a href="#appendix-C-7.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.5">Examples updated and modified to properly explain the specifics of the new SD-JWT format.<a href="#appendix-C-7.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.5">Enhanced examples in the Privacy Considerations section<a href="#appendix-C-7.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.6">Examples are now pulled in from the examples directory, not inlined.<a href="#appendix-C-7.6" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.6">Allow for recursive disclosures<a href="#appendix-C-7.6" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.7">Updated and automated the W3C VC example.<a href="#appendix-C-7.7" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.7">Discussion on holder binding and privacy of stored credentials<a href="#appendix-C-7.7" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.8">Added examples with multibyte characters to show that the specification and demo code work well with UTF-8.<a href="#appendix-C-7.8" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.8">Add some context about SD-JWT being general-purpose despite being a product of the OAuth WG<a href="#appendix-C-7.8" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.9">reverted back to hash alg from digest derivation alg (renamed to <code>_sd_alg</code>)<a href="#appendix-C-7.9" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.9">More explicitly say that SD-JWTs have to be signed asymmetrically (no MAC and no <code>none</code>)<a href="#appendix-C-7.9" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-7.10">reformatted<a href="#appendix-C-7.10" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-7.10">Make sha-256 the default hash algorithm, if the hash alg claim is omitted<a href="#appendix-C-7.10" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.11">Use ES256 instead of RS256 in examples<a href="#appendix-C-7.11" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.12">Rename and move the c14n challenges section to an appendix<a href="#appendix-C-7.12" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.13">A bit more in security considerations for Choice of a Hash Algorithm (1st &amp; 2nd preimage resistant and not majorly truncated)<a href="#appendix-C-7.13" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.14">Remove the notational figures from the Concepts section<a href="#appendix-C-7.14" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.15">Change salt to always be a string (rather than any JSON type)<a href="#appendix-C-7.15" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-7.16">Fix the Document History (which had a premature list for -03)<a href="#appendix-C-7.16" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-8">-01<a href="#appendix-C-8" class="pilcrow">¶</a></p>
+<p id="appendix-C-8">-02<a href="#appendix-C-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-9.1">introduced blinded claim names<a href="#appendix-C-9.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-9.1">Disclosures are now delivered not as a JWT but as separate base64url-encoded JSON objects.<a href="#appendix-C-9.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.2">explained why JSON-encoding of values is needed<a href="#appendix-C-9.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.2">In the SD-JWT, digests are collected under a <code>_sd</code> claim per level.<a href="#appendix-C-9.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.3">explained merging algorithm ("processing model")<a href="#appendix-C-9.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.3">Terms "II-Disclosures" and "HS-Disclosures" are replaced with "Disclosures".<a href="#appendix-C-9.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.4">generalized hash alg to digest derivation alg which also enables HMAC to calculate digests<a href="#appendix-C-9.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.4">Holder Binding is now separate from delivering the Disclosures and implemented, if required, with a separate JWT.<a href="#appendix-C-9.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.5">
-          <code>_sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-C-9.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.5">Examples updated and modified to properly explain the specifics of the new SD-JWT format.<a href="#appendix-C-9.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.6">Salt/Value Container (SVC) renamed to Issuer-Issued Disclosures (II-Disclosures)<a href="#appendix-C-9.6" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.6">Examples are now pulled in from the examples directory, not inlined.<a href="#appendix-C-9.6" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.7">SD-JWT-Release (SD-JWT-R) renamed to Holder-Selected Disclosures (HS-Disclosures)<a href="#appendix-C-9.7" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.7">Updated and automated the W3C VC example.<a href="#appendix-C-9.7" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.8">
-          <code>sd_disclosure</code> in II-Disclosures renamed to <code>sd_ii_disclosures</code><a href="#appendix-C-9.8" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.8">Added examples with multibyte characters to show that the specification and demo code work well with UTF-8.<a href="#appendix-C-9.8" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.9">
-          <code>sd_disclosure</code> in HS-Disclosures renamed to <code>sd_hs_disclosures</code><a href="#appendix-C-9.9" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.9">reverted back to hash alg from digest derivation alg (renamed to <code>_sd_alg</code>)<a href="#appendix-C-9.9" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-9.10">clarified relationship between <code>sd_hs_disclosure</code> and SD-JWT<a href="#appendix-C-9.10" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.11">clarified combined formats for issuance and presentation<a href="#appendix-C-9.11" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.12">clarified security requirements for blinded claim names<a href="#appendix-C-9.12" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.13">improved description of Holder Binding security considerations - especially around the usage of "alg=none".<a href="#appendix-C-9.13" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.14">updated examples<a href="#appendix-C-9.14" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.15">text clarifications<a href="#appendix-C-9.15" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.16">fixed <code>cnf</code> structure in examples<a href="#appendix-C-9.16" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-9.17">added feature summary<a href="#appendix-C-9.17" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-9.10">reformatted<a href="#appendix-C-9.10" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-10">-00<a href="#appendix-C-10" class="pilcrow">¶</a></p>
+<p id="appendix-C-10">-01<a href="#appendix-C-10" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-11.1">Upload as draft-ietf-oauth-selective-disclosure-jwt-00<a href="#appendix-C-11.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-11.1">introduced blinded claim names<a href="#appendix-C-11.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.2">explained why JSON-encoding of values is needed<a href="#appendix-C-11.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.3">explained merging algorithm ("processing model")<a href="#appendix-C-11.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.4">generalized hash alg to digest derivation alg which also enables HMAC to calculate digests<a href="#appendix-C-11.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.5">
+          <code>_sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-C-11.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.6">Salt/Value Container (SVC) renamed to Issuer-Issued Disclosures (II-Disclosures)<a href="#appendix-C-11.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.7">SD-JWT-Release (SD-JWT-R) renamed to Holder-Selected Disclosures (HS-Disclosures)<a href="#appendix-C-11.7" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.8">
+          <code>sd_disclosure</code> in II-Disclosures renamed to <code>sd_ii_disclosures</code><a href="#appendix-C-11.8" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.9">
+          <code>sd_disclosure</code> in HS-Disclosures renamed to <code>sd_hs_disclosures</code><a href="#appendix-C-11.9" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.10">clarified relationship between <code>sd_hs_disclosure</code> and SD-JWT<a href="#appendix-C-11.10" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.11">clarified combined formats for issuance and presentation<a href="#appendix-C-11.11" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.12">clarified security requirements for blinded claim names<a href="#appendix-C-11.12" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.13">improved description of Holder Binding security considerations - especially around the usage of "alg=none".<a href="#appendix-C-11.13" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.14">updated examples<a href="#appendix-C-11.14" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.15">text clarifications<a href="#appendix-C-11.15" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.16">fixed <code>cnf</code> structure in examples<a href="#appendix-C-11.16" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-11.17">added feature summary<a href="#appendix-C-11.17" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-12">[[ pre Working Group Adoption: ]]<a href="#appendix-C-12" class="pilcrow">¶</a></p>
-<p id="appendix-C-13">-02<a href="#appendix-C-13" class="pilcrow">¶</a></p>
+<p id="appendix-C-12">-00<a href="#appendix-C-12" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-14.1">Added acknowledgements<a href="#appendix-C-14.1" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-14.2">Improved Security Considerations<a href="#appendix-C-14.2" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-14.3">Stressed entropy requirements for salts<a href="#appendix-C-14.3" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-14.4">Python reference implementation clean-up and refactoring<a href="#appendix-C-14.4" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-C-14.5">
-          <code>hash_alg</code> renamed to <code>_sd_hash_alg</code><a href="#appendix-C-14.5" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-13.1">Upload as draft-ietf-oauth-selective-disclosure-jwt-00<a href="#appendix-C-13.1" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-15">-01<a href="#appendix-C-15" class="pilcrow">¶</a></p>
+<p id="appendix-C-14">[[ pre Working Group Adoption: ]]<a href="#appendix-C-14" class="pilcrow">¶</a></p>
+<p id="appendix-C-15">-02<a href="#appendix-C-15" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-16.1">Editorial fixes<a href="#appendix-C-16.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-16.1">Added acknowledgements<a href="#appendix-C-16.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-16.2">Added <code>hash_alg</code> claim<a href="#appendix-C-16.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-16.2">Improved Security Considerations<a href="#appendix-C-16.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-16.3">Renamed <code>_sd</code> to <code>sd_digests</code> and <code>sd_release</code><a href="#appendix-C-16.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-16.3">Stressed entropy requirements for salts<a href="#appendix-C-16.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-16.4">Added descriptions on Holder Binding - more work to do<a href="#appendix-C-16.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-16.4">Python reference implementation clean-up and refactoring<a href="#appendix-C-16.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-16.5">Clarify that signing the SD-JWT is mandatory<a href="#appendix-C-16.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-16.5">
+          <code>hash_alg</code> renamed to <code>_sd_hash_alg</code><a href="#appendix-C-16.5" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-C-17">-00<a href="#appendix-C-17" class="pilcrow">¶</a></p>
+<p id="appendix-C-17">-01<a href="#appendix-C-17" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-C-18.1">Renamed to SD-JWT (focus on JWT instead of JWS since signature is optional)<a href="#appendix-C-18.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-C-18.1">Editorial fixes<a href="#appendix-C-18.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.2">Make Holder Binding optional<a href="#appendix-C-18.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-18.2">Added <code>hash_alg</code> claim<a href="#appendix-C-18.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.3">Rename proof to release, since when there is no signature, the term "proof" can be misleading<a href="#appendix-C-18.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-18.3">Renamed <code>_sd</code> to <code>sd_digests</code> and <code>sd_release</code><a href="#appendix-C-18.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.4">Improved the structure of the description<a href="#appendix-C-18.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-18.4">Added descriptions on Holder Binding - more work to do<a href="#appendix-C-18.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.5">Described verification steps<a href="#appendix-C-18.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-18.5">Clarify that signing the SD-JWT is mandatory<a href="#appendix-C-18.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.6">All examples generated from python demo implementation<a href="#appendix-C-18.6" class="pilcrow">¶</a>
+      </ul>
+<p id="appendix-C-19">-00<a href="#appendix-C-19" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-C-20.1">Renamed to SD-JWT (focus on JWT instead of JWS since signature is optional)<a href="#appendix-C-20.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-C-18.7">Examples for structured objects<a href="#appendix-C-18.7" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-C-20.2">Make Holder Binding optional<a href="#appendix-C-20.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-20.3">Rename proof to release, since when there is no signature, the term "proof" can be misleading<a href="#appendix-C-20.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-20.4">Improved the structure of the description<a href="#appendix-C-20.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-20.5">Described verification steps<a href="#appendix-C-20.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-20.6">All examples generated from python demo implementation<a href="#appendix-C-20.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-C-20.7">Examples for structured objects<a href="#appendix-C-20.7" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
