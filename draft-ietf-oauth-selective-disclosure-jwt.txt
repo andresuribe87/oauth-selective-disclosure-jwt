@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 19 October 2023                                       Microsoft
+Expires: 27 October 2023                                       Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                           17 April 2023
+                                                           25 April 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 October 2023.
+   This Internet-Draft will expire on 27 October 2023.
 
 Copyright Notice
 
@@ -97,6 +97,7 @@ Table of Contents
      8.6.  Holder Binding
      8.7.  Blinding Claim Names
      8.8.  Issuer Signature Key Distribution and Rotation
+     8.9.  Forwarding Credentials
    9.  Privacy Considerations
      9.1.  Storage of Signed User Data
      9.2.  Confidentiality during Transport
@@ -1509,6 +1510,24 @@ Table of Contents
    format [RFC7517].  Verifiers need to ensure that they are not using
    expired or revoked keys for signature verification using reasonable
    and appropriate means for the given key-distribution method.
+
+8.9.  Forwarding Credentials
+
+   When Holder Binding is not enforced, any entity in possession of a
+   Combined Format for Presentation can forward the contents to third
+   parties.  When doing so, that entity may remove Disclosures such that
+   the receiver learns only a subset of the claims contained in the
+   original Combined Format for Presentation.
+
+   For example, a device manufacturer might produce an SD-JWT containing
+   information about upstream and downstream supply chain contributors.
+   Each supply chain party can verify only the claims that were
+   selectively disclosed to them by an upstream party, and they can
+   choose to further reduce the disclosed claims when presenting to a
+   downstream party.
+
+   In some scenarios this behavior could be desirable, but if it is not,
+   Issuers need to support and Verifiers need to enforce Holder Binding.
 
 9.  Privacy Considerations
 
