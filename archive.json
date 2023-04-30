@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-04-27T01:00:36.436983+00:00",
+  "timestamp": "2023-04-30T01:04:08.414497+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -6442,9 +6442,17 @@
       "labels": [],
       "body": "based on the feedback during the IIW session",
       "createdAt": "2023-04-25T15:41:33Z",
-      "updatedAt": "2023-04-25T15:41:33Z",
+      "updatedAt": "2023-04-28T15:31:32Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "If these make it through, they would all work for sd-jwt.\r\n\r\n- [draft-ietf-cose-dilithium](https://datatracker.ietf.org/doc/draft-ietf-cose-dilithium/)\r\n- [draft-ietf-cose-falcon](https://datatracker.ietf.org/doc/draft-ietf-cose-falcon/)\r\n- [draft-ietf-cose-sphincs-plus](https://datatracker.ietf.org/doc/draft-ietf-cose-sphincs-plus/)\r\n\r\nI would not add a direct pointer to any of them, but perhaps a direct pointer to \"signature algorithms\" in \r\n\r\nhttps://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms\r\n\r\nwould work.",
+          "createdAt": "2023-04-28T15:31:32Z",
+          "updatedAt": "2023-04-28T15:31:32Z"
+        }
+      ]
     }
   ],
   "pulls": [
