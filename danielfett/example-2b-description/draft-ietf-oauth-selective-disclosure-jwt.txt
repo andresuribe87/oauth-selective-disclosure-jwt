@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 16 October 2023                                       Microsoft
+Expires: 2 November 2023                                       Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                           14 April 2023
+                                                              1 May 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2023.
+   This Internet-Draft will expire on 2 November 2023.
 
 Copyright Notice
 
@@ -97,6 +97,7 @@ Table of Contents
      8.6.  Holder Binding
      8.7.  Blinding Claim Names
      8.8.  Issuer Signature Key Distribution and Rotation
+     8.9.  Forwarding Credentials
    9.  Privacy Considerations
      9.1.  Storage of Signed User Data
      9.2.  Confidentiality during Transport
@@ -105,6 +106,8 @@ Table of Contents
      9.5.  Issuer Identifier
    10. Acknowledgements
    11. IANA Considerations
+     11.1.  Media Type Registration
+     11.2.  Structured Syntax Suffix Registration
    12. Normative References
    13. Informative References
    Appendix A.  Additional Examples
@@ -1202,15 +1205,12 @@ Table of Contents
 
    4.  Process the Disclosures and _sd keys in the SD-JWT as follows:
 
-       1.  Create a copy of the SD-JWT payload, if required for further
-           processing.
-
-       2.  For each Disclosure provided:
+       1.  For each Disclosure provided:
 
            1.  Calculate the digest over the base64url-encoded string as
                described in Section 5.1.1.2.
 
-       3.  Find all _sd keys in the SD-JWT payload.  For each such key
+       2.  Find all _sd keys in the SD-JWT payload.  For each such key
            perform the following steps (*):
 
            1.  If the key does not refer to an array, the Verifier MUST
@@ -1239,12 +1239,12 @@ Table of Contents
                    object, recursively process the key using the steps
                    described in (*).
 
-       4.  If any digests were found more than once in the previous
+       3.  If any digests were found more than once in the previous
            step, the Verifier MUST reject the Presentation.
 
-       5.  Remove all _sd keys from the SD-JWT payload.
+       4.  Remove all _sd keys from the SD-JWT payload.
 
-       6.  Remove the claim _sd_alg from the SD-JWT payload.
+       5.  Remove the claim _sd_alg from the SD-JWT payload.
 
    5.  If Holder Binding is required:
 
@@ -1509,6 +1509,24 @@ Table of Contents
    expired or revoked keys for signature verification using reasonable
    and appropriate means for the given key-distribution method.
 
+8.9.  Forwarding Credentials
+
+   When Holder Binding is not enforced, any entity in possession of a
+   Combined Format for Presentation can forward the contents to third
+   parties.  When doing so, that entity may remove Disclosures such that
+   the receiver learns only a subset of the claims contained in the
+   original Combined Format for Presentation.
+
+   For example, a device manufacturer might produce an SD-JWT containing
+   information about upstream and downstream supply chain contributors.
+   Each supply chain party can verify only the claims that were
+   selectively disclosed to them by an upstream party, and they can
+   choose to further reduce the disclosed claims when presenting to a
+   downstream party.
+
+   In some scenarios this behavior could be desirable, but if it is not,
+   Issuers need to support and Verifiers need to enforce Holder Binding.
+
 9.  Privacy Considerations
 
    The privacy principles of [ISO.29100] should be adhered to.
@@ -1650,7 +1668,79 @@ Table of Contents
 
    TBD
 
-   @VC_JWT
+11.1.  Media Type Registration
+
+   This section requests registration of the "application/sd-jwt" media
+   type [RFC2046] in the "Media Types" registry [IANA.MediaTypes] in the
+   manner described in [RFC6838], which can be used to indicate that the
+   content is an SD-JWT.
+
+   *  Type name: application
+
+   *  Subtype name: sd-jwt
+
+   *  Required parameters: n/a
+
+   *  Optional parameters: n/a
+
+   *  Encoding considerations: binary; application/sd-jwt values are a
+      series of base64url-encoded values (some of which may be the empty
+      string) separated by period ('.') or tilde ('~') characters.
+
+   *  Security considerations: See the Security Considerations section
+      of [[ this specification ]], [RFC7519], and [RFC8725].
+
+   *  Interoperability considerations: n/a
+
+   *  Published specification: [[ this specification ]]
+
+   *  Applications that use this media type: TBD
+
+   *  Fragment identifier considerations: n/a
+
+   *  Additional information: Magic number(s): n/a File extension(s): n/
+      a Macintosh file type code(s): n/a
+
+   *  Person & email address to contact for further information: Daniel
+      Fett, mail@danielfett.de
+
+   *  Intended usage: COMMON
+
+   *  Restrictions on usage: none
+
+   *  Author: Daniel Fett, mail@danielfett.de
+
+   *  Change Controller: IESG
+
+   *  Provisional registration?  No
+
+11.2.  Structured Syntax Suffix Registration
+
+   This section requests registration of the "+sd-jwt" structured syntax
+   suffix in the "Structured Syntax Suffix" registry
+   [IANA.StructuredSuffix] in the manner described in [RFC6838], which
+   can be used to indicate that the media type is encoded as an SD-JWT.
+
+   *  Name: SD-JWT
+
+   *  +suffix: +sd-jwt
+
+   *  References: [[ this specification ]]
+
+   *  Encoding considerations: binary; SD-JWT values are a series of
+      base64url-encoded values (some of which may be the empty string)
+      separated by period ('.') or tilde ('~') characters.
+
+   *  Interoperability considerations: n/a
+
+   *  Fragment identifier considerations: n/a
+
+   *  Security considerations: See the Security Considerations section
+      of [[ this specification ]], [RFC7519], and [RFC8725].
+
+   *  Contact: Daniel Fett, mail@danielfett.de
+
+   *  Author/Change controller: IESG
 
 12.  Normative References
 
@@ -1679,6 +1769,15 @@ Table of Contents
               <https://www.iana.org/assignments/named-information/named-
               information.xhtml>.
 
+   [IANA.MediaTypes]
+              IANA, "Media Types", <https://www.iana.org/assignments/
+              media-types/media-types.xhtml>.
+
+   [IANA.StructuredSuffix]
+              IANA, "Structured Syntax Suffixs",
+              <https://www.iana.org/assignments/media-type-structured-
+              suffix/media-type-structured-suffix.xhtml>.
+
    [ISO.29100]
               ISO, "ISO/IEC 29100:2011 Information technology — Security
               techniques — Privacy framework",
@@ -1693,6 +1792,16 @@ Table of Contents
    [RFC0020]  Cerf, V., "ASCII format for network interchange", STD 80,
               RFC 20, DOI 10.17487/RFC0020, October 1969,
               <https://www.rfc-editor.org/info/rfc20>.
+
+   [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
+              Extensions (MIME) Part Two: Media Types", RFC 2046,
+              DOI 10.17487/RFC2046, November 1996,
+              <https://www.rfc-editor.org/info/rfc2046>.
+
+   [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
+              Specifications and Registration Procedures", BCP 13,
+              RFC 6838, DOI 10.17487/RFC6838, January 2013,
+              <https://www.rfc-editor.org/info/rfc6838>.
 
    [RFC7515]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web
               Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May
@@ -2829,6 +2938,13 @@ Appendix B.  Disclosure Format Considerations
 Appendix C.  Document History
 
    [[ To be removed from the final specification ]]
+
+   -05
+
+   *  Added initial IANA media type and structured suffix registration
+      requests
+
+   *  Added considerations around forwarding credentials
 
    -04
 
