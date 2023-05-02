@@ -1822,11 +1822,12 @@ A.1.  Example 2: Handling Structured Claims
      "birthdate": "1940-01-01"
    }
 
-   Note that in contrast to Example 1, here the Issuer decided to create
-   a structured object for the address claim, allowing for separate
+   In contrast to Example 1, here the Issuer decided to create a
+   structured object for the address claim, allowing for separate
    disclosure of the individual members of the claim, and also added
    decoy digests to prevent the Verifier from deducing the true number
-   of claims in the address object.
+   of claims in the address object.  The following payload is used for
+   the SD-JWT:
 
    {
      "_sd": [
