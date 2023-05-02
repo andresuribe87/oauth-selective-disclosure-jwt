@@ -2871,6 +2871,9 @@ Appendix C.  Document History
 
    *  Added considerations around forwarding credentials
 
+   *  Removed Example 2b and merged the demo of decoy digests into
+      Example 2a
+
    -04
 
    *  Improve description of processing of disclosures
