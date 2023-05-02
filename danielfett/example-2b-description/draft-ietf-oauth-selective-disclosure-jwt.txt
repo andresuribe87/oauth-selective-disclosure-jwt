@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 2 November 2023                                       Microsoft
+Expires: 3 November 2023                                       Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                              1 May 2023
+                                                              2 May 2023
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 November 2023.
+   This Internet-Draft will expire on 3 November 2023.
 
 Copyright Notice
 
@@ -585,21 +585,19 @@ Table of Contents
 
    The Issuer would create the following Disclosure:
 
-   *Disclosure for address:*
+   *Claim address:*
 
-   SHA-256 Hash: FphFFpj1vtr0rpYK-14fickGKMg3zf1fIpJXxTK8PAE
+   *  SHA-256 Hash: FphFFpj1vtr0rpYK-14fickGKMg3zf1fIpJXxTK8PAE
 
-   Disclosure:
+   *  Disclosure:
+      WyJpbVFmR2oxX00wRWw3NmtkdmY3RGF3IiwgImFkZHJlc3MiLCB7InN0cmVl
+      dF9hZGRyZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1
+      bHBmb3J0YSIsICJyZWdpb24iOiAiU2FjaHNlbi1BbmhhbHQiLCAiY291bnRy
+      eSI6ICJERSJ9XQ
 
-   WyJpbVFmR2oxX00wRWw3NmtkdmY3RGF3IiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
-   ZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1bHBmb3J0YSIsICJy
-   ZWdpb24iOiAiU2FjaHNlbi1BbmhhbHQiLCAiY291bnRyeSI6ICJERSJ9XQ
-
-   Contents:
-
-   ["imQfGj1_M0El76kdvf7Daw", "address", {"street_address": "Schulstr.
-   12", "locality": "Schulpforta", "region": "Sachsen-Anhalt",
-   "country": "DE"}]
+   *  Contents: ["imQfGj1_M0El76kdvf7Daw", "address", {"street_address":
+      "Schulstr. 12", "locality": "Schulpforta", "region":
+      "Sachsen-Anhalt", "country": "DE"}]
 
 5.1.1.5.2.  Option 2: Structured SD-JWT
 
@@ -625,56 +623,45 @@ Table of Contents
    In this case, the Issuer would use the following data in the
    Disclosures for the address sub-claims:
 
-   *Disclosure for street_address:*
+   *Claim street_address:*
 
-   SHA-256 Hash: G_FeM1D-U3tDJcHB7pwTNEElLal9FE9PUs0klHgeM1c
+   *  SHA-256 Hash: G_FeM1D-U3tDJcHB7pwTNEElLal9FE9PUs0klHgeM1c
 
-   Disclosure:
+   *  Disclosure:
+      WyJRU05JaHVfbjZhMXJJOF8yZU5BUkNRIiwgInN0cmVldF9hZGRyZXNzIiwg
+      IlNjaHVsc3RyLiAxMiJd
 
-   WyJRU05JaHVfbjZhMXJJOF8yZU5BUkNRIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
-   c3RyLiAxMiJd
+   *  Contents: ["QSNIhu_n6a1rI8_2eNARCQ", "street_address", "Schulstr.
+      12"]
 
-   Contents:
+   *Claim locality:*
 
-   ["QSNIhu_n6a1rI8_2eNARCQ", "street_address", "Schulstr. 12"]
+   *  SHA-256 Hash: KlG6HEM6XWbymEJDfyDY4klJkQQ9iTuNG0LQXnE9mQ0
 
-   *Disclosure for locality:*
+   *  Disclosure:
+      WyJRUGtibHhUbmJTTEw5NEkyZlpJYkhBIiwgImxvY2FsaXR5IiwgIlNjaHVs
+      cGZvcnRhIl0
 
-   SHA-256 Hash: KlG6HEM6XWbymEJDfyDY4klJkQQ9iTuNG0LQXnE9mQ0
+   *  Contents: ["QPkblxTnbSLL94I2fZIbHA", "locality", "Schulpforta"]
 
-   Disclosure:
+   *Claim region:*
 
-   WyJRUGtibHhUbmJTTEw5NEkyZlpJYkhBIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
-   Il0
+   *  SHA-256 Hash: ffPGyxFBnNA1r60g2f796Hqq3dBGtaOogpnIBgRGdyY
 
-   Contents:
+   *  Disclosure:
+      WyJqUi1ZZWQwOEFFbzRnY29ncFQ1X1VBIiwgInJlZ2lvbiIsICJTYWNoc2Vu
+      LUFuaGFsdCJd
 
-   ["QPkblxTnbSLL94I2fZIbHA", "locality", "Schulpforta"]
+   *  Contents: ["jR-Yed08AEo4gcogpT5_UA", "region", "Sachsen-Anhalt"]
 
-   *Disclosure for region:*
+   *Claim country:*
 
-   SHA-256 Hash: ffPGyxFBnNA1r60g2f796Hqq3dBGtaOogpnIBgRGdyY
+   *  SHA-256 Hash: X96Emv4S9uzFUGkU8MmOlFzUwEtDNeT-ToXw3Fx9AfI
 
-   Disclosure:
+   *  Disclosure:
+      WyJ5djNBblV6ODgtQUx3VjhISld6bi1nIiwgImNvdW50cnkiLCAiREUiXQ
 
-   WyJqUi1ZZWQwOEFFbzRnY29ncFQ1X1VBIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
-   dCJd
-
-   Contents:
-
-   ["jR-Yed08AEo4gcogpT5_UA", "region", "Sachsen-Anhalt"]
-
-   *Disclosure for country:*
-
-   SHA-256 Hash: X96Emv4S9uzFUGkU8MmOlFzUwEtDNeT-ToXw3Fx9AfI
-
-   Disclosure:
-
-   WyJ5djNBblV6ODgtQUx3VjhISld6bi1nIiwgImNvdW50cnkiLCAiREUiXQ
-
-   Contents:
-
-   ["yv3AnUz88-ALwV8HJWzn-g", "country", "DE"]
+   *  Contents: ["yv3AnUz88-ALwV8HJWzn-g", "country", "DE"]
 
    The Issuer may also make one sub-claim of address non-selectively
    disclosable and hide only the other sub-claims:
@@ -717,76 +704,63 @@ Table of Contents
    The Issuer creates Disclosures first for the sub-claims and then
    includes their digests in the Disclosure for the address claim:
 
-   *Disclosure for street_address:*
+   *Claim street_address:*
 
-   SHA-256 Hash: udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo
+   *  SHA-256 Hash: udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo
 
-   Disclosure:
+   *  Disclosure:
+      WyIyUzBkSXhpSE9CblVldFBKMW5GbERBIiwgInN0cmVldF9hZGRyZXNzIiwg
+      IlNjaHVsc3RyLiAxMiJd
 
-   WyIyUzBkSXhpSE9CblVldFBKMW5GbERBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
-   c3RyLiAxMiJd
+   *  Contents: ["2S0dIxiHOBnUetPJ1nFlDA", "street_address", "Schulstr.
+      12"]
 
-   Contents:
+   *Claim locality:*
 
-   ["2S0dIxiHOBnUetPJ1nFlDA", "street_address", "Schulstr. 12"]
+   *  SHA-256 Hash: 1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0
 
-   *Disclosure for locality:*
+   *  Disclosure:
+      WyI5YU9BQzFHNHZlNFJjalJvTUtERWNnIiwgImxvY2FsaXR5IiwgIlNjaHVs
+      cGZvcnRhIl0
 
-   SHA-256 Hash: 1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0
+   *  Contents: ["9aOAC1G4ve4RcjRoMKDEcg", "locality", "Schulpforta"]
 
-   Disclosure:
+   *Claim region:*
 
-   WyI5YU9BQzFHNHZlNFJjalJvTUtERWNnIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
-   Il0
+   *  SHA-256 Hash: DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q
 
-   Contents:
+   *  Disclosure:
+      WyJqdkZ5QUxBaGFaa0hBU0tCYUZqMGJBIiwgInJlZ2lvbiIsICJTYWNoc2Vu
+      LUFuaGFsdCJd
 
-   ["9aOAC1G4ve4RcjRoMKDEcg", "locality", "Schulpforta"]
+   *  Contents: ["jvFyALAhaZkHASKBaFj0bA", "region", "Sachsen-Anhalt"]
 
-   *Disclosure for region:*
+   *Claim country:*
 
-   SHA-256 Hash: DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q
+   *  SHA-256 Hash: h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo
 
-   Disclosure:
+   *  Disclosure:
+      WyI0dGNmbFJNZWdxUG54ZzZTUkQ2ZzBnIiwgImNvdW50cnkiLCAiREUiXQ
 
-   WyJqdkZ5QUxBaGFaa0hBU0tCYUZqMGJBIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
-   dCJd
+   *  Contents: ["4tcflRMegqPnxg6SRD6g0g", "country", "DE"]
 
-   Contents:
+   *Claim address:*
 
-   ["jvFyALAhaZkHASKBaFj0bA", "region", "Sachsen-Anhalt"]
+   *  SHA-256 Hash: Lot9gM9VOOiyFS4FOR1ykwz-V-fB_xwF63jWemIH4d0
 
-   *Disclosure for country:*
+   *  Disclosure:
+      WyJGcDBqLTd6Q2FOVFdmX3dLNjdzeGlnIiwgImFkZHJlc3MiLCB7Il9zZCI6
+      IFsiMXpnc3U5RmU2YmtiUVk5ekpzZlBUbzF1QlBNVmw0OG00RWFmeEpUWVN1
+      MCIsICJES3ROX3FXX2hheVlDR0NLaWhTMzlNM3NvYnMxUlRla3hhS25NYkUx
+      Ny1RIiwgImgyRHh4RTgwQzdxUld4Q1Fqd1I5NmRhNDZqcjJCOGJMU1J3QWRi
+      WlNSbG8iLCAidWRGV0Z4XzkxTmdDamhMVEhKQXZ2QUh3TlQydmxIQnNXeFBJ
+      T3hLMllkbyJdfV0
 
-   SHA-256 Hash: h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo
-
-   Disclosure:
-
-   WyI0dGNmbFJNZWdxUG54ZzZTUkQ2ZzBnIiwgImNvdW50cnkiLCAiREUiXQ
-
-   Contents:
-
-   ["4tcflRMegqPnxg6SRD6g0g", "country", "DE"]
-
-   *Disclosure for address:*
-
-   SHA-256 Hash: Lot9gM9VOOiyFS4FOR1ykwz-V-fB_xwF63jWemIH4d0
-
-   Disclosure:
-
-   WyJGcDBqLTd6Q2FOVFdmX3dLNjdzeGlnIiwgImFkZHJlc3MiLCB7Il9zZCI6IFsiMXpn
-   c3U5RmU2YmtiUVk5ekpzZlBUbzF1QlBNVmw0OG00RWFmeEpUWVN1MCIsICJES3ROX3FX
-   X2hheVlDR0NLaWhTMzlNM3NvYnMxUlRla3hhS25NYkUxNy1RIiwgImgyRHh4RTgwQzdx
-   Uld4Q1Fqd1I5NmRhNDZqcjJCOGJMU1J3QWRiWlNSbG8iLCAidWRGV0Z4XzkxTmdDamhM
-   VEhKQXZ2QUh3TlQydmxIQnNXeFBJT3hLMllkbyJdfV0
-
-   Contents:
-
-   ["Fp0j-7zCaNTWf_wK67sxig", "address", {"_sd":
-   ["1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0",
-   "DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q",
-   "h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo",
-   "udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo"]}]
+   *  Contents: ["Fp0j-7zCaNTWf_wK67sxig", "address", {"_sd":
+      ["1zgsu9Fe6bkbQY9zJsfPTo1uBPMVl48m4EafxJTYSu0",
+      "DKtN_qW_hayYCGCKihS39M3sobs1RTekxaKnMbE17-Q",
+      "h2DxxE80C7qRWxCQjwR96da46jr2B8bLSRwAdbZSRlo",
+      "udFWFx_91NgCjhLTHJAvvAHwNT2vlHBsWxPIOxK2Ydo"]}]
 
 5.1.2.  Hash Function Claim
 
@@ -880,101 +854,86 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.HiX9ikQtYX
-   Mk6tXxhYBp_wPRsq3h2Tl5gY9sfspK2cI58OHPJiJgLDU16ZiV17vthj7lQbXEFKyNaD
-   FtfSg99g
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.LTVGARUgHi
+   me6jEYv4FpC-xmz7rjo2JWuDgLvfl20-_XDGwrm45G7bAHbWJP9keXOQtXDoEM2hnrjI
+   NUQbIu9A
 
    The Issuer creates the following Disclosures:
 
-   *Disclosure for sub:*
+   *Claim sub:*
 
-   SHA-256 Hash: pzkHIM9sv7oZH6YKDsRqNgFGLpEKIj3c5G6UKaTsAjQ
+   *  SHA-256 Hash: pzkHIM9sv7oZH6YKDsRqNgFGLpEKIj3c5G6UKaTsAjQ
 
-   Disclosure:
+   *  Disclosure:
+      WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV80
+      MiJd
 
-   WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV80MiJd
+   *  Contents: ["rSLuznhiLPBDRZE1CZ88KQ", "sub", "john_doe_42"]
 
-   Contents:
+   *Claim given_name:*
 
-   ["rSLuznhiLPBDRZE1CZ88KQ", "sub", "john_doe_42"]
+   *  SHA-256 Hash: S-JPBSkvqliFv1__thuXt3IzX5B_ZXm4W2qs4BoNFrA
 
-   *Disclosure for given_name:*
+   *  Disclosure:
+      WyJhYTFPYmdlUkJnODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9o
+      biJd
 
-   SHA-256 Hash: S-JPBSkvqliFv1__thuXt3IzX5B_ZXm4W2qs4BoNFrA
+   *  Contents: ["aa1ObgeRBg82nvzLbtPNIQ", "given_name", "John"]
 
-   Disclosure:
+   *Claim family_name:*
 
-   WyJhYTFPYmdlUkJnODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
+   *  SHA-256 Hash: o-LBCDrFF6tC9ew1vAlUmw6Y30CHZF5jOUFhpx5mogI
 
-   Contents:
+   *  Disclosure:
+      WyI2VWhsZU5HUmJtc0xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRv
+      ZSJd
 
-   ["aa1ObgeRBg82nvzLbtPNIQ", "given_name", "John"]
+   *  Contents: ["6UhleNGRbmsLC8Tgu8v8Wg", "family_name", "Doe"]
 
-   *Disclosure for family_name:*
+   *Claim email:*
 
-   SHA-256 Hash: o-LBCDrFF6tC9ew1vAlUmw6Y30CHZF5jOUFhpx5mogI
+   *  SHA-256 Hash: bviw7pWAkbzI078ZNVa_eMZvk0tdPa5w2o9R3Zycjo4
 
-   Disclosure:
+   *  Disclosure:
+      WyJ2S0t6alFSOWtsbFh2OWVkNUJ1ZHZRIiwgImVtYWlsIiwgImpvaG5kb2VA
+      ZXhhbXBsZS5jb20iXQ
 
-   WyI2VWhsZU5HUmJtc0xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
+   *  Contents: ["vKKzjQR9kllXv9ed5BudvQ", "email",
+      "johndoe@example.com"]
 
-   Contents:
+   *Claim phone_number:*
 
-   ["6UhleNGRbmsLC8Tgu8v8Wg", "family_name", "Doe"]
+   *  SHA-256 Hash: 9gZhHAhV7LZnOFZq_q7Fh8rzdqrrNM-hRWsVOlW3nuw
 
-   *Disclosure for email:*
+   *  Disclosure:
+      WyJVZEVmXzY0SEN0T1BpZDRFZmhPQWNRIiwgInBob25lX251bWJlciIsICIr
+      MS0yMDItNTU1LTAxMDEiXQ
 
-   SHA-256 Hash: bviw7pWAkbzI078ZNVa_eMZvk0tdPa5w2o9R3Zycjo4
+   *  Contents: ["UdEf_64HCtOPid4EfhOAcQ", "phone_number",
+      "+1-202-555-0101"]
 
-   Disclosure:
+   *Claim address:*
 
-   WyJ2S0t6alFSOWtsbFh2OWVkNUJ1ZHZRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
-   ZS5jb20iXQ
+   *  SHA-256 Hash: 5nXy0Z3QiEba1V1lJzeKhAOGQXFlKLIWCLlhf_O-cmo
 
-   Contents:
+   *  Disclosure:
+      WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmVl
+      dF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRv
+      d24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
 
-   ["vKKzjQR9kllXv9ed5BudvQ", "email", "johndoe@example.com"]
+   *  Contents: ["Na3VoFFnVw28jOArk7INVg", "address", {"street_address":
+      "123 Main St", "locality": "Anytown", "region": "Anystate",
+      "country": "US"}]
 
-   *Disclosure for phone_number:*
+   *Claim birthdate:*
 
-   SHA-256 Hash: 9gZhHAhV7LZnOFZq_q7Fh8rzdqrrNM-hRWsVOlW3nuw
+   *  SHA-256 Hash: rnAzCT6DTy4TsX9QCDv2wwAE4Ze20uRigtVNQkA52X0
 
-   Disclosure:
+   *  Disclosure:
+      WyJkQW9mNHNlZTFGdDBXR2dHanVjZ2pRIiwgImJpcnRoZGF0ZSIsICIxOTQw
+      LTAxLTAxIl0
 
-   WyJVZEVmXzY0SEN0T1BpZDRFZmhPQWNRIiwgInBob25lX251bWJlciIsICIrMS0yMDIt
-   NTU1LTAxMDEiXQ
-
-   Contents:
-
-   ["UdEf_64HCtOPid4EfhOAcQ", "phone_number", "+1-202-555-0101"]
-
-   *Disclosure for address:*
-
-   SHA-256 Hash: 5nXy0Z3QiEba1V1lJzeKhAOGQXFlKLIWCLlhf_O-cmo
-
-   Disclosure:
-
-   WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
-   ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
-   IjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
-
-   Contents:
-
-   ["Na3VoFFnVw28jOArk7INVg", "address", {"street_address": "123 Main
-   St", "locality": "Anytown", "region": "Anystate", "country": "US"}]
-
-   *Disclosure for birthdate:*
-
-   SHA-256 Hash: rnAzCT6DTy4TsX9QCDv2wwAE4Ze20uRigtVNQkA52X0
-
-   Disclosure:
-
-   WyJkQW9mNHNlZTFGdDBXR2dHanVjZ2pRIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
-   Il0
-
-   Contents:
-
-   ["dAof4see1Ft0WGgGjucgjQ", "birthdate", "1940-01-01"]
+   *  Contents: ["dAof4see1Ft0WGgGjucgjQ", "birthdate", "1940-01-01"]
 
 5.3.  Combined Format for Issuance
 
@@ -1013,9 +972,9 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.HiX9ikQtYX
-   Mk6tXxhYBp_wPRsq3h2Tl5gY9sfspK2cI58OHPJiJgLDU16ZiV17vthj7lQbXEFKyNaD
-   FtfSg99g~WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV8
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.LTVGARUgHi
+   me6jEYv4FpC-xmz7rjo2JWuDgLvfl20-_XDGwrm45G7bAHbWJP9keXOQtXDoEM2hnrjI
+   NUQbIu9A~WyJyU0x1em5oaUxQQkRSWkUxQ1o4OEtRIiwgInN1YiIsICJqb2huX2RvZV8
    0MiJd~WyJhYTFPYmdlUkJnODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9obi
    Jd~WyI2VWhsZU5HUmJtc0xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~
    WyJ2S0t6alFSOWtsbFh2OWVkNUJ1ZHZRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
@@ -1068,7 +1027,7 @@ Table of Contents
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1681480744
+     "iat": 1683010944
    }
 
    Which is then signed by the Holder to create a JWT like the
@@ -1076,8 +1035,8 @@ Table of Contents
 
    eyJhbGciOiAiRVMyNTYifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnI
    iwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2O
-   DE0ODA3NDR9.J6Pll11EAilws3dVGwKHx9cV6t_NIVbVfrUS9PUhxnfcNqr1Lrf5hE8q
-   vHjmeTtUr51OVAMZtrKJzl_Asltg9Q
+   DMwMTA5NDR9.j3x3aUFC-vgZNreJ14cR3bECv8L2x-YeZ3WpmQPi2mqT055he9YHyT9S
+   5PmJIxSgz2-gkB1tkKpTfLPCZXpyvg
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1110,17 +1069,17 @@ Table of Contents
    DIyLCAiZXhwIjogMTczNTY4OTY2MSwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
    iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
    TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
-   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.HiX9ikQtYX
-   Mk6tXxhYBp_wPRsq3h2Tl5gY9sfspK2cI58OHPJiJgLDU16ZiV17vthj7lQbXEFKyNaD
-   FtfSg99g~WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmV
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.LTVGARUgHi
+   me6jEYv4FpC-xmz7rjo2JWuDgLvfl20-_XDGwrm45G7bAHbWJP9keXOQtXDoEM2hnrjI
+   NUQbIu9A~WyJOYTNWb0ZGblZ3MjhqT0FyazdJTlZnIiwgImFkZHJlc3MiLCB7InN0cmV
    ldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCA
    icmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJhYTFPYmdlUkJ
    nODJudnpMYnRQTklRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyI2VWhsZU5HUmJtc0
    xDOFRndTh2OFdnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~eyJhbGciOiAiRVMyNTYif
    Q.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwcz
-   ovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODE0ODA3NDR9.J6Pll11EA
-   ilws3dVGwKHx9cV6t_NIVbVfrUS9PUhxnfcNqr1Lrf5hE8qvHjmeTtUr51OVAMZtrKJz
-   l_Asltg9Q
+   ovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODMwMTA5NDR9.j3x3aUFC-
+   vgZNreJ14cR3bECv8L2x-YeZ3WpmQPi2mqT055he9YHyT9S5PmJIxSgz2-gkB1tkKpTf
+   LPCZXpyvg
 
 6.  Verification and Processing
 
@@ -1749,6 +1708,10 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+   [RFC7515]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web
+              Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May
+              2015, <https://www.rfc-editor.org/info/rfc7515>.
+
    [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
               (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
               <https://www.rfc-editor.org/info/rfc7519>.
@@ -1802,10 +1765,6 @@ Table of Contents
               Specifications and Registration Procedures", BCP 13,
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
               <https://www.rfc-editor.org/info/rfc6838>.
-
-   [RFC7515]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web
-              Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May
-              2015, <https://www.rfc-editor.org/info/rfc7515>.
 
    [RFC7516]  Jones, M. and J. Hildebrand, "JSON Web Encryption (JWE)",
               RFC 7516, DOI 10.17487/RFC7516, May 2015,
@@ -1871,166 +1830,170 @@ A.1.  Example 2: Handling Structured Claims
 
    {
      "_sd": [
-       "9opWQiX5M-VgacOf5jhoeJVyBeXcfFTUL14UEu-GPtw",
-       "IkxegYyTre8YMVuqCwrvNqw7-vpZ26tXohBZl_6Y_Ec",
-       "LSGrj-lHI4O99OdIvczNPP0sXi_SOWs-fZ0U6PqLx18",
-       "QRh3DUyiRtsLePeQeI5sCa5j1--UaoM-HI5mrV5SWFU",
-       "U1c8OWdozzDh47gn344gdYkBXRtru8axdv6VKqHBGGY",
-       "XFoLOUrbF8WoaVr5FNzS2J9QrMcXNW-AKk6CEmVD_Yk",
-       "ezsEiQEV3WOb0KwUJYs-qlF539XeUYfVLv7jEcjUPCQ",
-       "iYBqLbRPvdncZaKeYCUAdvyVaI17AnO16idioVGw4HY",
-       "n_G53e94t1ieJJDZ9y0fOpWoK5iaFEl7LNHLBoI18GE",
-       "p3lcYk6DJsqg9WQpeZnSbnyBdHoM9_DUwPItDzs9-wk",
-       "sAlHezdTTGzk0vDhbkhvZ8SfgBECWB0KsdYSLp4BHMg",
-       "uhUIa8hq7DgB9W6689kl8cO5q3DvVnJ0GGrpzWLYqYM"
+       "H7QIC26TLRmWOWIZWqlE3JDki5cG5VeprTVJWfYVpgI",
+       "HTemkHzi8vElSb4qKs6W8pj5OkalTr-I02uy6mjlE9k",
+       "IG_O1HoyxAm6WzX8dbnhejWTyiNu1a2V3NpZ266-XYU",
+       "YoymiOj55SixQe6kDf_L8YuCM-e3KqEtvmIZ1zVIiWo",
+       "kjwlXbdnfjlq9hoGnUlpSxSvC9FJC9FQSvOZ7qosdQs",
+       "m6e74AtfwOyGWZbI0FYp_UUyv_DqFX9cLYf2HbhhxCs",
+       "w-kWo-F-1Tg3zNLvcaJG2sv4BL3YmFinEnVaR1lzdN4",
+       "zCskisHlC5JbSWZJ-wjDUHpziacQb9JunpXG-tI4v-o"
      ],
      "iss": "https://example.com/issuer",
      "iat": 1516239022,
      "exp": 1735689661,
+     "address": {
+       "_sd": [
+         "-BbHMWfo64APpq0nWg8956vWZ8I-DJ8w5Jqdgi1MKBM",
+         "5MMw8viS8yz15wgvjHQXPnt3xt9Y6dcqKX0Q3Eg61HU",
+         "5gfosFRCTFjzw-Z-AIybiHzIS59IL8WF2ubaY2TNHHA",
+         "DxndzC_T8a1q9ZxLNlKvuiWIUwZaFfEeNE-ma4huWkE",
+         "RR-YScyv2VOJfZBoQ23cRgiPCIkFOE2DnOxoAb0d1S0",
+         "WDkBxN7mn-O3Soc6ivCvYURY70vSvXtgvH2Lzhk9gOU",
+         "dRLsjsLyEGJ9wry-B4eMEc32L9rynYNHk-wWh_vgSs8",
+         "kQo-62_CSNN9molJSPRA30EA3NNcPcYYx3uB7oXxdUM",
+         "w1i7GGf1jCHyv-vXGTFV57MBwN94usyvswRZJ-Rkm2I"
+       ]
+     },
      "_sd_alg": "sha-256"
    }
 
    The Disclosures for this SD-JWT are as follows:
 
-   *Disclosure for sub:*
+   *Claim sub:*
 
-   SHA-256 Hash: p3lcYk6DJsqg9WQpeZnSbnyBdHoM9_DUwPItDzs9-wk
+   *  SHA-256 Hash: zCskisHlC5JbSWZJ-wjDUHpziacQb9JunpXG-tI4v-o
 
-   Disclosure:
+   *  Disclosure:
+      WyI4c0N1cEozbEoxSWRxM3VsRk1iQ2JRIiwgInN1YiIsICI2YzVjMGE0OS1i
+      NTg5LTQzMWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
 
-   WyJPcDA0NHpyVkdWYlktaTh4V2ZWVUlRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
-   MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
+   *  Contents: ["8sCupJ3lJ1Idq3ulFMbCbQ", "sub",
+      "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
 
-   Contents:
+   *Claim given_name:*
 
-   ["Op044zrVGVbY-i8xWfVUIQ", "sub",
-   "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
+   *  SHA-256 Hash: YoymiOj55SixQe6kDf_L8YuCM-e3KqEtvmIZ1zVIiWo
 
-   *Disclosure for given_name:*
+   *  Disclosure:
+      WyJkNDVuR2RKOUFtYnVIdDZTMFVmVDFRIiwgImdpdmVuX25hbWUiLCAiXHU1
+      OTJhXHU5MGNlIl0
 
-   SHA-256 Hash: n_G53e94t1ieJJDZ9y0fOpWoK5iaFEl7LNHLBoI18GE
+   *  Contents: ["d45nGdJ9AmbuHt6S0UfT1Q", "given_name", "\u592a\u90ce"]
 
-   Disclosure:
+   *Claim family_name:*
 
-   WyJ5TWhHMFRRZTFpSkJ0cWtTQm1qa1pBIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
-   MGNlIl0
+   *  SHA-256 Hash: kjwlXbdnfjlq9hoGnUlpSxSvC9FJC9FQSvOZ7qosdQs
 
-   Contents:
+   *  Disclosure:
+      WyJhd296cnVrUFFqVVhDaVR2cnFRX253IiwgImZhbWlseV9uYW1lIiwgIlx1
+      NWM3MVx1NzUzMCJd
 
-   ["yMhG0TQe1iJBtqkSBmjkZA", "given_name", "\u592a\u90ce"]
+   *  Contents: ["awozrukPQjUXCiTvrqQ_nw", "family_name",
+      "\u5c71\u7530"]
 
-   *Disclosure for family_name:*
+   *Claim email:*
 
-   SHA-256 Hash: LSGrj-lHI4O99OdIvczNPP0sXi_SOWs-fZ0U6PqLx18
+   *  SHA-256 Hash: IG_O1HoyxAm6WzX8dbnhejWTyiNu1a2V3NpZ266-XYU
 
-   Disclosure:
+   *  Disclosure:
+      WyJ1ek5ybkNFTWV3dGFGUUpYZTFjcklBIiwgImVtYWlsIiwgIlwidW51c3Vh
+      bCBlbWFpbCBhZGRyZXNzXCJAZXhhbXBsZS5qcCJd
 
-   WyJSSlE5Zzl4cTRmRlBjWWctelcxVmhnIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
-   NzUzMCJd
+   *  Contents: ["uzNrnCEMewtaFQJXe1crIA", "email", "\"unusual email
+      address\"@example.jp"]
 
-   Contents:
+   *Claim phone_number:*
 
-   ["RJQ9g9xq4fFPcYg-zW1Vhg", "family_name", "\u5c71\u7530"]
+   *  SHA-256 Hash: HTemkHzi8vElSb4qKs6W8pj5OkalTr-I02uy6mjlE9k
 
-   *Disclosure for email:*
+   *  Disclosure:
+      WyJiSGRLV1VhekRCZWh2anF5Nnc3WkJBIiwgInBob25lX251bWJlciIsICIr
+      ODEtODAtMTIzNC01Njc4Il0
 
-   SHA-256 Hash: sAlHezdTTGzk0vDhbkhvZ8SfgBECWB0KsdYSLp4BHMg
+   *  Contents: ["bHdKWUazDBehvjqy6w7ZBA", "phone_number",
+      "+81-80-1234-5678"]
 
-   Disclosure:
+   *Claim street_address:*
 
-   WyJxU2xIZ0FBaGNtcE9zUnJhT3REUkJRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
-   bCBhZGRyZXNzXCJAZXhhbXBsZS5qcCJd
+   *  SHA-256 Hash: kQo-62_CSNN9molJSPRA30EA3NNcPcYYx3uB7oXxdUM
 
-   Contents:
+   *  Disclosure:
+      WyJwbm5aU3pET05hOE04VmxZVGV3QW9BIiwgInN0cmVldF9hZGRyZXNzIiwg
+      Ilx1Njc3MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1
+      NTcxMlx1ZmYxNFx1NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
 
-   ["qSlHgAAhcmpOsRraOtDRBQ", "email", "\"unusual email
-   address\"@example.jp"]
+   *  Contents: ["pnnZSzDONa8M8VlYTewAoA", "street_address",
+      "\u6771\u4eac\u
+      90fd\u6e2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u
+      2212\uff18"]
 
-   *Disclosure for phone_number:*
+   *Claim locality:*
 
-   SHA-256 Hash: ezsEiQEV3WOb0KwUJYs-qlF539XeUYfVLv7jEcjUPCQ
+   *  SHA-256 Hash: DxndzC_T8a1q9ZxLNlKvuiWIUwZaFfEeNE-ma4huWkE
 
-   Disclosure:
+   *  Disclosure:
+      WyI0Z2EzT0I5dTNJQUxSN2NlRkljS3lRIiwgImxvY2FsaXR5IiwgIlx1Njc3
+      MVx1NGVhY1x1OTBmZCJd
 
-   WyJzYVkzZV9nUjc4c0NPbWozUVhpXzlBIiwgInBob25lX251bWJlciIsICIrODEtODAt
-   MTIzNC01Njc4Il0
+   *  Contents: ["4ga3OB9u3IALR7ceFIcKyQ", "locality",
+      "\u6771\u4eac\u90fd"]
 
-   Contents:
+   *Claim region:*
 
-   ["saY3e_gR78sCOmj3QXi_9A", "phone_number", "+81-80-1234-5678"]
+   *  SHA-256 Hash: WDkBxN7mn-O3Soc6ivCvYURY70vSvXtgvH2Lzhk9gOU
 
-   *Disclosure for address:*
+   *  Disclosure:
+      WyJOUnJPVlF1WS1lTWdOSi10czhpRW9RIiwgInJlZ2lvbiIsICJcdTZlMmZc
+      dTUzM2EiXQ
 
-   SHA-256 Hash: QRh3DUyiRtsLePeQeI5sCa5j1--UaoM-HI5mrV5SWFU
+   *  Contents: ["NRrOVQuY-eMgNJ-ts8iEoQ", "region", "\u6e2f\u533a"]
 
-   Disclosure:
+   *Claim country:*
 
-   WyJ0NnZyRWdhbzZRNjNQR09qTnkwQTZnIiwgImFkZHJlc3MiLCB7Il9zZCI6IFsiNHdC
-   YUtPaHVsRUxkNnp1WFJUS1NsT3A3RnI0OV9yN1BteWV6TTFnN1M0OCIsICJXQ2pHUmZ6
-   eTBkZGFHTWIxVDAyVVFSbDJITHBwWkxkUlA1UHU2b3VGdlFJIiwgImZfQ0d3Q1F0TlJ6
-   LU00LWFqc09sRW43VC1TY1NBVEJ2QV92aHZMcDVjRzAiLCAibGJRelR0TXNCX3JHU1dE
-   dV9LOS1EaWc5ZGxuMGxXZGtHWi0tSndTNXJTMCJdLCAic3RyZWV0X2FkZHJlc3MiOiAi
-   XHU2NzcxXHU0ZWFjXHU5MGZkXHU2ZTJmXHU1MzNhXHU4MjlkXHU1MTZjXHU1NzEyXHVm
-   ZjE0XHU0ZTAxXHU3NmVlXHVmZjEyXHUyMjEyXHVmZjE4IiwgImxvY2FsaXR5IjogIlx1
-   Njc3MVx1NGVhY1x1OTBmZCIsICJyZWdpb24iOiAiXHU2ZTJmXHU1MzNhIiwgImNvdW50
-   cnkiOiAiSlAifV0
+   *  SHA-256 Hash: w1i7GGf1jCHyv-vXGTFV57MBwN94usyvswRZJ-Rkm2I
 
-   Contents:
+   *  Disclosure:
+      WyJ4R3FYWHJvRzhxd3N2X1pMWFJDRnZRIiwgImNvdW50cnkiLCAiSlAiXQ
 
-   ["t6vrEgao6Q63PGOjNy0A6g", "address", {"_sd":
-   ["4wBaKOhulELd6zuXRTKSlOp7Fr49_r7PmyezM1g7S48",
-   "WCjGRfzy0ddaGMb1T02UQRl2HLppZLdRP5Pu6ouFvQI",
-   "f_CGwCQtNRz-M4-ajsOlEn7T-ScSATBvA_vhvLp5cG0",
-   "lbQzTtMsB_rGSWDu_K9-Dig9dln0lWdkGZ--JwS5rS0"], "street_address": "\
-   u6771\u4eac\u90fd\u6e2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uf
-   f12\u2212\uff18", "locality": "\u6771\u4eac\u90fd", "region":
-   "\u6e2f\u533a", "country": "JP"}]
+   *  Contents: ["xGqXXroG8qwsv_ZLXRCFvQ", "country", "JP"]
 
-   *Disclosure for birthdate:*
+   *Claim birthdate:*
 
-   SHA-256 Hash: XFoLOUrbF8WoaVr5FNzS2J9QrMcXNW-AKk6CEmVD_Yk
+   *  SHA-256 Hash: H7QIC26TLRmWOWIZWqlE3JDki5cG5VeprTVJWfYVpgI
 
-   Disclosure:
+   *  Disclosure:
+      WyJPYjcydmRhcDBqSEFmdmdhVklqZDdnIiwgImJpcnRoZGF0ZSIsICIxOTQw
+      LTAxLTAxIl0
 
-   WyJzR2JiVVhHZkEyaTBUckxaY3Z5MTNBIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
-   Il0
-
-   Contents:
-
-   ["sGbbUXGfA2i0TrLZcvy13A", "birthdate", "1940-01-01"]
+   *  Contents: ["Ob72vdap0jHAfvgaVIjd7g", "birthdate", "1940-01-01"]
 
    A Presentation for the SD-JWT that discloses only region and country
    of the address property and without a Holder Binding JWT could look
    as follows:
 
-   eyJhbGciOiAiRVMyNTYifQ.eyJfc2QiOiBbIjlvcFdRaVg1TS1WZ2FjT2Y1amhvZUpWe
-   UJlWGNmRlRVTDE0VUV1LUdQdHciLCAiSWt4ZWdZeVRyZThZTVZ1cUN3cnZOcXc3LXZwW
-   jI2dFhvaEJabF82WV9FYyIsICJMU0dyai1sSEk0Tzk5T2RJdmN6TlBQMHNYaV9TT1dzL
-   WZaMFU2UHFMeDE4IiwgIlFSaDNEVXlpUnRzTGVQZVFlSTVzQ2E1ajEtLVVhb00tSEk1b
-   XJWNVNXRlUiLCAiVTFjOE9XZG96ekRoNDdnbjM0NGdkWWtCWFJ0cnU4YXhkdjZWS3FIQ
-   kdHWSIsICJYRm9MT1VyYkY4V29hVnI1Rk56UzJKOVFyTWNYTlctQUtrNkNFbVZEX1lrI
-   iwgImV6c0VpUUVWM1dPYjBLd1VKWXMtcWxGNTM5WGVVWWZWTHY3akVjalVQQ1EiLCAia
-   VlCcUxiUlB2ZG5jWmFLZVlDVUFkdnlWYUkxN0FuTzE2aWRpb1ZHdzRIWSIsICJuX0c1M
-   2U5NHQxaWVKSkRaOXkwZk9wV29LNWlhRkVsN0xOSExCb0kxOEdFIiwgInAzbGNZazZES
-   nNxZzlXUXBlWm5TYm55QmRIb005X0RVd1BJdER6czktd2siLCAic0FsSGV6ZFRUR3prM
-   HZEaGJraHZaOFNmZ0JFQ1dCMEtzZFlTTHA0QkhNZyIsICJ1aFVJYThocTdEZ0I5VzY2O
-   DlrbDhjTzVxM0R2Vm5KMEdHcnB6V0xZcVlNIl0sICJpc3MiOiAiaHR0cHM6Ly9leGFtc
-   GxlLmNvbS9pc3N1ZXIiLCAiaWF0IjogMTUxNjIzOTAyMiwgImV4cCI6IDE3MzU2ODk2N
-   jEsICJfc2RfYWxnIjogInNoYS0yNTYifQ.63DrMXgcFRg0-EQT0_sNUbZmVOUw4iuml6
-   gyk6TB32KozM-hTKEabMp7prFhbs8efNWgi760snNbqbVYx9gPIg~WyJSSlE5Zzl4cTR
-   mRlBjWWctelcxVmhnIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJ0Nn
-   ZyRWdhbzZRNjNQR09qTnkwQTZnIiwgImFkZHJlc3MiLCB7Il9zZCI6IFsiNHdCYUtPaH
-   VsRUxkNnp1WFJUS1NsT3A3RnI0OV9yN1BteWV6TTFnN1M0OCIsICJXQ2pHUmZ6eTBkZG
-   FHTWIxVDAyVVFSbDJITHBwWkxkUlA1UHU2b3VGdlFJIiwgImZfQ0d3Q1F0TlJ6LU00LW
-   Fqc09sRW43VC1TY1NBVEJ2QV92aHZMcDVjRzAiLCAibGJRelR0TXNCX3JHU1dEdV9LOS
-   1EaWc5ZGxuMGxXZGtHWi0tSndTNXJTMCJdLCAic3RyZWV0X2FkZHJlc3MiOiAiXHU2Nz
-   cxXHU0ZWFjXHU5MGZkXHU2ZTJmXHU1MzNhXHU4MjlkXHU1MTZjXHU1NzEyXHVmZjE0XH
-   U0ZTAxXHU3NmVlXHVmZjEyXHUyMjEyXHVmZjE4IiwgImxvY2FsaXR5IjogIlx1Njc3MV
-   x1NGVhY1x1OTBmZCIsICJyZWdpb24iOiAiXHU2ZTJmXHU1MzNhIiwgImNvdW50cnkiOi
-   AiSlAifV0~WyJzR2JiVVhHZkEyaTBUckxaY3Z5MTNBIiwgImJpcnRoZGF0ZSIsICIxOT
-   QwLTAxLTAxIl0~WyJ5TWhHMFRRZTFpSkJ0cWtTQm1qa1pBIiwgImdpdmVuX25hbWUiLC
-   AiXHU1OTJhXHU5MGNlIl0~WyJxU2xIZ0FBaGNtcE9zUnJhT3REUkJRIiwgImVtYWlsIi
-   wgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAZXhhbXBsZS5qcCJd~
+   eyJhbGciOiAiRVMyNTYifQ.eyJfc2QiOiBbIkg3UUlDMjZUTFJtV09XSVpXcWxFM0pEa
+   2k1Y0c1VmVwclRWSldmWVZwZ0kiLCAiSFRlbWtIemk4dkVsU2I0cUtzNlc4cGo1T2thb
+   FRyLUkwMnV5Nm1qbEU5ayIsICJJR19PMUhveXhBbTZXelg4ZGJuaGVqV1R5aU51MWEyV
+   jNOcFoyNjYtWFlVIiwgIllveW1pT2o1NVNpeFFlNmtEZl9MOFl1Q00tZTNLcUV0dm1JW
+   jF6VklpV28iLCAia2p3bFhiZG5mamxxOWhvR25VbHBTeFN2QzlGSkM5RlFTdk9aN3Fvc
+   2RRcyIsICJtNmU3NEF0ZndPeUdXWmJJMEZZcF9VVXl2X0RxRlg5Y0xZZjJIYmhoeENzI
+   iwgIncta1dvLUYtMVRnM3pOTHZjYUpHMnN2NEJMM1ltRmluRW5WYVIxbHpkTjQiLCAie
+   kNza2lzSGxDNUpiU1daSi13akRVSHB6aWFjUWI5SnVucFhHLXRJNHYtbyJdLCAiaXNzI
+   jogImh0dHBzOi8vZXhhbXBsZS5jb20vaXNzdWVyIiwgImlhdCI6IDE1MTYyMzkwMjIsI
+   CJleHAiOiAxNzM1Njg5NjYxLCAiYWRkcmVzcyI6IHsiX3NkIjogWyItQmJITVdmbzY0Q
+   VBwcTBuV2c4OTU2dldaOEktREo4dzVKcWRnaTFNS0JNIiwgIjVNTXc4dmlTOHl6MTV3Z
+   3ZqSFFYUG50M3h0OVk2ZGNxS1gwUTNFZzYxSFUiLCAiNWdmb3NGUkNURmp6dy1aLUFJe
+   WJpSHpJUzU5SUw4V0YydWJhWTJUTkhIQSIsICJEeG5kekNfVDhhMXE5WnhMTmxLdnVpV
+   0lVd1phRmZFZU5FLW1hNGh1V2tFIiwgIlJSLVlTY3l2MlZPSmZaQm9RMjNjUmdpUENJa
+   0ZPRTJEbk94b0FiMGQxUzAiLCAiV0RrQnhON21uLU8zU29jNml2Q3ZZVVJZNzB2U3ZYd
+   Gd2SDJMemhrOWdPVSIsICJkUkxzanNMeUVHSjl3cnktQjRlTUVjMzJMOXJ5bllOSGstd
+   1doX3ZnU3M4IiwgImtRby02Ml9DU05OOW1vbEpTUFJBMzBFQTNOTmNQY1lZeDN1QjdvW
+   HhkVU0iLCAidzFpN0dHZjFqQ0h5di12WEdURlY1N01Cd045NHVzeXZzd1JaSi1Sa20yS
+   SJdfSwgIl9zZF9hbGciOiAic2hhLTI1NiJ9.woaClvVIQ3avELkO7yrq1UdqU99rNtAh
+   XCSye5A_SiPS_5bgJGSTn8hnFjsFh9UznZV1Uwo5lbXdyya-C8aLfw~WyJOUnJPVlF1W
+   S1lTWdOSi10czhpRW9RIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2EiXQ~WyJ4R3FYWH
+   JvRzhxd3N2X1pMWFJDRnZRIiwgImNvdW50cnkiLCAiSlAiXQ~
 
 A.2.  Example 3 - Complex Structured SD-JWT
 
@@ -2134,204 +2097,169 @@ A.2.  Example 3 - Complex Structured SD-JWT
 
    With the following Disclosures:
 
-   *Disclosure for time:*
+   *Claim time:*
 
-   SHA-256 Hash: OSXqQur4cQzXkSlbTehtzOzsZBMgAIigvZmiNCV5Vd8
+   *  SHA-256 Hash: OSXqQur4cQzXkSlbTehtzOzsZBMgAIigvZmiNCV5Vd8
 
-   Disclosure:
+   *  Disclosure:
+      WyJjZllESjNFR2JFTFMyYkhsTWlrQ3FBIiwgInRpbWUiLCAiMjAxMi0wNC0y
+      M1QxODoyNVoiXQ
 
-   WyJjZllESjNFR2JFTFMyYkhsTWlrQ3FBIiwgInRpbWUiLCAiMjAxMi0wNC0yM1QxODoy
-   NVoiXQ
+   *  Contents: ["cfYDJ3EGbELS2bHlMikCqA", "time", "2012-04-23T18:25Z"]
 
-   Contents:
+   *Claim verification_process:*
 
-   ["cfYDJ3EGbELS2bHlMikCqA", "time", "2012-04-23T18:25Z"]
+   *  SHA-256 Hash: pnJqIq45n58u7BY1Z0nZYvL1nqucjI7mo_voHoq9oGU
 
-   *Disclosure for verification_process:*
+   *  Disclosure:
+      WyJRWXFYWjdwdmdya3I3MjFNbkV5dVJnIiwgInZlcmlmaWNhdGlvbl9wcm9j
+      ZXNzIiwgImYyNGM2Zi02ZDNmLTRlYzUtOTczZS1iMGQ4NTA2ZjNiYzciXQ
 
-   SHA-256 Hash: pnJqIq45n58u7BY1Z0nZYvL1nqucjI7mo_voHoq9oGU
+   *  Contents: ["QYqXZ7pvgrkr721MnEyuRg", "verification_process",
+      "f24c6f-6d3f-4ec5-973e-b0d8506f3bc7"]
 
-   Disclosure:
+   *Claim type:*
 
-   WyJRWXFYWjdwdmdya3I3MjFNbkV5dVJnIiwgInZlcmlmaWNhdGlvbl9wcm9jZXNzIiwg
-   ImYyNGM2Zi02ZDNmLTRlYzUtOTczZS1iMGQ4NTA2ZjNiYzciXQ
+   *  SHA-256 Hash: oOBXkmNPDoEJsh5K5hgc3wdMbJJzc9Rv0hOn0mU6Ym8
 
-   Contents:
+   *  Disclosure:
+      WyJrZ2l1OHFOM1ppZ3kxZ3RGQ1owNlR3IiwgInR5cGUiLCAiZG9jdW1lbnQi
+      XQ
 
-   ["QYqXZ7pvgrkr721MnEyuRg", "verification_process",
-   "f24c6f-6d3f-4ec5-973e-b0d8506f3bc7"]
+   *  Contents: ["kgiu8qN3Zigy1gtFCZ06Tw", "type", "document"]
 
-   *Disclosure for type:*
+   *Claim method:*
 
-   SHA-256 Hash: oOBXkmNPDoEJsh5K5hgc3wdMbJJzc9Rv0hOn0mU6Ym8
+   *  SHA-256 Hash: evYB510b8xzp19Q7Gn1i2EgyN0-R26oFjeBB5IDTGYI
 
-   Disclosure:
+   *  Disclosure:
+      WyJrMm53eWt1eGdhdERDVllxTVg3WXVRIiwgIm1ldGhvZCIsICJwaXBwIl0
 
-   WyJrZ2l1OHFOM1ppZ3kxZ3RGQ1owNlR3IiwgInR5cGUiLCAiZG9jdW1lbnQiXQ
+   *  Contents: ["k2nwykuxgatDCVYqMX7YuQ", "method", "pipp"]
 
-   Contents:
+   *Claim time:*
 
-   ["kgiu8qN3Zigy1gtFCZ06Tw", "type", "document"]
+   *  SHA-256 Hash: Vytbjbb4wHiTvFi9WxsqJYqPPsW_nnvWvtp0U-Kuof8
 
-   *Disclosure for method:*
+   *  Disclosure:
+      WyJFd2VBVWt3THJnVVpJaGZZbEgwY29RIiwgInRpbWUiLCAiMjAxMi0wNC0y
+      MlQxMTozMFoiXQ
 
-   SHA-256 Hash: evYB510b8xzp19Q7Gn1i2EgyN0-R26oFjeBB5IDTGYI
+   *  Contents: ["EweAUkwLrgUZIhfYlH0coQ", "time", "2012-04-22T11:30Z"]
 
-   Disclosure:
+   *Claim document:*
 
-   WyJrMm53eWt1eGdhdERDVllxTVg3WXVRIiwgIm1ldGhvZCIsICJwaXBwIl0
+   *  SHA-256 Hash: FPNPZmj_KaKlIP2QWB55J1gHhA14mPlbVdR9bGBgH4w
 
-   Contents:
+   *  Disclosure:
+      WyJXVDhPVC05RnJwbTk5WEpQa1UtWTdRIiwgImRvY3VtZW50IiwgeyJ0eXBl
+      IjogImlkY2FyZCIsICJpc3N1ZXIiOiB7Im5hbWUiOiAiU3RhZHQgQXVnc2J1
+      cmciLCAiY291bnRyeSI6ICJERSJ9LCAibnVtYmVyIjogIjUzNTU0NTU0Iiwg
+      ImRhdGVfb2ZfaXNzdWFuY2UiOiAiMjAxMC0wMy0yMyIsICJkYXRlX29mX2V4
+      cGlyeSI6ICIyMDIwLTAzLTIyIn1d
 
-   ["k2nwykuxgatDCVYqMX7YuQ", "method", "pipp"]
+   *  Contents: ["WT8OT-9Frpm99XJPkU-Y7Q", "document", {"type":
+      "idcard",
+      "issuer": {"name": "Stadt Augsburg", "country": "DE"},
+      "number": "53554554", "date_of_issuance": "2010-03-23",
+      "date_of_expiry": "2020-03-22"}]
 
-   *Disclosure for time:*
+   *Claim given_name:*
 
-   SHA-256 Hash: Vytbjbb4wHiTvFi9WxsqJYqPPsW_nnvWvtp0U-Kuof8
+   *  SHA-256 Hash: Ylx9AxQmJxSR9CgZmFBnyKCha9qNsnA7GzrmXPBKkDo
 
-   Disclosure:
+   *  Disclosure:
+      WyJuVWtieGhxc2pyVTNaTEtVSGNBYWxBIiwgImdpdmVuX25hbWUiLCAiTWF4
+      Il0
 
-   WyJFd2VBVWt3THJnVVpJaGZZbEgwY29RIiwgInRpbWUiLCAiMjAxMi0wNC0yMlQxMToz
-   MFoiXQ
+   *  Contents: ["nUkbxhqsjrU3ZLKUHcAalA", "given_name", "Max"]
 
-   Contents:
+   *Claim family_name:*
 
-   ["EweAUkwLrgUZIhfYlH0coQ", "time", "2012-04-22T11:30Z"]
+   *  SHA-256 Hash: fIW6zXRtRSQNcNK5gvpRsZFkaN8BMh36UwhsdZlxoTo
 
-   *Disclosure for document:*
+   *  Disclosure:
+      WyIyTmd0UExxQmU0QVhMVzR6SUNLWHJ3IiwgImZhbWlseV9uYW1lIiwgIk1c
+      dTAwZmNsbGVyIl0
 
-   SHA-256 Hash: FPNPZmj_KaKlIP2QWB55J1gHhA14mPlbVdR9bGBgH4w
+   *  Contents: ["2NgtPLqBe4AXLW4zICKXrw", "family_name", "M\u00fcller"]
 
-   Disclosure:
+   *Claim nationalities:*
 
-   WyJXVDhPVC05RnJwbTk5WEpQa1UtWTdRIiwgImRvY3VtZW50IiwgeyJ0eXBlIjogImlk
-   Y2FyZCIsICJpc3N1ZXIiOiB7Im5hbWUiOiAiU3RhZHQgQXVnc2J1cmciLCAiY291bnRy
-   eSI6ICJERSJ9LCAibnVtYmVyIjogIjUzNTU0NTU0IiwgImRhdGVfb2ZfaXNzdWFuY2Ui
-   OiAiMjAxMC0wMy0yMyIsICJkYXRlX29mX2V4cGlyeSI6ICIyMDIwLTAzLTIyIn1d
+   *  SHA-256 Hash: d7ln7xO-RREXmecBVEpwLwrEjZ3FKs_KLhCD0vL74Us
 
-   Contents:
+   *  Disclosure:
+      WyJQUy1fNnFqdFk0akpOSlF5SkNpeU5BIiwgIm5hdGlvbmFsaXRpZXMiLCBb
+      IkRFIl1d
 
-   ["WT8OT-9Frpm99XJPkU-Y7Q", "document", {"type": "idcard", "issuer":
-   {"name": "Stadt Augsburg", "country": "DE"}, "number": "53554554",
-   "date_of_issuance": "2010-03-23", "date_of_expiry": "2020-03-22"}]
+   *  Contents: ["PS-_6qjtY4jJNJQyJCiyNA", "nationalities", ["DE"]]
 
-   *Disclosure for given_name:*
+   *Claim birthdate:*
 
-   SHA-256 Hash: Ylx9AxQmJxSR9CgZmFBnyKCha9qNsnA7GzrmXPBKkDo
+   *  SHA-256 Hash: U4P6UrikZAVE3mk82oLaPDiLX8hEXmEu9A6xO5j9mxE
 
-   Disclosure:
+   *  Disclosure:
+      WyJMNExJMTRqVGFCVEZxV080MVM5TUlRIiwgImJpcnRoZGF0ZSIsICIxOTU2
+      LTAxLTI4Il0
 
-   WyJuVWtieGhxc2pyVTNaTEtVSGNBYWxBIiwgImdpdmVuX25hbWUiLCAiTWF4Il0
+   *  Contents: ["L4LI14jTaBTFqWO41S9MIQ", "birthdate", "1956-01-28"]
 
-   Contents:
+   *Claim place_of_birth:*
 
-   ["nUkbxhqsjrU3ZLKUHcAalA", "given_name", "Max"]
+   *  SHA-256 Hash: fSw3UyxwNFf_CjYCCBYCRxZCGB-LIS35Pey2T7G_cHw
 
-   *Disclosure for family_name:*
+   *  Disclosure:
+      WyJsZ1pCenNHUUZ6bGlqRFZKa2ZCVGNRIiwgInBsYWNlX29mX2JpcnRoIiwg
+      eyJjb3VudHJ5IjogIklTIiwgImxvY2FsaXR5IjogIlx1MDBkZXlra3ZhYlx1
+      MDBlNmphcmtsYXVzdHVyIn1d
 
-   SHA-256 Hash: fIW6zXRtRSQNcNK5gvpRsZFkaN8BMh36UwhsdZlxoTo
+   *  Contents: ["lgZBzsGQFzlijDVJkfBTcQ", "place_of_birth", {"country":
+      "IS", "locality": "\u00deykkvab\u00e6jarklaustur"}]
 
-   Disclosure:
+   *Claim address:*
 
-   WyIyTmd0UExxQmU0QVhMVzR6SUNLWHJ3IiwgImZhbWlseV9uYW1lIiwgIk1cdTAwZmNs
-   bGVyIl0
+   *  SHA-256 Hash: OTog0pBGyAmwEqIhjSuf5Rq5UWTkIecAnutwB2nGUlk
 
-   Contents:
+   *  Disclosure:
+      WyI5VEFiRnplajZoNGFDSVc2dTZoWFZBIiwgImFkZHJlc3MiLCB7ImxvY2Fs
+      aXR5IjogIk1heHN0YWR0IiwgInBvc3RhbF9jb2RlIjogIjEyMzQ0IiwgImNv
+      dW50cnkiOiAiREUiLCAic3RyZWV0X2FkZHJlc3MiOiAiV2VpZGVuc3RyYVx1
+      MDBkZmUgMjIifV0
 
-   ["2NgtPLqBe4AXLW4zICKXrw", "family_name", "M\u00fcller"]
+   *  Contents: ["9TAbFzej6h4aCIW6u6hXVA", "address", {"locality":
+      "Maxstadt", "postal_code": "12344", "country": "DE",
+      "street_address": "Weidenstra\u00dfe 22"}]
 
-   *Disclosure for nationalities:*
+   *Claim birth_middle_name:*
 
-   SHA-256 Hash: d7ln7xO-RREXmecBVEpwLwrEjZ3FKs_KLhCD0vL74Us
+   *  SHA-256 Hash: BjJ85b1mpIvorC35da8cPRCfN0OeoBUf7ZCA3w96xnM
 
-   Disclosure:
+   *  Disclosure:
+      WyJZdVhXUzI3N3ZIX3RuRWZhWWw5S1R3IiwgImJpcnRoX21pZGRsZV9uYW1l
+      IiwgIlRpbW90aGV1cyJd
 
-   WyJQUy1fNnFqdFk0akpOSlF5SkNpeU5BIiwgIm5hdGlvbmFsaXRpZXMiLCBbIkRFIl1d
+   *  Contents: ["YuXWS277vH_tnEfaYl9KTw", "birth_middle_name",
+      "Timotheus"]
 
-   Contents:
+   *Claim salutation:*
 
-   ["PS-_6qjtY4jJNJQyJCiyNA", "nationalities", ["DE"]]
+   *  SHA-256 Hash: wN-gqrZTxUtl1-v3S5wodjuAgE0YuBS66s9p4qxfgxg
 
-   *Disclosure for birthdate:*
+   *  Disclosure:
+      WyJPWEVMTkhsQ2NNS051cHN0T1F1N19RIiwgInNhbHV0YXRpb24iLCAiRHIu
+      Il0
 
-   SHA-256 Hash: U4P6UrikZAVE3mk82oLaPDiLX8hEXmEu9A6xO5j9mxE
+   *  Contents: ["OXELNHlCcMKNupstOQu7_Q", "salutation", "Dr."]
 
-   Disclosure:
+   *Claim msisdn:*
 
-   WyJMNExJMTRqVGFCVEZxV080MVM5TUlRIiwgImJpcnRoZGF0ZSIsICIxOTU2LTAxLTI4
-   Il0
+   *  SHA-256 Hash: XqnTomboGac-QASg2Q9V1uQGRQRkXL9jkveIzNcMmSM
 
-   Contents:
+   *  Disclosure:
+      WyI2QzFBbVhiUjc5aG1zcWJfYkhfWHdBIiwgIm1zaXNkbiIsICI0OTEyMzQ1
+      Njc4OSJd
 
-   ["L4LI14jTaBTFqWO41S9MIQ", "birthdate", "1956-01-28"]
-
-   *Disclosure for place_of_birth:*
-
-   SHA-256 Hash: fSw3UyxwNFf_CjYCCBYCRxZCGB-LIS35Pey2T7G_cHw
-
-   Disclosure:
-
-   WyJsZ1pCenNHUUZ6bGlqRFZKa2ZCVGNRIiwgInBsYWNlX29mX2JpcnRoIiwgeyJjb3Vu
-   dHJ5IjogIklTIiwgImxvY2FsaXR5IjogIlx1MDBkZXlra3ZhYlx1MDBlNmphcmtsYXVz
-   dHVyIn1d
-
-   Contents:
-
-   ["lgZBzsGQFzlijDVJkfBTcQ", "place_of_birth", {"country": "IS",
-   "locality": "\u00deykkvab\u00e6jarklaustur"}]
-
-   *Disclosure for address:*
-
-   SHA-256 Hash: OTog0pBGyAmwEqIhjSuf5Rq5UWTkIecAnutwB2nGUlk
-
-   Disclosure:
-
-   WyI5VEFiRnplajZoNGFDSVc2dTZoWFZBIiwgImFkZHJlc3MiLCB7ImxvY2FsaXR5Ijog
-   Ik1heHN0YWR0IiwgInBvc3RhbF9jb2RlIjogIjEyMzQ0IiwgImNvdW50cnkiOiAiREUi
-   LCAic3RyZWV0X2FkZHJlc3MiOiAiV2VpZGVuc3RyYVx1MDBkZmUgMjIifV0
-
-   Contents:
-
-   ["9TAbFzej6h4aCIW6u6hXVA", "address", {"locality": "Maxstadt",
-   "postal_code": "12344", "country": "DE", "street_address":
-   "Weidenstra\u00dfe 22"}]
-
-   *Disclosure for birth_middle_name:*
-
-   SHA-256 Hash: BjJ85b1mpIvorC35da8cPRCfN0OeoBUf7ZCA3w96xnM
-
-   Disclosure:
-
-   WyJZdVhXUzI3N3ZIX3RuRWZhWWw5S1R3IiwgImJpcnRoX21pZGRsZV9uYW1lIiwgIlRp
-   bW90aGV1cyJd
-
-   Contents:
-
-   ["YuXWS277vH_tnEfaYl9KTw", "birth_middle_name", "Timotheus"]
-
-   *Disclosure for salutation:*
-
-   SHA-256 Hash: wN-gqrZTxUtl1-v3S5wodjuAgE0YuBS66s9p4qxfgxg
-
-   Disclosure:
-
-   WyJPWEVMTkhsQ2NNS051cHN0T1F1N19RIiwgInNhbHV0YXRpb24iLCAiRHIuIl0
-
-   Contents:
-
-   ["OXELNHlCcMKNupstOQu7_Q", "salutation", "Dr."]
-
-   *Disclosure for msisdn:*
-
-   SHA-256 Hash: XqnTomboGac-QASg2Q9V1uQGRQRkXL9jkveIzNcMmSM
-
-   Disclosure:
-
-   WyI2QzFBbVhiUjc5aG1zcWJfYkhfWHdBIiwgIm1zaXNkbiIsICI0OTEyMzQ1Njc4OSJd
-
-   Contents:
-
-   ["6C1AmXbR79hmsqb_bH_XwA", "msisdn", "49123456789"]
+   *  Contents: ["6C1AmXbR79hmsqb_bH_XwA", "msisdn", "49123456789"]
 
    The Verifier would receive the Issuer-signed SD-JWT together with a
    selection of the Disclosures.  The Presentation in this example would
@@ -2355,8 +2283,8 @@ A.2.  Example 3 - Complex Structured SD-JWT
    TlxTnNuQTdHenJtWFBCS2tEbyIsICJkN2xuN3hPLVJSRVhtZWNCVkVwd0x3ckVqWjNGS
    3NfS0xoQ0Qwdkw3NFVzIiwgImZJVzZ6WFJ0UlNRTmNOSzVndnBSc1pGa2FOOEJNaDM2V
    Xdoc2RabHhvVG8iLCAiZlN3M1V5eHdORmZfQ2pZQ0NCWUNSeFpDR0ItTElTMzVQZXkyV
-   DdHX2NIdyJdfX0sICJfc2RfYWxnIjogInNoYS0yNTYifQ.Q1ne8keKGcUKov56wyhFsy
-   J0ebKQy6kLYM0dn8dEy75yiY87eQLUHC4Q3_4855ecnA7bcZUYnOq9Ivc4aDGkeg~WyJ
+   DdHX2NIdyJdfX0sICJfc2RfYWxnIjogInNoYS0yNTYifQ.dwBsdl8ClgGEsT4kj75g7d
+   NnCtfpy_qS_SXLSqlQABWYqZyyCuMqVpPSwk4h9jkkL2pNu1ePpKRz_c2X6oLzmg~WyJ
    jZllESjNFR2JFTFMyYkhsTWlrQ3FBIiwgInRpbWUiLCAiMjAxMi0wNC0yM1QxODoyNVo
    iXQ~WyJrMm53eWt1eGdhdERDVllxTVg3WXVRIiwgIm1ldGhvZCIsICJwaXBwIl0~WyI5
    VEFiRnplajZoNGFDSVc2dTZoWFZBIiwgImFkZHJlc3MiLCB7ImxvY2FsaXR5IjogIk1h
@@ -2497,119 +2425,100 @@ A.3.  Example 4a - W3C Verifiable Credentials Data Model v2.0, not using
 
    Disclosures:
 
-   *Disclosure for given_name:*
+   *Claim given_name:*
 
-   SHA-256 Hash: f4nimkh9dcwJ8JK46zlad_zgyYJfZFPImAWBNh86Kb0
+   *  SHA-256 Hash: f4nimkh9dcwJ8JK46zlad_zgyYJfZFPImAWBNh86Kb0
 
-   Disclosure:
+   *  Disclosure:
+      WyJuWUpCd1Q0OERQTEtYcVd1UmJ4NVNRIiwgImdpdmVuX25hbWUiLCAiSm9o
+      biJd
 
-   WyJuWUpCd1Q0OERQTEtYcVd1UmJ4NVNRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
+   *  Contents: ["nYJBwT48DPLKXqWuRbx5SQ", "given_name", "John"]
 
-   Contents:
+   *Claim family_name:*
 
-   ["nYJBwT48DPLKXqWuRbx5SQ", "given_name", "John"]
+   *  SHA-256 Hash: 2cj0qo1YI8aGLOPCEzIr0mexil6_9tVz5KnIpY3fszs
 
-   *Disclosure for family_name:*
+   *  Disclosure:
+      WyJFTXMzQjJ1LU5jUDdMeUljVnA5elhBIiwgImZhbWlseV9uYW1lIiwgIkRv
+      ZSJd
 
-   SHA-256 Hash: 2cj0qo1YI8aGLOPCEzIr0mexil6_9tVz5KnIpY3fszs
+   *  Contents: ["EMs3B2u-NcP7LyIcVp9zXA", "family_name", "Doe"]
 
-   Disclosure:
+   *Claim email:*
 
-   WyJFTXMzQjJ1LU5jUDdMeUljVnA5elhBIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
+   *  SHA-256 Hash: H033gGqGyBCT7VmtYky-1gqqTg9JT8kg9WFJTTN1iVY
 
-   Contents:
+   *  Disclosure:
+      WyJMRDdSbG5WaHZPRTVoMkFGN280ZlN3IiwgImVtYWlsIiwgImpvaG5kb2VA
+      ZXhhbXBsZS5jb20iXQ
 
-   ["EMs3B2u-NcP7LyIcVp9zXA", "family_name", "Doe"]
+   *  Contents: ["LD7RlnVhvOE5h2AF7o4fSw", "email",
+      "johndoe@example.com"]
 
-   *Disclosure for email:*
+   *Claim phone_number:*
 
-   SHA-256 Hash: H033gGqGyBCT7VmtYky-1gqqTg9JT8kg9WFJTTN1iVY
+   *  SHA-256 Hash: tAQ3Er6qd3UwQLrZYRe3fMF4J6MXdz5tJMJfJw48I0g
 
-   Disclosure:
+   *  Disclosure:
+      WyI5OUswamRYQjkxUUtUZXd0MEJneDZ3IiwgInBob25lX251bWJlciIsICIr
+      MS0yMDItNTU1LTAxMDEiXQ
 
-   WyJMRDdSbG5WaHZPRTVoMkFGN280ZlN3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
-   ZS5jb20iXQ
+   *  Contents: ["99K0jdXB91QKTewt0Bgx6w", "phone_number",
+      "+1-202-555-0101"]
 
-   Contents:
+   *Claim address:*
 
-   ["LD7RlnVhvOE5h2AF7o4fSw", "email", "johndoe@example.com"]
+   *  SHA-256 Hash: lheBqvJLJPRLsoXVF68rmkn9jL73iGCF0V5sJjPlt68
 
-   *Disclosure for phone_number:*
+   *  Disclosure:
+      WyJhRG8xSllUX0pkek9meFdPenRqZlJBIiwgImFkZHJlc3MiLCB7InN0cmVl
+      dF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRv
+      d24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
 
-   SHA-256 Hash: tAQ3Er6qd3UwQLrZYRe3fMF4J6MXdz5tJMJfJw48I0g
+   *  Contents: ["aDo1JYT_JdzOfxWOztjfRA", "address", {"street_address":
+      "123 Main St", "locality": "Anytown", "region": "Anystate",
+      "country": "US"}]
 
-   Disclosure:
+   *Claim birthdate:*
 
-   WyI5OUswamRYQjkxUUtUZXd0MEJneDZ3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
-   NTU1LTAxMDEiXQ
+   *  SHA-256 Hash: WkP5oQu7qxPAxLVPKcFuP4rD5TC0T4CekiYi333zQP4
 
-   Contents:
+   *  Disclosure:
+      WyJEY1EycGhyQllXRG9VWVdMbVhtYV9BIiwgImJpcnRoZGF0ZSIsICIxOTQw
+      LTAxLTAxIl0
 
-   ["99K0jdXB91QKTewt0Bgx6w", "phone_number", "+1-202-555-0101"]
+   *  Contents: ["DcQ2phrBYWDoUYWLmXma_A", "birthdate", "1940-01-01"]
 
-   *Disclosure for address:*
+   *Claim is_over_18:*
 
-   SHA-256 Hash: lheBqvJLJPRLsoXVF68rmkn9jL73iGCF0V5sJjPlt68
+   *  SHA-256 Hash: RKE58nhM1GLxUmfvPaZhxNEq8kNplQYnOZlLJosLomY
 
-   Disclosure:
+   *  Disclosure:
+      WyJtYUFIc0xpYWZfdW4za3VDN21Xb0J3IiwgImlzX292ZXJfMTgiLCB0cnVl
+      XQ
 
-   WyJhRG8xSllUX0pkek9meFdPenRqZlJBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
-   ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
-   IjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
+   *  Contents: ["maAHsLiaf_un3kuC7mWoBw", "is_over_18", true]
 
-   Contents:
+   *Claim is_over_21:*
 
-   ["aDo1JYT_JdzOfxWOztjfRA", "address", {"street_address": "123 Main
-   St", "locality": "Anytown", "region": "Anystate", "country": "US"}]
+   *  SHA-256 Hash: goqT4HD2DOmnPF1wNMLNiYuj4SgYtKjfQQHO--CSh0o
 
-   *Disclosure for birthdate:*
+   *  Disclosure:
+      WyIyR2hKMHZjQ0xfNzNvNUZrbHV5NndRIiwgImlzX292ZXJfMjEiLCB0cnVl
+      XQ
 
-   SHA-256 Hash: WkP5oQu7qxPAxLVPKcFuP4rD5TC0T4CekiYi333zQP4
+   *  Contents: ["2GhJ0vcCL_73o5Fkluy6wQ", "is_over_21", true]
 
-   Disclosure:
+   *Claim is_over_65:*
 
-   WyJEY1EycGhyQllXRG9VWVdMbVhtYV9BIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
-   Il0
+   *  SHA-256 Hash: S7ebWHiOEgQDLG6JcpYkuMKMCb40uxFUSUimK94MuDc
 
-   Contents:
+   *  Disclosure:
+      WyI3SHpCQUt3SktBOTNGaWh2QmcxRThRIiwgImlzX292ZXJfNjUiLCB0cnVl
+      XQ
 
-   ["DcQ2phrBYWDoUYWLmXma_A", "birthdate", "1940-01-01"]
-
-   *Disclosure for is_over_18:*
-
-   SHA-256 Hash: RKE58nhM1GLxUmfvPaZhxNEq8kNplQYnOZlLJosLomY
-
-   Disclosure:
-
-   WyJtYUFIc0xpYWZfdW4za3VDN21Xb0J3IiwgImlzX292ZXJfMTgiLCB0cnVlXQ
-
-   Contents:
-
-   ["maAHsLiaf_un3kuC7mWoBw", "is_over_18", true]
-
-   *Disclosure for is_over_21:*
-
-   SHA-256 Hash: goqT4HD2DOmnPF1wNMLNiYuj4SgYtKjfQQHO--CSh0o
-
-   Disclosure:
-
-   WyIyR2hKMHZjQ0xfNzNvNUZrbHV5NndRIiwgImlzX292ZXJfMjEiLCB0cnVlXQ
-
-   Contents:
-
-   ["2GhJ0vcCL_73o5Fkluy6wQ", "is_over_21", true]
-
-   *Disclosure for is_over_65:*
-
-   SHA-256 Hash: S7ebWHiOEgQDLG6JcpYkuMKMCb40uxFUSUimK94MuDc
-
-   Disclosure:
-
-   WyI3SHpCQUt3SktBOTNGaWh2QmcxRThRIiwgImlzX292ZXJfNjUiLCB0cnVlXQ
-
-   Contents:
-
-   ["7HzBAKwJKA93FihvBg1E8Q", "is_over_65", true]
+   *  Contents: ["7HzBAKwJKA93FihvBg1E8Q", "is_over_65", true]
 
 A.4.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
       JSON-LD
@@ -2760,11 +2669,11 @@ A.4.  Example 4b - W3C Verifiable Credentials Data Model v2.0, using
    GciOiAic2hhLTI1NiIsICJjbmYiOiB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6I
    CJQLTI1NiIsICJ4IjogIlRDQUVSMTladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN
    3ZDZUdlbWMiLCAieSI6ICJaeGppV1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0N
-   GpUOUYySFpRIn19fQ.o-5Sk7LWE0llnsB2WivfyhMGQoDXi3k6CpxyrEGCdoPIxjzMBw
-   3smPRc3segRTzL_29n2Zzp-yKIqryCZcRyFg~eyJhbGciOiAiRVMyNTYifQ.eyJub25j
+   GpUOUYySFpRIn19fQ.i6BBqA5VfuHrG9fs2pB6pC-SPPL6ODuSZRN1B0JeRtG6rh74TK
+   UbpSIB_OzAxpIUoxlKZOVQJ_7hI54B0xNAiw~eyJhbGciOiAiRVMyNTYifQ.eyJub25j
    ZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1w
-   bGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODE0ODA3NDR9.u1Cqn6JEK82z356pkv3
-   m0sfutFn8KW9wf6dUvBCKVcv0ueSGbqIEjtFvVoxlNkSC3qxA0jacCD0PzD4Clyd6xg
+   bGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2ODMwMTA5NDR9.ZT3ZQmSR24VVRmk0myl
+   nBw5XeA7Jh9YtRH_hkKv7o9M6uvHw1B9K7hCAqTvuc1EehacVD9EydIpxD9vDa94XiA
 
    After the validation, the Verifier will have the following data for
    further processing:
