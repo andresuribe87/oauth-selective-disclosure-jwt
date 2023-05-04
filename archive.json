@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-05-02T00:59:29.637031+00:00",
+  "timestamp": "2023-05-04T00:58:06.997569+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -5819,7 +5819,7 @@
       "id": "I_kwDOHTmVzM5gixs6",
       "title": "Is there a better way to format Disclosures in the examples?",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/231",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -5830,8 +5830,8 @@
       ],
       "body": "Below is how Disclosures are currently formatted in the examples. Maybe only me, but I think it might be more readable if there were indentations or bulletpoints...\r\n\r\n> **Disclosure for is_over_65:**\r\n> \r\n> WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ\r\n> \r\n> Contents:\r\n> \r\n> [\"4D7v7RVM8vLu07KQUBj8_Q\", \"is_over_65\", true]\r\n> \r\n> SHA-256 Hash: 8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58\r\n\r\nMaybe something like:\r\n\r\n> Claim `is_over_65`:\r\n> - Disclosure: WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ\r\n> - Contents: [\"4D7v7RVM8vLu07KQUBj8_Q\", \"is_over_65\", true]\r\n> - SHA-256 Hash: 8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58\r\n\r\n\r\n",
       "createdAt": "2023-03-10T23:01:11Z",
-      "updatedAt": "2023-04-17T13:56:34Z",
-      "closedAt": null,
+      "updatedAt": "2023-05-02T06:56:07Z",
+      "closedAt": "2023-05-02T06:56:07Z",
       "comments": [
         {
           "author": "danielfett",
@@ -6287,7 +6287,7 @@
     {
       "number": 254,
       "id": "I_kwDOHTmVzM5jh0RT",
-      "title": "rename to `combined format for presentation/issuance`?",
+      "title": "rename `combined format for presentation/issuance` terms?",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/254",
       "state": "OPEN",
       "author": "Sakurann",
@@ -6296,7 +6296,7 @@
       "labels": [],
       "body": "I find myself using `combined format for presentation/issuance` to refer to the entire `series of base64url-encoded values`, which is not exactly accurate..? would it make sense to rename to something like `combined issuance/presentation values\"?",
       "createdAt": "2023-04-16T09:33:11Z",
-      "updatedAt": "2023-04-17T17:17:04Z",
+      "updatedAt": "2023-05-03T05:53:14Z",
       "closedAt": null,
       "comments": [
         {
@@ -6319,6 +6319,13 @@
           "body": "I generally agree with @danielfett above but do admit to using the term SD-JWT generically to mean any or all of those three. I doubt I'm alone in that. ",
           "createdAt": "2023-04-17T17:17:04Z",
           "updatedAt": "2023-04-17T17:17:04Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> But the combined format for presentation is the series of base64url-encoded values?\r\n\r\nit is not intuitive to be call \"values\", a \"format\"...\r\n\r\n> I generally agree with @danielfett above but do admit to using the term SD-JWT generically to mean any or all of those three. I doubt I'm alone in that.\r\n\r\nyou are not.. I generally use `SD-JWT` to mean SD-JWT with disclosures and `issuer-signed SD-JWT` to point only to JWS.\r\n\r\nI would rather not change the terms again, but I do see people struggle with using the terms \"combined formats for issuance/presentation\". maybe it should simply be something like \"SD-JWT for issuance\" and \"SD-JWT for presentation\"...",
+          "createdAt": "2023-05-03T05:53:14Z",
+          "updatedAt": "2023-05-03T05:53:14Z"
         }
       ]
     },
@@ -24793,7 +24800,7 @@
       "labels": [],
       "body": "This fixes Issue #235. The main  change is to better describe in which role the adversary acts.",
       "createdAt": "2023-04-14T13:33:36Z",
-      "updatedAt": "2023-05-01T15:14:24Z",
+      "updatedAt": "2023-05-03T05:46:16Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
@@ -24804,7 +24811,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "does this one need a doc history entry... ? ",
+          "createdAt": "2023-05-02T21:49:40Z",
+          "updatedAt": "2023-05-02T21:49:40Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOHTmVzM5Sn7Cz",
@@ -25057,6 +25072,26 @@
               "updatedAt": "2023-05-01T15:14:23Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5UDi3Q",
+          "commit": {
+            "abbreviatedOid": "292200e"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-03T05:46:15Z",
+          "updatedAt": "2023-05-03T05:46:16Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nexplicitly disclosed by the Holder unless that information can be derived from\r\nother disclosed claims or is available from sources other than SD-JWT.\r\n```",
+              "createdAt": "2023-05-03T05:46:16Z",
+              "updatedAt": "2023-05-03T05:46:16Z"
+            }
+          ]
         }
       ]
     },
@@ -25072,13 +25107,13 @@
       "labels": [],
       "body": "To fix Issue #240, I found that removing Example 2b is the best way to go. \r\n\r\nI tried to fixate the nonces used in the examples despite decoys being generated in one of the examples, but that got quite messy and introduces a lot of unsafe code paths into the python code.\r\n\r\nAn alternative would be to manage the example manually, but that is a source for errors, so let's not do that.",
       "createdAt": "2023-04-14T14:03:49Z",
-      "updatedAt": "2023-05-01T15:44:15Z",
+      "updatedAt": "2023-05-02T17:06:04Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
-      "baseRefOid": "e50b8d04f75446f6ec44e83bf9e674e447b82549",
+      "baseRefOid": "2087c75d8a03b35c6b68a3460184db47595d6754",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "danielfett/example-2b-description",
-      "headRefOid": "365c42057dcd619dd796ddb039e05cd8911347bc",
+      "headRefOid": "ff2c453cd735a2cd5860533020626cf4e15d8000",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -25118,6 +25153,34 @@
           "body": "We agreed on our call to generate a snippet of markdown code to explicitly list the decoy digests to improve the explanation.",
           "createdAt": "2023-05-01T15:43:33Z",
           "updatedAt": "2023-05-01T15:43:33Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "I updated the python script and the spec to show the decoy digests: https://drafts.oauth.net/oauth-selective-disclosure-jwt/danielfett/example-2b-description/draft-ietf-oauth-selective-disclosure-jwt.html#name-example-2-handling-structur",
+          "createdAt": "2023-05-02T07:40:30Z",
+          "updatedAt": "2023-05-02T07:40:30Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Other than the little nit about the the text that says the decoys in the example are about the address, this looks pretty good. ",
+          "createdAt": "2023-05-02T14:20:11Z",
+          "updatedAt": "2023-05-02T14:20:11Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Do you want to mention something in the doc history? ",
+          "createdAt": "2023-05-02T15:44:33Z",
+          "updatedAt": "2023-05-02T15:44:33Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Good point, done!",
+          "createdAt": "2023-05-02T17:05:30Z",
+          "updatedAt": "2023-05-02T17:05:30Z"
         }
       ],
       "reviews": [
@@ -25146,6 +25209,39 @@
           "createdAt": "2023-04-18T08:20:38Z",
           "updatedAt": "2023-04-18T08:20:38Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5T_pO3",
+          "commit": {
+            "abbreviatedOid": "84bbc02"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-02T14:11:15Z",
+          "updatedAt": "2023-05-02T14:11:15Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "The example has decoys in the address and at the top level too. So this text should probably be more general about the decoys.  Maybe just:\r\n```suggestion\r\nIn contrast to Example 1, here the Issuer decided to create a structured object for the `address` claim, allowing for separate disclosure of the individual members of the claim, and also added decoy digests to prevent the Verifier from deducing the true number of claims. The following payload is used for the SD-JWT:\r\n```",
+              "createdAt": "2023-05-02T14:11:15Z",
+              "updatedAt": "2023-05-02T14:11:15Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5UAVHM",
+          "commit": {
+            "abbreviatedOid": "07f2a35"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-05-02T15:37:34Z",
+          "updatedAt": "2023-05-02T15:37:34Z",
+          "comments": []
         }
       ]
     },
@@ -25154,24 +25250,26 @@
       "id": "PR_kwDOHTmVzM5OVOmM",
       "title": "Improved formatting for disclosures",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/252",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danielfett",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "Fixes #231 ",
       "createdAt": "2023-04-14T14:19:15Z",
-      "updatedAt": "2023-05-01T15:34:04Z",
+      "updatedAt": "2023-05-02T06:56:06Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "5137ec7f15a368ab37c853553f6dfbe3f33b9109",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "danielfett/doctor-disclosure-description",
       "headRefOid": "a4ad0919c156a3b215b4034b7ec672ba2aacf3b1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-05-02T06:56:06Z",
+      "mergedAt": "2023-05-02T06:56:06Z",
+      "mergedBy": "danielfett",
+      "mergeCommit": {
+        "oid": "2087c75d8a03b35c6b68a3460184db47595d6754"
+      },
       "comments": [
         {
           "author": "danielfett",
